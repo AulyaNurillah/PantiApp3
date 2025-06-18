@@ -38,9 +38,9 @@ namespace Panti_Asuhan_Role_Admin.Model
                 SELECT  u.id_user          AS id_donatur,
                         u.username,
                         u.pass_word,
-                        u.no_telp
+                        u.no_telep
                 FROM    users  u
-                INNER JOIN roles r ON u.role_id_role = r.id_role
+                INNER JOIN roles r ON u.id_role = r.id_role
                 WHERE   r.nama_role = 'Donatur'          -- ← filter role
                 ORDER BY u.id_user;";
 
@@ -80,9 +80,9 @@ namespace Panti_Asuhan_Role_Admin.Model
             conn.Open();
 
             const string sql = @"
-        SELECT u.id_user, u.username, u.pass_word, u.no_telp
+        SELECT u.id_user, u.username, u.pass_word, u.no_telep
         FROM   users u
-        INNER JOIN roles r ON u.role_id_role = r.id_role
+        INNER JOIN roles r ON u.id_role = r.id_role
         WHERE  u.username ILIKE @username
           AND  r.nama_role = 'Donatur'
         LIMIT 1;";

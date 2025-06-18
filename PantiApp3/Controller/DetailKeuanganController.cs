@@ -41,7 +41,6 @@ namespace PantiApp3.Controllers
                 db.CloseConnection();
             }
         }
-
         public List<DetailKeuangan> GetAll()
         {
             var list = new List<DetailKeuangan>();
@@ -77,63 +76,6 @@ namespace PantiApp3.Controllers
             }
 
             return list;
-        }
-
-        public void Update(DetailKeuangan detail)
-        {
-            var conn = db.OpenConnection();
-            try
-            {
-                string query = @"UPDATE detail_keuangan 
-                                 SET tipe_transaksi = @tipe, jumlah = @jumlah, jenis 
-                                     id_pemasukan = @id_pem, id_pengeluaran = @id_peng, id_donasi = @id_don 
-                                 WHERE id_detail = @id";
-
-                using var cmd = new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@tipe", detail.TipeTransaksi);
-                cmd.Parameters.AddWithValue("@jumlah", detail.Jumlah);
-                cmd.Parameters.AddWithValue("@id_pem", (object?)detail.IdPemasukan ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@id_peng", (object?)detail.IdPengeluaran ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@id_don", (object?)detail.IdDonasi ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@id", detail.IdDetail);
-
-                int rows = cmd.ExecuteNonQuery();
-                Console.WriteLine(rows > 0
-                    ? "Detail keuangan berhasil diupdate!"
-                    : "Detail keuangan tidak ditemukan.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Gagal update detail keuangan: " + ex.Message);
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
-        }
-
-        public void Delete(int id)
-        {
-            var conn = db.OpenConnection();
-            try
-            {
-                string query = "DELETE FROM detail_keuangan WHERE id_detail = @id";
-                using var cmd = new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-
-                int rows = cmd.ExecuteNonQuery();
-                Console.WriteLine(rows > 0
-                    ? "Detail keuangan berhasil dihapus!"
-                    : "Detail keuangan tidak ditemukan.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Gagal hapus detail keuangan: " + ex.Message);
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
         }
     }
 }

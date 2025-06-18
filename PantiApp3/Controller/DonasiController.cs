@@ -28,11 +28,11 @@ namespace PantiApp3.Controllers
                 cmd.Parameters.AddWithValue("@id_user", donasi.IdUser);
 
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("✅ Donasi berhasil ditambahkan!");
+                Console.WriteLine("Donasi berhasil ditambahkan!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal insert donasi: " + ex.Message);
+                Console.WriteLine("Gagal insert donasi: " + ex.Message);
             }
             finally
             {
@@ -126,13 +126,13 @@ namespace PantiApp3.Controllers
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
-                    Console.WriteLine("✅ Donasi berhasil diupdate!");
+                    Console.WriteLine("Donasi berhasil diupdate!");
                 else
-                    Console.WriteLine("⚠️ Donasi tidak ditemukan.");
+                    Console.WriteLine("Donasi tidak ditemukan.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal update donasi: " + ex.Message);
+                Console.WriteLine("Gagal update donasi: " + ex.Message);
             }
             finally
             {
@@ -152,13 +152,13 @@ namespace PantiApp3.Controllers
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
-                    Console.WriteLine("🗑️ Donasi berhasil dihapus!");
+                    Console.WriteLine("Donasi berhasil dihapus!");
                 else
-                    Console.WriteLine("⚠️ Donasi tidak ditemukan.");
+                    Console.WriteLine("Donasi tidak ditemukan.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal hapus donasi: " + ex.Message);
+                Console.WriteLine("Gagal hapus donasi: " + ex.Message);
             }
             finally
             {

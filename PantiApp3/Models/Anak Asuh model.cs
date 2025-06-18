@@ -10,7 +10,7 @@ namespace Panti_Asuhan_Role_Admin.Model
         public int Id_Anak { get; set; }
         public string Nama { get; set; } = string.Empty;
         public string Jenis_Kelamin { get; set; } = string.Empty;
-        public int Umur { get; set; } // ← DITAMBAHKAN
+        public int Usia { get; set; } 
     }
 
     internal class Anak_Asuh_model
@@ -33,13 +33,13 @@ namespace Panti_Asuhan_Role_Admin.Model
                     Id_Anak = rd.GetInt32(0),
                     Nama = rd.GetString(1),
                     Jenis_Kelamin = rd.GetString(2),
-                    Umur = rd.GetInt32(3)
+                    Usia = rd.GetInt32(3)
                 });
             }
             return list;
         }
 
-        public static List<AnakAsuhModel> Search(string nama, string jk, int umur)
+        public static List<AnakAsuhModel> Search(string nama, string jk, int usia)
         {
             var list = new List<AnakAsuhModel>();
             using var conn = new NpgsqlConnection(_conn);
@@ -49,12 +49,12 @@ namespace Panti_Asuhan_Role_Admin.Model
                            FROM anak_asuh
                            WHERE nama_anak ILIKE @nama
                              AND jenis_kelamin ILIKE @jk
-                             AND usia = @umur"; // ← BUKAN ILIKE utk integer
+                             AND usia = @usia"; 
 
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nama", $"%{nama}%");
             cmd.Parameters.AddWithValue("@jk", $"%{jk}%");
-            cmd.Parameters.AddWithValue("@umur", umur);  // ← Perbaiki
+            cmd.Parameters.AddWithValue("@usia", usia);  
 
             using var rd = cmd.ExecuteReader();
             while (rd.Read())
@@ -64,7 +64,7 @@ namespace Panti_Asuhan_Role_Admin.Model
                     Id_Anak = rd.GetInt32(0),
                     Nama = rd.GetString(1),
                     Jenis_Kelamin = rd.GetString(2),
-                    Umur = rd.GetInt32(3)
+                    Usia = rd.GetInt32(3)
                 });
             }
             return list;
@@ -75,7 +75,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             using var conn = new NpgsqlConnection(_conn);
             conn.Open();
 
-            const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, user_id_user)
+            const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, id_user)
                                  VALUES (@nama, @jk, @usia, @userId)";
 
             using var cmd = new NpgsqlCommand(sql, conn);

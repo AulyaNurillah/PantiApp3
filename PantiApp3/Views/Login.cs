@@ -2,6 +2,7 @@
 using PantiApp3.Config;
 using PantiApp3.Controllers;
 using PantiApp3.Models;
+using Panti_Asuhan_Role_Admin;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -77,7 +78,7 @@ namespace PantiApp3.Views
                 switch (user.RoleId)
                 {
                     case 1:
-                        //dashboard = new AdminDashboard(user);
+                        dashboard = new Dashboard(user);
                         break;
                     case 2:
                         dashboard = new BendaharaDashboard(user);

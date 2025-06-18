@@ -67,7 +67,6 @@ namespace PantiApp3.Controllers
                 db.CloseConnection();
             }
         }
-
         public static User Login(string username, string password)
         {
             var db = new ConnectDB();
@@ -202,7 +201,6 @@ namespace PantiApp3.Controllers
                 db.CloseConnection();
             }
         }
-
         public void Update(User user)
         {
             var conn = db.OpenConnection();
@@ -231,7 +229,6 @@ namespace PantiApp3.Controllers
                 db.CloseConnection();
             }
         }
-
         public void Delete(int id)
         {
             var conn = db.OpenConnection();

@@ -2,15 +2,8 @@
 {
     partial class Dashboard
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,16 +15,13 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             buttonanakasuhD = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondonaturD = new Button();
             buttonpengurusP = new Button();
+            buttonlogoutD = new Button(); // Tambahan
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -62,23 +52,24 @@
             // 
             tableLayoutPanel1.BackColor = Color.MediumAquamarine;
             tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(buttonanakasuhD, 0, 0);
             tableLayoutPanel1.Controls.Add(buttondonaturD, 0, 1);
             tableLayoutPanel1.Controls.Add(buttonpengurusP, 0, 2);
+            tableLayoutPanel1.Controls.Add(buttonlogoutD, 0, 3); // Tambahan
             tableLayoutPanel1.Location = new Point(15, 13);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.8372078F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.1627922F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 340F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F)); // Tambahan
             tableLayoutPanel1.Size = new Size(138, 427);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // buttondonaturD
             // 
-            buttondonaturD.Location = new Point(3, 45);
+            buttondonaturD.Location = new Point(3, 48);
             buttondonaturD.Name = "buttondonaturD";
             buttondonaturD.Size = new Size(112, 34);
             buttondonaturD.TabIndex = 1;
@@ -87,12 +78,23 @@
             // 
             // buttonpengurusP
             // 
-            buttonpengurusP.Location = new Point(3, 89);
+            buttonpengurusP.Location = new Point(3, 93);
             buttonpengurusP.Name = "buttonpengurusP";
-            buttonpengurusP.Size = new Size(112, 38);
+            buttonpengurusP.Size = new Size(112, 34);
             buttonpengurusP.TabIndex = 3;
             buttonpengurusP.Text = "Pengurus";
             buttonpengurusP.UseVisualStyleBackColor = true;
+            // 
+            // buttonlogoutD
+            // 
+            buttonlogoutD.BackColor = Color.IndianRed;
+            buttonlogoutD.ForeColor = Color.White;
+            buttonlogoutD.Location = new Point(3, 138);
+            buttonlogoutD.Name = "buttonlogoutD";
+            buttonlogoutD.Size = new Size(112, 34);
+            buttonlogoutD.TabIndex = 4;
+            buttonlogoutD.Text = "Logout";
+            buttonlogoutD.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -165,7 +167,7 @@
             // 
             labeldashboard.AutoSize = true;
             labeldashboard.BackColor = Color.MediumAquamarine;
-            labeldashboard.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labeldashboard.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
             labeldashboard.Location = new Point(189, 57);
             labeldashboard.Name = "labeldashboard";
             labeldashboard.Size = new Size(407, 96);
@@ -237,5 +239,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private Button buttonpengurusP;
+        private Button buttonlogoutD; // Tambahan
     }
 }

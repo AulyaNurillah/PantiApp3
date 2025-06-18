@@ -26,7 +26,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             const string sql = @"
                 SELECT u.id_user, u.nama_user, r.nama_role
                 FROM   users u
-                INNER JOIN roles r ON u.role_id_role = r.id_role
+                INNER JOIN roles r ON u.id_role = r.id_role
                 ORDER  BY u.id_user";
 
             using var cmd = new NpgsqlCommand(sql, conn);
@@ -52,7 +52,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             const string sql = @"
         SELECT u.id_user, u.nama_user, r.nama_role
         FROM   users u
-        INNER JOIN roles r ON u.role_id_role = r.id_role
+        INNER JOIN roles r ON u.id_role = r.id_role
         WHERE  u.nama_user ILIKE @uname         -- pencarian username
         LIMIT 1;";
 
