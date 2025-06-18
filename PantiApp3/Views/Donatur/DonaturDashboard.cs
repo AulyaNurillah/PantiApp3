@@ -6,7 +6,7 @@ using PantiApp3.Models;
 using System;
 using System.Data;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using PantiApp3.Views.Donatur;
 
 
 namespace PantiApp3.Views
@@ -15,6 +15,7 @@ namespace PantiApp3.Views
     {
         ConnectDB db = new ConnectDB();
         private User currentUser;
+
 
 
         public DonaturDashboard(User user)
@@ -39,11 +40,11 @@ namespace PantiApp3.Views
             this.Hide();
         }
 
-        //private void btnprofile_Click(object sender, EventArgs e)
-        //{
-        //    new Profile().Show();
-        //    this.Hide();
-        //}
+        private void btnprofile_Click(object sender, EventArgs e)
+        {
+            new Profile(currentUser).Show();
+            this.Hide();
+        }
 
         private void LoadDonasiTerbaru()
         {
@@ -55,14 +56,6 @@ namespace PantiApp3.Views
             dt.Load(cmd.ExecuteReader());
             conn.Close();
             dataGridriwayat.DataSource = dt;
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var loginForm = new Login();
-            loginForm.Show();
-            this.Close();
         }
     }
 }
