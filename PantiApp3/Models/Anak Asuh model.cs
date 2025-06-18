@@ -10,7 +10,7 @@ namespace Panti_Asuhan_Role_Admin.Model
         public int Id_Anak { get; set; }
         public string Nama { get; set; } = string.Empty;
         public string Jenis_Kelamin { get; set; } = string.Empty;
-        public int Umur { get; set; } // ← DITAMBAHKAN
+        public int Umur { get; set; } 
     }
 
     internal class Anak_Asuh_model
@@ -49,12 +49,12 @@ namespace Panti_Asuhan_Role_Admin.Model
                            FROM anak_asuh
                            WHERE nama_anak ILIKE @nama
                              AND jenis_kelamin ILIKE @jk
-                             AND usia = @umur"; // ← BUKAN ILIKE utk integer
+                             AND usia = @umur"; 
 
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nama", $"%{nama}%");
             cmd.Parameters.AddWithValue("@jk", $"%{jk}%");
-            cmd.Parameters.AddWithValue("@umur", umur);  // ← Perbaiki
+            cmd.Parameters.AddWithValue("@umur", umur);  
 
             using var rd = cmd.ExecuteReader();
             while (rd.Read())

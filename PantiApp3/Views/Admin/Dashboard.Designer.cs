@@ -43,6 +43,7 @@
             textBoxnamaD = new TextBox();
             labelnama = new Label();
             buttoncariD = new Button();
+            buttonlogout = new Button();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -68,17 +69,18 @@
             tableLayoutPanel1.Controls.Add(buttonpengurusP, 0, 2);
             tableLayoutPanel1.Location = new Point(15, 13);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.8372078F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.1627922F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 340F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 290F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
             tableLayoutPanel1.Size = new Size(138, 427);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // buttondonaturD
             // 
-            buttondonaturD.Location = new Point(3, 45);
+            buttondonaturD.Location = new Point(3, 46);
             buttondonaturD.Name = "buttondonaturD";
             buttondonaturD.Size = new Size(112, 34);
             buttondonaturD.TabIndex = 1;
@@ -87,7 +89,7 @@
             // 
             // buttonpengurusP
             // 
-            buttonpengurusP.Location = new Point(3, 89);
+            buttonpengurusP.Location = new Point(3, 92);
             buttonpengurusP.Name = "buttonpengurusP";
             buttonpengurusP.Size = new Size(112, 38);
             buttonpengurusP.TabIndex = 3;
@@ -198,11 +200,21 @@
             buttoncariD.Text = "Cari";
             buttoncariD.UseVisualStyleBackColor = true;
             // 
+            // buttonlogout
+            // 
+            buttonlogout.Location = new Point(19, 156);
+            buttonlogout.Name = "buttonlogout";
+            buttonlogout.Size = new Size(112, 34);
+            buttonlogout.TabIndex = 10;
+            buttonlogout.Text = "Logout";
+            buttonlogout.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonlogout);
             Controls.Add(buttoncariD);
             Controls.Add(labelnama);
             Controls.Add(textBoxnamaD);
@@ -237,5 +249,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private Button buttonpengurusP;
+        private Button buttonlogout;
     }
 }

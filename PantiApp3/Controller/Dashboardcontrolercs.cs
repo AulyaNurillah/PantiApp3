@@ -11,7 +11,6 @@ namespace Panti_Asuhan_Role_Admin.Controller
             _dashboardForm = dashboardForm;
         }
 
-        /* ---------- NAVIGASI ---------- */
         public void NavigateToAnakAsuh()
         {
             var f = new Anak_Asuh(_dashboardForm);
