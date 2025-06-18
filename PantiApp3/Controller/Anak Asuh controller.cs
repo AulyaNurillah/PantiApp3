@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualBasic.ApplicationServices;
 using Panti_Asuhan_Role_Admin.Model;
+using PantiApp3.Config;
 
 namespace Panti_Asuhan_Role_Admin.Controller
 {
@@ -14,17 +15,17 @@ namespace Panti_Asuhan_Role_Admin.Controller
             Anak_Asuh_model.Search(nama, jenisKelamin,usia);
 
 
-        public bool TambahAnak(string nama, string jenisKelamin, int usia, int userId)
+        public bool TambahAnak(string nama, string jenisKelamin, int usia)
         {
             if (string.IsNullOrWhiteSpace(nama) ||
                 string.IsNullOrWhiteSpace(jenisKelamin) ||
-                usia <= 0 ||
-                userId <= 0)
+                usia <= 0 || Session.IdUser <= 0)
                 return false;
 
-            Anak_Asuh_model.Insert(nama.Trim(), jenisKelamin, usia, userId);
+            Anak_Asuh_model.Insert(nama.Trim(), jenisKelamin, usia, Session.IdUser);
             return true;
         }
+
 
     }
 }
