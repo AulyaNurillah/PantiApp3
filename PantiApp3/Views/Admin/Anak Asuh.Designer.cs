@@ -137,13 +137,13 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(buttondashboardA, 0, 0);
-            tableLayoutPanel1.Location = new Point(21, 12);
+            tableLayoutPanel1.Location = new Point(21, 25);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.64637F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 87.35363F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
-            tableLayoutPanel1.Size = new Size(145, 427);
+            tableLayoutPanel1.Size = new Size(145, 412);
             tableLayoutPanel1.TabIndex = 7;
             // 
             // buttondashboardA

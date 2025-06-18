@@ -67,15 +67,15 @@
             tableLayoutPanel1.Controls.Add(buttonanakasuhD, 0, 0);
             tableLayoutPanel1.Controls.Add(buttondonaturD, 0, 1);
             tableLayoutPanel1.Controls.Add(buttonpengurusP, 0, 2);
-            tableLayoutPanel1.Location = new Point(15, 13);
+            tableLayoutPanel1.Location = new Point(15, 26);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.8372078F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.1627922F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 290F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 277F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
-            tableLayoutPanel1.Size = new Size(138, 427);
+            tableLayoutPanel1.Size = new Size(138, 412);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // buttondonaturD
@@ -89,7 +89,7 @@
             // 
             // buttonpengurusP
             // 
-            buttonpengurusP.Location = new Point(3, 92);
+            buttonpengurusP.Location = new Point(3, 91);
             buttonpengurusP.Name = "buttonpengurusP";
             buttonpengurusP.Size = new Size(112, 38);
             buttonpengurusP.TabIndex = 3;
@@ -202,9 +202,9 @@
             // 
             // buttonlogout
             // 
-            buttonlogout.Location = new Point(19, 156);
+            buttonlogout.Location = new Point(19, 166);
             buttonlogout.Name = "buttonlogout";
-            buttonlogout.Size = new Size(112, 34);
+            buttonlogout.Size = new Size(111, 36);
             buttonlogout.TabIndex = 10;
             buttonlogout.Text = "Logout";
             buttonlogout.UseVisualStyleBackColor = true;
