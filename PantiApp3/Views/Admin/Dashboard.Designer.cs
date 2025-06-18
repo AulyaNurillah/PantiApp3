@@ -211,8 +211,7 @@
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
             ClientSize = new Size(800, 450);
             Controls.Add(buttonlogout);
             Controls.Add(buttoncariD);

@@ -73,7 +73,7 @@
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(597, 200);
+            tableLayoutPanel2.Size = new Size(597, 208);
             tableLayoutPanel2.TabIndex = 9;
             // 
             // label1
@@ -100,7 +100,7 @@
             dataGridViewanakasuh.Location = new Point(3, 3);
             dataGridViewanakasuh.Name = "dataGridViewanakasuh";
             dataGridViewanakasuh.RowHeadersWidth = 62;
-            dataGridViewanakasuh.Size = new Size(590, 198);
+            dataGridViewanakasuh.Size = new Size(590, 201);
             dataGridViewanakasuh.TabIndex = 1;
             // 
             // Column1
@@ -132,6 +132,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.AutoScroll = true;
             tableLayoutPanel1.BackColor = Color.MediumAquamarine;
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -142,7 +143,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.64637F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 87.35363F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
-            tableLayoutPanel1.Size = new Size(138, 427);
+            tableLayoutPanel1.Size = new Size(145, 427);
             tableLayoutPanel1.TabIndex = 7;
             // 
             // buttondashboardA
@@ -156,7 +157,8 @@
             // 
             // buttontambahanakasuh
             // 
-            buttontambahanakasuh.Location = new Point(610, 179);
+            buttontambahanakasuh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttontambahanakasuh.Location = new Point(610, 186);
             buttontambahanakasuh.Name = "buttontambahanakasuh";
             buttontambahanakasuh.Size = new Size(91, 34);
             buttontambahanakasuh.TabIndex = 11;
@@ -165,7 +167,7 @@
             // 
             // buttoncarianakasuh
             // 
-            buttoncarianakasuh.Location = new Point(703, 178);
+            buttoncarianakasuh.Location = new Point(703, 187);
             buttoncarianakasuh.Name = "buttoncarianakasuh";
             buttoncarianakasuh.Size = new Size(64, 34);
             buttoncarianakasuh.TabIndex = 12;
@@ -174,7 +176,7 @@
             // 
             // textBoxnamaanak
             // 
-            textBoxnamaanak.Location = new Point(191, 179);
+            textBoxnamaanak.Location = new Point(191, 188);
             textBoxnamaanak.Name = "textBoxnamaanak";
             textBoxnamaanak.Size = new Size(140, 31);
             textBoxnamaanak.TabIndex = 13;
@@ -183,7 +185,7 @@
             // 
             comboBoxjeniskelamin.FormattingEnabled = true;
             comboBoxjeniskelamin.Items.AddRange(new object[] { "Laki - Laki", "Perempuan" });
-            comboBoxjeniskelamin.Location = new Point(337, 178);
+            comboBoxjeniskelamin.Location = new Point(337, 187);
             comboBoxjeniskelamin.Name = "comboBoxjeniskelamin";
             comboBoxjeniskelamin.Size = new Size(143, 33);
             comboBoxjeniskelamin.TabIndex = 14;
@@ -193,7 +195,7 @@
             // 
             labelnamaanak2.AutoSize = true;
             labelnamaanak2.BackColor = Color.MediumAquamarine;
-            labelnamaanak2.Location = new Point(193, 150);
+            labelnamaanak2.Location = new Point(193, 158);
             labelnamaanak2.Name = "labelnamaanak2";
             labelnamaanak2.Size = new Size(59, 25);
             labelnamaanak2.TabIndex = 15;
@@ -201,7 +203,7 @@
             // 
             // textBoxusia
             // 
-            textBoxusia.Location = new Point(486, 179);
+            textBoxusia.Location = new Point(486, 189);
             textBoxusia.Name = "textBoxusia";
             textBoxusia.Size = new Size(108, 31);
             textBoxusia.TabIndex = 16;
@@ -210,7 +212,7 @@
             // 
             labelusia.AutoSize = true;
             labelusia.BackColor = Color.MediumAquamarine;
-            labelusia.Location = new Point(490, 151);
+            labelusia.Location = new Point(490, 159);
             labelusia.Name = "labelusia";
             labelusia.Size = new Size(45, 25);
             labelusia.TabIndex = 17;
@@ -218,8 +220,8 @@
             // 
             // Anak_Asuh
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(800, 450);
             Controls.Add(labelusia);
             Controls.Add(textBoxusia);
@@ -233,6 +235,7 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(tableLayoutPanel1);
             Name = "Anak_Asuh";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Anak_Asuh";
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
