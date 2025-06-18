@@ -1,9 +1,10 @@
 ﻿using Npgsql;
+using System;
 using System.Data;
 
 namespace PantiApp3.Config
 {
-    public class ConnectDB
+    public class ConnectDB : IDisposable
     {
         private static readonly string connString =
             "Host=localhost;Port=5432;Username=postgres;Password=1098765432;Database=PantiApp";
@@ -28,6 +29,7 @@ namespace PantiApp3.Config
             {
                 throw new Exception("Koneksi gagal: " + ex.Message);
             }
+
             return connection;
         }
 
@@ -39,9 +41,15 @@ namespace PantiApp3.Config
             }
         }
 
-        public NpgsqlConnection GetConnection()
+        public NpgsqlConnection GetConnection() => connection;
+
+        // Ini penting supaya class ini bisa pakai 'using'
+        public void Dispose()
         {
-            return connection;
+            CloseConnection();
+            connection.Dispose(); // pastikan resource benar-benar dilepas
         }
+
+        public static string GetConnectionString() => connString;
     }
 }
