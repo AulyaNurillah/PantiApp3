@@ -11,7 +11,7 @@
 
         public override void PrintData()
         {
-            Console.WriteLine($"📥 Pemasukan oleh User #{IdUser}: {Catatan}, Rp{Jumlah}, pada {Tanggal.ToShortDateString()}");
+            Console.WriteLine($"Pemasukan oleh User #{IdUser}: {Catatan}, Rp{Jumlah}, pada {Tanggal.ToShortDateString()}");
         }
     }
 }

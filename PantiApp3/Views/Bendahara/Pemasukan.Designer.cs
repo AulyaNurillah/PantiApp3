@@ -10,7 +10,7 @@
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Button btnTambah;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnHapus;
+        private System.Windows.Forms.Button btnKembali;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.DataGridView dgvPemasukan;
 
@@ -29,7 +29,7 @@
             content = new System.Windows.Forms.Panel();
             btnTambah = new System.Windows.Forms.Button();
             btnEdit = new System.Windows.Forms.Button();
-            btnHapus = new System.Windows.Forms.Button();
+            btnKembali = new System.Windows.Forms.Button();
             panelMain = new System.Windows.Forms.Panel();
             panelForm = new System.Windows.Forms.Panel();
             lblHeader = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             sidebar.Width = 160;
             sidebar.Controls.Add(btnTambah);
             sidebar.Controls.Add(btnEdit);
-            sidebar.Controls.Add(btnHapus);
+            sidebar.Controls.Add(btnKembali);
 
             // btnTambah
             btnTambah.Text = "Tambah";
@@ -64,13 +64,13 @@
             btnEdit.Size = new System.Drawing.Size(140, 40);
             btnEdit.Location = new System.Drawing.Point(10, 70);
 
-            // btnHapus
-            btnHapus.Text = "Hapus";
-            btnHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnHapus.Font = new System.Drawing.Font("Sitka Display", 11F);
-            btnHapus.BackColor = System.Drawing.Color.IndianRed;
-            btnHapus.Size = new System.Drawing.Size(140, 40);
-            btnHapus.Location = new System.Drawing.Point(10, 120);
+            // btnKembali
+            btnKembali.Text = "Kembali";
+            btnKembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnKembali.Font = new System.Drawing.Font("Sitka Display", 11F);
+            btnKembali.BackColor = System.Drawing.Color.IndianRed;
+            btnKembali.Size = new System.Drawing.Size(140, 40);
+            btnKembali.Location = new System.Drawing.Point(10, 120);
 
             // content
             content.Dock = System.Windows.Forms.DockStyle.Fill;

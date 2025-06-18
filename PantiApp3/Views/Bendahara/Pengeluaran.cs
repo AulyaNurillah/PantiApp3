@@ -1,5 +1,6 @@
 ﻿using PantiApp3.Controllers;
 using PantiApp3.Models;
+using PantiApp3.Views;
 using System;
 using System.Windows.Forms;
 

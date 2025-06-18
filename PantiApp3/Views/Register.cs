@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using PantiApp3.Controllers;
+using PantiApp3.Views;
+using System.Xml.Linq;
 using AppUser = PantiApp3.Models.User;
 
 
@@ -26,7 +28,6 @@ namespace PantiApp3.Views
                 }
             }
         }
-
         private void txt_Leave(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -60,16 +61,18 @@ namespace PantiApp3.Views
                 NoTelepon = noTelp,
                 Username = username,
                 Password = password,
-                RoleId = 4
+                RoleId = 3
             };
 
             AppUser registeredUser = authController.Register(user);
 
             if (registeredUser != null)
             {
-                //DonaturDashboard donatur = new DonaturDashboard(registeredUser);
-                //donatur.Show();
+
+                var dashboard = new DonaturDashboard(registeredUser);
+                dashboard.FormClosed += (s, args) => Application.Exit();
                 this.Hide();
+                dashboard.Show();
             }
             else
             {

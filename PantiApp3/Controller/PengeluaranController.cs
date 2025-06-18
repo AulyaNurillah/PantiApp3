@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using PantiApp3.Config;
 using PantiApp3.Models;
+using System.Data;
 
 namespace PantiApp3.Controllers
 {
@@ -17,6 +18,7 @@ namespace PantiApp3.Controllers
         {
             var list = new List<Pengeluaran>();
             var conn = db.OpenConnection();
+
 
             try
             {
@@ -37,7 +39,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal mengambil data pengeluaran: " + ex.Message);
+                Console.WriteLine("Gagal mengambil data pengeluaran: " + ex.Message);
             }
             finally
             {
@@ -71,7 +73,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal mengambil Pengeluaran: " + ex.Message);
+                Console.WriteLine("Gagal mengambil Pengeluaran: " + ex.Message);
                 return null;
             }
             finally
@@ -82,6 +84,7 @@ namespace PantiApp3.Controllers
 
         public void Insert(Pengeluaran data)
         {
+
             var conn = db.OpenConnection();
             var transaction = conn.BeginTransaction();
 
@@ -104,23 +107,23 @@ namespace PantiApp3.Controllers
                 }
 
                 string queryDetail = @"
-            INSERT INTO detail_keuangan (tipe_transaksi, saldo, id_pengeluaran)
-            VALUES ('Pengeluaran', @saldo, @idPengeluaran);";
+            INSERT INTO detail_keuangan (tipe_transaksi, jumlah, id_pengeluaran)
+            VALUES ('Pengeluaran', @jumlah, @idPengeluaran);";
 
                 using (var cmdDetail = new NpgsqlCommand(queryDetail, conn, transaction))
                 {
-                    cmdDetail.Parameters.AddWithValue("@saldo", data.Jumlah);
+                    cmdDetail.Parameters.AddWithValue("@jumlah", data.Jumlah);
                     cmdDetail.Parameters.AddWithValue("@idPengeluaran", idPengeluaran);
                     cmdDetail.ExecuteNonQuery();
                 }
 
                 transaction.Commit();
-                Console.WriteLine("✅ Pengeluarann dan detail keuangan berhasil ditambahkan.");
+                Console.WriteLine("Pengeluarann dan detail keuangan berhasil ditambahkan.");
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
-                Console.WriteLine("❌ Gagal menambah Pengeluaran/detail keuangan: " + ex.Message);
+                Console.WriteLine("Gagal menambah Pengeluaran/detail keuangan: " + ex.Message);
             }
             finally
             {
@@ -145,7 +148,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal update Pengeluaran: " + ex.Message);
+                Console.WriteLine("Gagal update Pengeluaran: " + ex.Message);
             }
             finally
             {
@@ -165,7 +168,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal menghapus Pengeluaran: " + ex.Message);
+                Console.WriteLine("Gagal menghapus Pengeluaran: " + ex.Message);
             }
             finally
             {

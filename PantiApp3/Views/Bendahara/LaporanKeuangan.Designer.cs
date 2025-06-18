@@ -8,7 +8,7 @@
         private System.Windows.Forms.Panel content;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelForm;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnKembali;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.DataGridView dgvLaporan;
 
@@ -25,7 +25,7 @@
         {
             sidebar = new System.Windows.Forms.Panel();
             content = new System.Windows.Forms.Panel();
-            btnRefresh = new System.Windows.Forms.Button();
+            btnKembali = new System.Windows.Forms.Button();
             panelMain = new System.Windows.Forms.Panel();
             panelForm = new System.Windows.Forms.Panel();
             lblHeader = new System.Windows.Forms.Label();
@@ -40,16 +40,16 @@
             sidebar.BackColor = System.Drawing.Color.Lavender;
             sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             sidebar.Width = 160;
-            sidebar.Controls.Add(btnRefresh);
+            sidebar.Controls.Add(btnKembali);
 
             // btnRefresh
-            btnRefresh.Text = "⟳ Refresh";
-            btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnRefresh.Font = new System.Drawing.Font("Sitka Display", 11F);
-            btnRefresh.BackColor = System.Drawing.Color.MediumSlateBlue;
-            btnRefresh.Size = new System.Drawing.Size(140, 40);
-            btnRefresh.Location = new System.Drawing.Point(10, 20);
-            //btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            btnKembali.Text = "Kembali";
+            btnKembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnKembali.Font = new System.Drawing.Font("Sitka Display", 11F);
+            btnKembali.BackColor = System.Drawing.Color.MediumSlateBlue;
+            btnKembali.Size = new System.Drawing.Size(140, 40);
+            btnKembali.Location = new System.Drawing.Point(10, 20);
+            btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
 
             // content
             content.Dock = System.Windows.Forms.DockStyle.Fill;

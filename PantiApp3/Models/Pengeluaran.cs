@@ -9,7 +9,7 @@
 
         public override void PrintData()
         {
-            Console.WriteLine($"📤 Pengeluaran: {Catatan}, Rp{Jumlah}, pada {Tanggal.ToShortDateString()}");
+            Console.WriteLine($"Pengeluaran: {Catatan}, Rp{Jumlah}, pada {Tanggal.ToShortDateString()}");
         }
     }
 }

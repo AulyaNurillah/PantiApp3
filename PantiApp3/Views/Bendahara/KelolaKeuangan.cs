@@ -1,18 +1,23 @@
-﻿using System;
+﻿using PantiApp3.Views;
+using PantiApp3.Models;
+using System;
 using System.Windows.Forms;
 
 namespace PantiApp3.Views
 {
     public partial class KelolaKeuangan : Form
     {
-        public KelolaKeuangan()
+        private User currentUser;
+
+        public KelolaKeuangan(User user)
         {
             InitializeComponent();
+            currentUser = user;
         }
 
         private void btnPemasukan_Click(object sender, EventArgs e)
         {
-            var formPemasukan = new PemasukanView();
+            var formPemasukan = new PemasukanView(currentUser);
             formPemasukan.ShowDialog();
         }
 
@@ -22,9 +27,10 @@ namespace PantiApp3.Views
             formPengeluaran.ShowDialog();
         }
 
-        private void KelolaKeuangan_Load(object sender, EventArgs e)
+        private void btnKembali_Click(object sender, EventArgs e)
         {
-
+            new BendaharaDashboard(currentUser).Show();
+            this.Close();
         }
     }
 }

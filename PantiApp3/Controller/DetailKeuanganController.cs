@@ -19,11 +19,12 @@ namespace PantiApp3.Controllers
             try
             {
                 string query = @"INSERT INTO detail_keuangan 
-                                 (tipe_transaksi, saldo, id_pemasukan, id_pengeluaran, id_donasi) 
-                                 VALUES (@tipe, @saldo, @id_pem, @id_peng, @id_don)";
+                                 (tipe_transaksi, jumlah, jenis_donasi, id_pemasukan, id_pengeluaran, id_donasi) 
+                                 VALUES (@tipe, @jumlah, @jenis, @id_pem, @id_peng, @id_don)";
                 using var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@tipe", detail.TipeTransaksi);
-                cmd.Parameters.AddWithValue("@saldo", detail.Saldo);
+                cmd.Parameters.AddWithValue("@jumlah", detail.Jumlah);
+                cmd.Parameters.AddWithValue("@jenis", detail.JenisDonasi);
                 cmd.Parameters.AddWithValue("@id_pem", (object?)detail.IdPemasukan ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@id_peng", (object?)detail.IdPengeluaran ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@id_don", (object?)detail.IdDonasi ?? DBNull.Value);
@@ -58,7 +59,8 @@ namespace PantiApp3.Controllers
                     {
                         IdDetail = Convert.ToInt32(reader["id_detail"]),
                         TipeTransaksi = reader["tipe_transaksi"].ToString(),
-                        Saldo = Convert.ToDecimal(reader["saldo"]),
+                        Jumlah = Convert.ToInt32(reader["jumlah"]),
+                        JenisDonasi = reader["jenis"].ToString(),
                         IdPemasukan = reader["id_pemasukan"] is DBNull ? null : (int?)Convert.ToInt32(reader["id_pemasukan"]),
                         IdPengeluaran = reader["id_pengeluaran"] is DBNull ? null : (int?)Convert.ToInt32(reader["id_pengeluaran"]),
                         IdDonasi = reader["id_donasi"] is DBNull ? null : (int?)Convert.ToInt32(reader["id_donasi"])
@@ -83,13 +85,13 @@ namespace PantiApp3.Controllers
             try
             {
                 string query = @"UPDATE detail_keuangan 
-                                 SET tipe_transaksi = @tipe, saldo = @saldo, 
+                                 SET tipe_transaksi = @tipe, jumlah = @jumlah, jenis 
                                      id_pemasukan = @id_pem, id_pengeluaran = @id_peng, id_donasi = @id_don 
                                  WHERE id_detail = @id";
 
                 using var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@tipe", detail.TipeTransaksi);
-                cmd.Parameters.AddWithValue("@saldo", detail.Saldo);
+                cmd.Parameters.AddWithValue("@jumlah", detail.Jumlah);
                 cmd.Parameters.AddWithValue("@id_pem", (object?)detail.IdPemasukan ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@id_peng", (object?)detail.IdPengeluaran ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@id_don", (object?)detail.IdDonasi ?? DBNull.Value);
@@ -97,12 +99,12 @@ namespace PantiApp3.Controllers
 
                 int rows = cmd.ExecuteNonQuery();
                 Console.WriteLine(rows > 0
-                    ? "✅ Detail keuangan berhasil diupdate!"
-                    : "⚠️ Detail keuangan tidak ditemukan.");
+                    ? "Detail keuangan berhasil diupdate!"
+                    : "Detail keuangan tidak ditemukan.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal update detail keuangan: " + ex.Message);
+                Console.WriteLine("Gagal update detail keuangan: " + ex.Message);
             }
             finally
             {
@@ -121,12 +123,12 @@ namespace PantiApp3.Controllers
 
                 int rows = cmd.ExecuteNonQuery();
                 Console.WriteLine(rows > 0
-                    ? "🗑️ Detail keuangan berhasil dihapus!"
-                    : "⚠️ Detail keuangan tidak ditemukan.");
+                    ? "Detail keuangan berhasil dihapus!"
+                    : "Detail keuangan tidak ditemukan.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal hapus detail keuangan: " + ex.Message);
+                Console.WriteLine("Gagal hapus detail keuangan: " + ex.Message);
             }
             finally
             {

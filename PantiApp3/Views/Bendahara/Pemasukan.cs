@@ -1,5 +1,6 @@
 ﻿using PantiApp3.Controllers;
 using PantiApp3.Models;
+using PantiApp3.Views;
 using System;
 using System.Windows.Forms;
 
@@ -8,10 +9,12 @@ namespace PantiApp3.Views
     public partial class PemasukanView : Form
     {
         private readonly PemasukanController controller = new PemasukanController();
+        private User currentUser;
 
-        public PemasukanView()
+        public PemasukanView(User user)
         {
             InitializeComponent();
+            currentUser = user;
             LoadData();
             BindEvents();
         }
@@ -20,7 +23,7 @@ namespace PantiApp3.Views
         {
             btnTambah.Click += btnTambah_Click;
             btnEdit.Click += btnEdit_Click;
-            btnHapus.Click += btnHapus_Click;
+            btnKembali.Click += btnKembali_Click;
         }
 
         private void LoadData()
@@ -35,7 +38,7 @@ namespace PantiApp3.Views
             dgvPemasukan.Visible = false;
             panelForm.Controls.Clear();
 
-            var inputForm = new InputPemasukan();
+            var inputForm = new InputPemasukan(currentUser); 
             inputForm.Dock = DockStyle.Fill;
             inputForm.OnDataSaved += LoadData;
             panelForm.Controls.Add(inputForm);
@@ -56,7 +59,7 @@ namespace PantiApp3.Views
                 dgvPemasukan.Visible = false;
                 panelForm.Controls.Clear();
 
-                var form = new InputPemasukan(selected);
+                var form = new InputPemasukan(selected, currentUser);
                 form.Dock = DockStyle.Fill;
                 form.OnDataSaved += LoadData;
                 panelForm.Controls.Add(form);
@@ -68,20 +71,11 @@ namespace PantiApp3.Views
             }
         }
 
-        private void btnHapus_Click(object sender, EventArgs e)
+        private void btnKembali_Click(object sender, EventArgs e)
         {
-            if (dgvPemasukan.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Pilih data yang ingin dihapus.");
-                return;
-            }
-
-            var selected = (Pemasukan)dgvPemasukan.SelectedRows[0].DataBoundItem;
-            if (MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                controller.Delete(selected.IdPemasukan);
-                LoadData();
-            }
+            var dashboard = new KelolaKeuangan(currentUser);
+            dashboard.Show();
+            this.Close();
         }
     }
 }

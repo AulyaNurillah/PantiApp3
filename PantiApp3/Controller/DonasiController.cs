@@ -19,10 +19,12 @@ namespace PantiApp3.Controllers
             try
             {
                 conn.Open();
-                string query = "INSERT INTO donasi (tanggal_donasi, jumlah, id_user) VALUES (@tanggal, @jumlah, @id_user)";
+                string query = "INSERT INTO donasi (tanggal_donasi, jenis_donasi, jumlah_donasi, id_user) " +
+                               "VALUES (@tanggal, @jenis, @jumlah, @id_user)";
                 var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@tanggal", donasi.TanggalDonasi);
-                cmd.Parameters.AddWithValue("@jumlah", donasi.Jumlah);
+                cmd.Parameters.AddWithValue("@jenis", donasi.JenisDonasi);
+                cmd.Parameters.AddWithValue("@jumlah", donasi.JumlahDonasi);
                 cmd.Parameters.AddWithValue("@id_user", donasi.IdUser);
 
                 cmd.ExecuteNonQuery();
@@ -54,7 +56,8 @@ namespace PantiApp3.Controllers
                     {
                         IdDonasi = Convert.ToInt32(reader["id_donasi"]),
                         TanggalDonasi = Convert.ToDateTime(reader["tanggal_donasi"]),
-                        Jumlah = Convert.ToInt32(reader["jumlah"]),
+                        JenisDonasi = reader["jenis_donasi"].ToString(),
+                        JumlahDonasi = Convert.ToInt32(reader["jumlah_donasi"]),
                         IdUser = Convert.ToInt32(reader["id_user"])
                     });
                 }
@@ -88,7 +91,8 @@ namespace PantiApp3.Controllers
                     {
                         IdDonasi = Convert.ToInt32(reader["id_donasi"]),
                         TanggalDonasi = Convert.ToDateTime(reader["tanggal_donasi"]),
-                        Jumlah = Convert.ToInt32(reader["jumlah"]),
+                        JenisDonasi = reader["jenis_donasi"].ToString(),
+                        JumlahDonasi = Convert.ToInt32(reader["jumlah_donasi"]),
                         IdUser = Convert.ToInt32(reader["id_user"])
                     };
                 }
@@ -111,10 +115,12 @@ namespace PantiApp3.Controllers
             try
             {
                 conn.Open();
-                string query = "UPDATE donasi SET tanggal_donasi = @tanggal, jumlah = @jumlah, id_user = @id_user WHERE id_donasi = @id";
+                string query = "UPDATE donasi SET tanggal_donasi = @tanggal, jenis_donasi = @jenis, jumlah_donasi = @jumlah, id_user = @id_user " +
+                               "WHERE id_donasi = @id";
                 var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@tanggal", donasi.TanggalDonasi);
-                cmd.Parameters.AddWithValue("@jumlah", donasi.Jumlah);
+                cmd.Parameters.AddWithValue("@jenis", donasi.JenisDonasi);
+                cmd.Parameters.AddWithValue("@jumlah", donasi.JumlahDonasi);
                 cmd.Parameters.AddWithValue("@id_user", donasi.IdUser);
                 cmd.Parameters.AddWithValue("@id", donasi.IdDonasi);
 
@@ -133,6 +139,7 @@ namespace PantiApp3.Controllers
                 conn.Close();
             }
         }
+
         public void Delete(int id)
         {
             var conn = db.OpenConnection();

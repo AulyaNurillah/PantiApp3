@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using PantiApp3.Config;
 using PantiApp3.Models;
+using System.Data;
 
 namespace PantiApp3.Controllers
 {
@@ -20,8 +21,10 @@ namespace PantiApp3.Controllers
 
             try
             {
-                string query = "SELECT * FROM pemasukan ORDER BY tanggal DESC";
+                string query = "SELECT * FROM pemasukan WHERE id_user = @id_user ORDER BY tanggal DESC";
                 using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id_user", Session.IdUser);
+
                 using var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -38,7 +41,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal mengambil data pemasukan: " + ex.Message);
+                Console.WriteLine("Gagal mengambil data pemasukan: " + ex.Message);
             }
             finally
             {
@@ -68,12 +71,12 @@ namespace PantiApp3.Controllers
                         IdUser = Convert.ToInt32(reader["id_user"])
                     };
                 }
-                Console.WriteLine("⚠️ Pemasukan tidak ditemukan.");
+                Console.WriteLine("Pemasukan tidak ditemukan.");
                 return null;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal mengambil pemasukan: " + ex.Message);
+                Console.WriteLine("Gagal mengambil pemasukan: " + ex.Message);
                 return null;
             }
             finally
@@ -81,10 +84,10 @@ namespace PantiApp3.Controllers
                 db.CloseConnection();
             }
         }
-        public void Insert(Pemasukan data)
+        public void Insert(Pemasukan data, int idUser)
         {
             var conn = db.OpenConnection();
-            var transaction = conn.BeginTransaction(); 
+            var transaction = conn.BeginTransaction();
 
             try
             {
@@ -100,30 +103,31 @@ namespace PantiApp3.Controllers
                     cmd.Parameters.AddWithValue("@tanggal", data.Tanggal);
                     cmd.Parameters.AddWithValue("@jumlah", data.Jumlah);
                     cmd.Parameters.AddWithValue("@catatan", data.Catatan);
-                    cmd.Parameters.AddWithValue("@id_user", data.IdUser);
+                    cmd.Parameters.AddWithValue("@id_user", idUser);
 
                     idPemasukan = Convert.ToInt32(cmd.ExecuteScalar());
                 }
 
                 string queryDetail = @"
-            INSERT INTO detail_keuangan (tipe_transaksi, saldo, id_pemasukan)
-            VALUES ('Pemasukan', @saldo, @idPemasukan);";
+            INSERT INTO detail_keuangan (tipe_transaksi, jumlah, id_pemasukan)
+            VALUES ('Pemasukan', @jumlah, @idPemasukan);";
 
                 using (var cmdDetail = new NpgsqlCommand(queryDetail, conn, transaction))
                 {
-                    cmdDetail.Parameters.AddWithValue("@saldo", data.Jumlah);
+                    cmdDetail.Parameters.AddWithValue("@jumlah", data.Jumlah);
                     cmdDetail.Parameters.AddWithValue("@idPemasukan", idPemasukan);
                     cmdDetail.ExecuteNonQuery();
                 }
 
                 transaction.Commit();
-                Console.WriteLine("✅ Pemasukan dan detail keuangan berhasil ditambahkan.");
+                Console.WriteLine("Pemasukan dan detail keuangan berhasil ditambahkan.");
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
-                Console.WriteLine("❌ Gagal menambah pemasukan/detail keuangan: " + ex.Message);
+                MessageBox.Show("Gagal insert: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             finally
             {
                 db.CloseConnection();
@@ -146,13 +150,13 @@ namespace PantiApp3.Controllers
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
-                    Console.WriteLine("✅ Pemasukan berhasil diperbarui.");
+                    Console.WriteLine("Pemasukan berhasil diperbarui.");
                 else
-                    Console.WriteLine("⚠️ Pemasukan tidak ditemukan.");
+                    Console.WriteLine("Pemasukan tidak ditemukan.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal update pemasukan: " + ex.Message);
+                Console.WriteLine("Gagal update pemasukan: " + ex.Message);
             }
             finally
             {
@@ -170,13 +174,13 @@ namespace PantiApp3.Controllers
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
-                    Console.WriteLine("🗑️ Pemasukan berhasil dihapus.");
+                    Console.WriteLine("Pemasukan berhasil dihapus.");
                 else
-                    Console.WriteLine("⚠️ Pemasukan tidak ditemukan.");
+                    Console.WriteLine("Pemasukan tidak ditemukan.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal menghapus pemasukan: " + ex.Message);
+                Console.WriteLine("Gagal menghapus pemasukan: " + ex.Message);
             }
             finally
             {

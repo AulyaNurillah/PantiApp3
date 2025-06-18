@@ -9,11 +9,14 @@ namespace PantiApp3.Views
     public partial class LaporanKeuanganView : Form
     {
         private readonly LaporanKeuanganController controller = new LaporanKeuanganController();
+        private User currentUser;
 
-        public LaporanKeuanganView()
+        public LaporanKeuanganView(User user)
         {
             InitializeComponent();
             LoadData();
+            currentUser = user;
+
         }
 
         private void LoadData()
@@ -27,6 +30,13 @@ namespace PantiApp3.Views
             {
                 MessageBox.Show("Data tidak ditemukan di database.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnKembali_Click(object sender, EventArgs e)
+        {
+            var dashboard = new BendaharaDashboard(currentUser);
+            dashboard.Show();
+            this.Close();
         }
     }
 }

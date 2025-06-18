@@ -1,9 +1,10 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using PantiApp3.Views;
+﻿using Microsoft.Win32;
+using PantiApp3.Config;
 using PantiApp3.Controllers;
 using PantiApp3.Models;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PantiApp3.Views
 {
@@ -62,13 +63,16 @@ namespace PantiApp3.Views
 
             if (username == "Masukkan username" || password == "Masukkan password" || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                lblMessage.Text = "⚠️ Username dan password wajib diisi.";
+                lblMessage.Text = "?? Username dan password wajib diisi.";
                 return;
             }
 
             User user = AuthController.Login(username, password);
             if (user != null)
             {
+                Session.IdUser = user.IdUser;
+                Session.CurrentUser = user;
+
                 Form dashboard = null;
                 switch (user.RoleId)
                 {
@@ -79,10 +83,7 @@ namespace PantiApp3.Views
                         dashboard = new BendaharaDashboard(user);
                         break;
                     case 3:
-                        //dashboard = new PengurusDashboard(user);
-                        break;
-                    case 4:
-                        //dashboard = new DonaturDashboard(user);
+                        dashboard = new DonaturDashboard(user);
                         break;
                     default:
                         MessageBox.Show("Role tidak dikenal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -90,18 +91,21 @@ namespace PantiApp3.Views
                 }
 
                 dashboard.Show();
-                //this.Close();
+                this.Hide();
             }
             else
             {
-                lblMessage.Text = "❌ Username atau password salah.";
+                lblMessage.Text = "? Username atau password salah.";
             }
         }
 
+
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var registerForm = new Register();
-            registerForm.ShowDialog();
+            var reg = new Register();
+            reg.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            reg.Show();
         }
     }
 }

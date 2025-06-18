@@ -18,17 +18,28 @@ namespace PantiApp3.Controllers
         public User Register(User user)
         {
             var conn = db.OpenConnection();
+
+            var checkCmd = new NpgsqlCommand("SELECT COUNT(*) FROM users WHERE username = @username", conn);
+            checkCmd.Parameters.AddWithValue("@username", user.Username);
+
+            int existing = Convert.ToInt32(checkCmd.ExecuteScalar());
+            if (existing > 0)
+            {
+                MessageBox.Show("Username sudah digunakan. Silakan pilih yang lain.", "Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
             try
             {
                 string query = @"INSERT INTO users (username, pass_word, nama_user, no_telep, id_role)
-                                 VALUES (@username, @password, @nama_user, @no_telp, @id_role) RETURNING *";
+                         VALUES (@username, @password, @nama_user, @no_telep, 3)
+                         RETURNING *";
 
                 using var cmd = new NpgsqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@username", user.Username);
                 cmd.Parameters.AddWithValue("@password", user.Password);
                 cmd.Parameters.AddWithValue("@nama_user", user.NamaUser);
-                cmd.Parameters.AddWithValue("@no_telp", user.NoTelepon);
-                cmd.Parameters.AddWithValue("@id_role", user.RoleId);
+                cmd.Parameters.AddWithValue("@no_telep", user.NoTelepon);
 
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -48,7 +59,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Register gagal: " + ex.Message);
+                MessageBox.Show("Gagal registrasi: " + ex.Message);
                 return null;
             }
             finally
@@ -82,9 +93,7 @@ namespace PantiApp3.Controllers
                     };
                 }
 
-                //Console.WriteLine("❌ Login gagal: user tidak ditemukan.");
-                Console.WriteLine($"Username input: '{username}'");
-                Console.WriteLine($"Password input: '{password}'");
+                Console.WriteLine("❌ Login gagal: user tidak ditemukan.");
                 return null;
             }
             catch (Exception ex)
@@ -158,7 +167,6 @@ namespace PantiApp3.Controllers
 
             return users;
         }
-
         public User GetById(int id)
         {
             var conn = db.OpenConnection();

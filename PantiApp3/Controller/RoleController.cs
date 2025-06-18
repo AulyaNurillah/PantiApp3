@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using PantiApp3.Config;
 using PantiApp3.Models;
+using System.Data;
 
 namespace PantiApp3.Controllers
 {
