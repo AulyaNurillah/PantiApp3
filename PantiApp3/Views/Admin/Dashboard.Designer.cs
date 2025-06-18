@@ -212,6 +212,7 @@
             // Dashboard
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(800, 450);
             Controls.Add(buttonlogout);
             Controls.Add(buttoncariD);

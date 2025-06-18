@@ -188,6 +188,7 @@
             // Pengurus
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(800, 450);
             Controls.Add(buttoncariP);
             Controls.Add(labelpengurus2);
