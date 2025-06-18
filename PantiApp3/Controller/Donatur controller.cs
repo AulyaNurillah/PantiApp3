@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 using Panti_Asuhan_Role_Admin.Model;
-using Panti_Asuhan_Role_Admin.Config;
+using PantiApp3.Config;
 using System.Collections.Generic;
 
 namespace Panti_Asuhan_Role_Admin.Controller

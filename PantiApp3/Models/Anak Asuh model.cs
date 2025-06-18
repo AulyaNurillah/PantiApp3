@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Npgsql;
-using Panti_Asuhan_Role_Admin.Config;
+using PantiApp3.Config;
 
 namespace Panti_Asuhan_Role_Admin.Model
 {
@@ -15,7 +15,7 @@ namespace Panti_Asuhan_Role_Admin.Model
 
     internal class Anak_Asuh_model
     {
-        private static readonly string _conn = config_DB.GetConnectionString();
+        private static readonly string _conn = ConnectDB.GetConnectionString();
 
         public static List<AnakAsuhModel> GetAll()
         {

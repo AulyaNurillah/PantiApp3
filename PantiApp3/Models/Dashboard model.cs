@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Npgsql;
-using Panti_Asuhan_Role_Admin.Config;
+using PantiApp3.Config;
 
 namespace Panti_Asuhan_Role_Admin.Model
 {

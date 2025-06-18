@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
-using Panti_Asuhan_Role_Admin.Config;
+using PantiApp3.Config; // Pastikan namespace ini sesuai dengan file ConnectDB.cs
 
 namespace Panti_Asuhan_Role_Admin.Model
 {
@@ -18,15 +18,14 @@ namespace Panti_Asuhan_Role_Admin.Model
 
     internal class Pengurus_model
     {
-        private static readonly string _conn = config_DB.GetConnectionString();
+        private static readonly string _conn = ConnectDB.GetConnectionString();
 
         // Ambil semua data donatur (+ role jika ada)
         public static List<PengurusModel> TampilSemuaPengurus()
         {
             var pengurs = new List<PengurusModel>();
 
-            // using → otomatis Dispose() & menutup koneksi
-            using var db = new Config.ConnectDB();
+            using var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             try
@@ -43,8 +42,8 @@ namespace Panti_Asuhan_Role_Admin.Model
                 ORDER BY u.id_user;";
 
 
-                using (var cmd = new NpgsqlCommand(sql, conn))
-                using (var reader = cmd.ExecuteReader())
+                using var cmd = new NpgsqlCommand(sql, conn);
+                using var reader = cmd.ExecuteReader();
                 {
                     while (reader.Read())
                     {

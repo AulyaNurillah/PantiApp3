@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Npgsql;
-using Panti_Asuhan_Role_Admin.Config;
+using PantiApp3.Config;
 
 namespace Panti_Asuhan_Role_Admin.Model
 {
@@ -20,7 +20,7 @@ namespace Panti_Asuhan_Role_Admin.Model
 
     internal class Donatur_model
     {
-        private static readonly string _conn = config_DB.GetConnectionString();
+        private static readonly string _conn = ConnectDB.GetConnectionString();
 
         // Ambil semua data donatur (+ role jika ada)
         public static List<DonaturModel> TampilSemuaDonatur()
@@ -28,7 +28,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             var donors = new List<DonaturModel>();
 
             // using → otomatis Dispose() & menutup koneksi
-            using var db = new Config.ConnectDB();
+            using var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             try
