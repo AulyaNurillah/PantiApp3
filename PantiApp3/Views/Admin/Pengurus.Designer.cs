@@ -42,6 +42,13 @@
             Column4 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondashboardP = new Button();
+            textBoxusername = new TextBox();
+            textBoxpassword = new TextBox();
+            textBoxnotelp = new TextBox();
+            labelusername = new Label();
+            labelpassword = new Label();
+            labelnotelp = new Label();
+            buttontambahbendahara = new Button();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewpengurus).BeginInit();
@@ -50,9 +57,9 @@
             // 
             // buttoncariP
             // 
-            buttoncariP.Location = new Point(372, 189);
+            buttoncariP.Location = new Point(541, 189);
             buttoncariP.Name = "buttoncariP";
-            buttoncariP.Size = new Size(112, 34);
+            buttoncariP.Size = new Size(74, 25);
             buttoncariP.TabIndex = 24;
             buttoncariP.Text = "Cari";
             buttoncariP.UseVisualStyleBackColor = true;
@@ -61,17 +68,17 @@
             // 
             labelpengurus2.AutoSize = true;
             labelpengurus2.BackColor = Color.MediumAquamarine;
-            labelpengurus2.Location = new Point(192, 159);
+            labelpengurus2.Location = new Point(192, 174);
             labelpengurus2.Name = "labelpengurus2";
-            labelpengurus2.Size = new Size(91, 25);
+            labelpengurus2.Size = new Size(39, 15);
             labelpengurus2.TabIndex = 23;
-            labelpengurus2.Text = "Username";
+            labelpengurus2.Text = "Nama";
             // 
             // textBoxpengurus
             // 
             textBoxpengurus.Location = new Point(189, 191);
             textBoxpengurus.Name = "textBoxpengurus";
-            textBoxpengurus.Size = new Size(169, 31);
+            textBoxpengurus.Size = new Size(103, 23);
             textBoxpengurus.TabIndex = 22;
             // 
             // labellihatpengurus
@@ -79,11 +86,11 @@
             labellihatpengurus.AutoSize = true;
             labellihatpengurus.BackColor = Color.MediumAquamarine;
             labellihatpengurus.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labellihatpengurus.Location = new Point(199, 78);
+            labellihatpengurus.Location = new Point(199, 50);
             labellihatpengurus.Name = "labellihatpengurus";
-            labellihatpengurus.Size = new Size(396, 74);
+            labellihatpengurus.Size = new Size(310, 51);
             labellihatpengurus.TabIndex = 21;
-            labellihatpengurus.Text = "Lihat Pengurus";
+            labellihatpengurus.Text = "Kelola Bendahara";
             // 
             // tableLayoutPanel2
             // 
@@ -103,7 +110,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(196, 25);
+            label1.Size = new Size(129, 15);
             label1.TabIndex = 0;
             label1.Text = "Selamat Datang Admin";
             // 
@@ -185,11 +192,78 @@
             buttondashboardP.Text = "Dashboard";
             buttondashboardP.UseVisualStyleBackColor = true;
             // 
+            // textBoxusername
+            // 
+            textBoxusername.Location = new Point(302, 191);
+            textBoxusername.Name = "textBoxusername";
+            textBoxusername.Size = new Size(100, 23);
+            textBoxusername.TabIndex = 25;
+            // 
+            // textBoxpassword
+            // 
+            textBoxpassword.Location = new Point(192, 146);
+            textBoxpassword.Name = "textBoxpassword";
+            textBoxpassword.Size = new Size(100, 23);
+            textBoxpassword.TabIndex = 26;
+            // 
+            // textBoxnotelp
+            // 
+            textBoxnotelp.Location = new Point(303, 146);
+            textBoxnotelp.Name = "textBoxnotelp";
+            textBoxnotelp.Size = new Size(100, 23);
+            textBoxnotelp.TabIndex = 27;
+            // 
+            // labelusername
+            // 
+            labelusername.AutoSize = true;
+            labelusername.BackColor = Color.MediumAquamarine;
+            labelusername.Location = new Point(302, 176);
+            labelusername.Name = "labelusername";
+            labelusername.Size = new Size(60, 15);
+            labelusername.TabIndex = 28;
+            labelusername.Text = "Username";
+            // 
+            // labelpassword
+            // 
+            labelpassword.AutoSize = true;
+            labelpassword.BackColor = Color.MediumAquamarine;
+            labelpassword.Location = new Point(192, 128);
+            labelpassword.Name = "labelpassword";
+            labelpassword.Size = new Size(57, 15);
+            labelpassword.TabIndex = 29;
+            labelpassword.Text = "Password";
+            // 
+            // labelnotelp
+            // 
+            labelnotelp.AutoSize = true;
+            labelnotelp.BackColor = Color.MediumAquamarine;
+            labelnotelp.Location = new Point(306, 129);
+            labelnotelp.Name = "labelnotelp";
+            labelnotelp.Size = new Size(67, 15);
+            labelnotelp.TabIndex = 30;
+            labelnotelp.Text = "No.Telepon";
+            // 
+            // buttontambahbendahara
+            // 
+            buttontambahbendahara.Location = new Point(624, 191);
+            buttontambahbendahara.Name = "buttontambahbendahara";
+            buttontambahbendahara.Size = new Size(75, 23);
+            buttontambahbendahara.TabIndex = 31;
+            buttontambahbendahara.Text = "Tambah";
+            buttontambahbendahara.UseVisualStyleBackColor = true;
+            // 
             // Pengurus
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             BackColor = Color.Honeydew;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttontambahbendahara);
+            Controls.Add(labelnotelp);
+            Controls.Add(labelpassword);
+            Controls.Add(labelusername);
+            Controls.Add(textBoxnotelp);
+            Controls.Add(textBoxpassword);
+            Controls.Add(textBoxusername);
             Controls.Add(buttoncariP);
             Controls.Add(labelpengurus2);
             Controls.Add(textBoxpengurus);
@@ -224,5 +298,12 @@
         private DataGridViewTextBoxColumn Column4;
         private TableLayoutPanel tableLayoutPanel1;
         private Button buttondashboardP;
+        private TextBox textBoxusername;
+        private TextBox textBoxpassword;
+        private TextBox textBoxnotelp;
+        private Label labelusername;
+        private Label labelpassword;
+        private Label labelnotelp;
+        private Button buttontambahbendahara;
     }
 }
