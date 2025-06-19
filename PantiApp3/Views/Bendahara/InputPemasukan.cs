@@ -20,7 +20,7 @@ namespace PantiApp3.Views
         private DateTimePicker dtTanggal;
         private Button btnSimpan;
 
-        public InputPemasukan(User user)
+        public InputPemasukan(User user, Pemasukan data = null)
         {
             currentUser = user;
             InitializeComponent();
@@ -117,7 +117,7 @@ namespace PantiApp3.Views
                 controller.Update(pemasukan);
             }
 
-            MessageBox.Show("✅ Data berhasil disimpan.");
+            MessageBox.Show("Data berhasil disimpan.");
             OnDataSaved?.Invoke();
         }
     }

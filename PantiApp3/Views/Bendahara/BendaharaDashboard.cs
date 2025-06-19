@@ -34,7 +34,7 @@ namespace PantiApp3.Views
             decimal totalPemasukan = 0;
             decimal totalPengeluaran = 0;
 
-            string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=1098765432;Database=PantiApp";
+            string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=wily;Database=Asuh.in";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
