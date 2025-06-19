@@ -38,11 +38,15 @@ namespace PantiApp3.Views
             using var conn = new NpgsqlConnection(ConnectDB.GetConnectionString());
             conn.Open();
 
-            decimal pemasukan = (decimal)new NpgsqlCommand("SELECT COALESCE(SUM(jumlah), 0) FROM pemasukan", conn).ExecuteScalar();
-            decimal pengeluaran = (decimal)new NpgsqlCommand("SELECT COALESCE(SUM(jumlah), 0) FROM pengeluaran", conn).ExecuteScalar();
+            object? pemasukanResult = new NpgsqlCommand("SELECT COALESCE(SUM(jumlah), 0) FROM pemasukan", conn).ExecuteScalar();
+            object? pengeluaranResult = new NpgsqlCommand("SELECT COALESCE(SUM(jumlah), 0) FROM pengeluaran", conn).ExecuteScalar();
+
+            decimal pemasukan = Convert.ToDecimal(pemasukanResult);
+            decimal pengeluaran = Convert.ToDecimal(pengeluaranResult);
 
             return pemasukan - pengeluaran;
         }
+
         private void btnTambah_Click(object sender, EventArgs e)
         {
             if (GetSaldoNow() <= 50000)
