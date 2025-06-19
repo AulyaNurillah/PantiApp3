@@ -16,6 +16,8 @@ namespace Panti_Asuhan_Role_Admin.Model
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string No_Telepon { get; set; } = string.Empty;
+        public int TotalDonasiUang { get; set; }
+
     }
 
     internal class Donatur_model
@@ -32,14 +34,19 @@ namespace Panti_Asuhan_Role_Admin.Model
             try
             {
                 string sql = @"
-                SELECT  u.id_user          AS id_donatur,
-                        u.username,
-                        u.pass_word,
-                        u.no_telep
-                FROM    users  u
+                SELECT 
+                    u.id_user AS id_donatur,
+                    u.username,
+                    u.pass_word,
+                    u.no_telep,
+                    COALESCE(SUM(d.jumlah_donasi), 0) AS total_donasi_uang
+                FROM users u
                 INNER JOIN roles r ON u.id_role = r.id_role
-                WHERE   r.nama_role = 'Donatur'          -- ← filter role
+                LEFT JOIN donasi d ON u.id_user = d.id_user AND d.jenis_donasi ILIKE 'uang'
+                WHERE r.nama_role = 'Donatur'
+                GROUP BY u.id_user, u.username, u.pass_word, u.no_telep
                 ORDER BY u.id_user;";
+
 
                 using (var cmd = new NpgsqlCommand(sql, conn))
                 using (var reader = cmd.ExecuteReader())
@@ -51,8 +58,10 @@ namespace Panti_Asuhan_Role_Admin.Model
                             Id_Donatur = reader.GetInt32(0),
                             Username = reader.GetString(1),
                             Password = reader.GetString(2),
-                            No_Telepon = reader.GetString(3)          
+                            No_Telepon = reader.GetString(3),
+                            TotalDonasiUang = reader.IsDBNull(4) ? 0 : reader.GetInt32(4)
                         });
+
                     }
                 }
             }

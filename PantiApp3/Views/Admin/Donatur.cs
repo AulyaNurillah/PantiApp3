@@ -36,7 +36,34 @@ namespace Panti_Asuhan_Role_Admin
         private void Donatur_Load(object? sender, EventArgs e)
         {
             dataGridViewdonatur.DataSource = _ctrl.TampilSemuaDonatur();
+
+            // Event handler untuk format mata uang
+            dataGridViewdonatur.CellFormatting += DataGridViewdonatur_CellFormatting;
+
+            // Header kolom
+            if (dataGridViewdonatur.Columns["TotalDonasiUang"] != null)
+            {
+                dataGridViewdonatur.Columns["TotalDonasiUang"].HeaderText = "Total Donasi Uang";
+            }
+
+            // Sembunyikan kolom password
+            if (dataGridViewdonatur.Columns["Password"] != null)
+            {
+                dataGridViewdonatur.Columns["Password"].Visible = false;
+            }
         }
+
+        // Dipindahkan ke luar method Donatur_Load
+        private void DataGridViewdonatur_CellFormatting(object? sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridViewdonatur.Columns[e.ColumnIndex].Name == "TotalDonasiUang" && e.Value is int jumlah)
+            {
+                e.Value = $"Rp{jumlah:N0}";  // Format ke Rupiah
+                e.FormattingApplied = true;
+            }
+        }
+
+
 
 
         private void buttonCari_Click(object? sender, EventArgs e)

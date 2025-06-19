@@ -33,15 +33,15 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridViewdonatur = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondashboardA = new Button();
             textBox1 = new TextBox();
             labeldonatur2 = new Label();
             buttoncariDO = new Button();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -56,7 +56,7 @@
             labelkeloldonatur.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelkeloldonatur.Location = new Point(199, 78);
             labelkeloldonatur.Name = "labelkeloldonatur";
-            labelkeloldonatur.Size = new Size(368, 74);
+            labelkeloldonatur.Size = new Size(251, 51);
             labelkeloldonatur.TabIndex = 14;
             labelkeloldonatur.Text = "Lihat Donatur";
             // 
@@ -78,7 +78,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(196, 25);
+            label1.Size = new Size(129, 15);
             label1.TabIndex = 0;
             label1.Text = "Selamat Datang Admin";
             // 
@@ -99,6 +99,56 @@
             dataGridViewdonatur.RowHeadersWidth = 62;
             dataGridViewdonatur.Size = new Size(590, 198);
             dataGridViewdonatur.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = Color.MediumAquamarine;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(buttondashboardA, 0, 0);
+            tableLayoutPanel1.Location = new Point(21, 25);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.64637F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 87.35363F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
+            tableLayoutPanel1.Size = new Size(138, 412);
+            tableLayoutPanel1.TabIndex = 11;
+            // 
+            // buttondashboardA
+            // 
+            buttondashboardA.Location = new Point(3, 3);
+            buttondashboardA.Name = "buttondashboardA";
+            buttondashboardA.Size = new Size(112, 34);
+            buttondashboardA.TabIndex = 2;
+            buttondashboardA.Text = "Dashboard";
+            buttondashboardA.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(189, 191);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(169, 23);
+            textBox1.TabIndex = 15;
+            // 
+            // labeldonatur2
+            // 
+            labeldonatur2.AutoSize = true;
+            labeldonatur2.BackColor = Color.MediumAquamarine;
+            labeldonatur2.Location = new Point(192, 159);
+            labeldonatur2.Name = "labeldonatur2";
+            labeldonatur2.Size = new Size(60, 15);
+            labeldonatur2.TabIndex = 16;
+            labeldonatur2.Text = "Username";
+            // 
+            // buttoncariDO
+            // 
+            buttoncariDO.Location = new Point(372, 189);
+            buttoncariDO.Name = "buttoncariDO";
+            buttoncariDO.Size = new Size(112, 34);
+            buttoncariDO.TabIndex = 17;
+            buttoncariDO.Text = "Cari";
+            buttoncariDO.UseVisualStyleBackColor = true;
             // 
             // Column1
             // 
@@ -136,61 +186,12 @@
             Column4.Visible = false;
             Column4.Width = 150;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = Color.MediumAquamarine;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(buttondashboardA, 0, 0);
-            tableLayoutPanel1.Location = new Point(21, 25);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.64637F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 87.35363F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
-            tableLayoutPanel1.Size = new Size(138, 412);
-            tableLayoutPanel1.TabIndex = 11;
-            // 
-            // buttondashboardA
-            // 
-            buttondashboardA.Location = new Point(3, 3);
-            buttondashboardA.Name = "buttondashboardA";
-            buttondashboardA.Size = new Size(112, 34);
-            buttondashboardA.TabIndex = 2;
-            buttondashboardA.Text = "Dashboard";
-            buttondashboardA.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(189, 191);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(169, 31);
-            textBox1.TabIndex = 15;
-            // 
-            // labeldonatur2
-            // 
-            labeldonatur2.AutoSize = true;
-            labeldonatur2.BackColor = Color.MediumAquamarine;
-            labeldonatur2.Location = new Point(192, 159);
-            labeldonatur2.Name = "labeldonatur2";
-            labeldonatur2.Size = new Size(91, 25);
-            labeldonatur2.TabIndex = 16;
-            labeldonatur2.Text = "Username";
-            // 
-            // buttoncariDO
-            // 
-            buttoncariDO.Location = new Point(372, 189);
-            buttoncariDO.Name = "buttoncariDO";
-            buttoncariDO.Size = new Size(112, 34);
-            buttoncariDO.TabIndex = 17;
-            buttoncariDO.Text = "Cari";
-            buttoncariDO.UseVisualStyleBackColor = true;
-            // 
             // Column5
             // 
             Column5.HeaderText = "Donasi Terbaru";
             Column5.MinimumWidth = 8;
             Column5.Name = "Column5";
+            Column5.Visible = false;
             Column5.Width = 150;
             // 
             // Donatur
@@ -225,13 +226,13 @@
         private DataGridView dataGridViewdonatur;
         private TableLayoutPanel tableLayoutPanel1;
         private Button buttondashboardA;
+        private TextBox textBox1;
+        private Label labeldonatur2;
+        private Button buttoncariDO;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
-        private TextBox textBox1;
-        private Label labeldonatur2;
-        private Button buttoncariDO;
         private DataGridViewTextBoxColumn Column5;
     }
 }
