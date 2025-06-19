@@ -86,7 +86,7 @@
             labellihatpengurus.AutoSize = true;
             labellihatpengurus.BackColor = Color.MediumAquamarine;
             labellihatpengurus.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labellihatpengurus.Location = new Point(199, 51);
+            labellihatpengurus.Location = new Point(199, 50);
             labellihatpengurus.Name = "labellihatpengurus";
             labellihatpengurus.Size = new Size(457, 74);
             labellihatpengurus.TabIndex = 21;

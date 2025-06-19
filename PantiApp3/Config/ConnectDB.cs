@@ -9,6 +9,7 @@ namespace PantiApp3.Config
         private static readonly string connString =
             "Host=localhost;Port=5432;Username=postgres;Password=1098765432;Database=PantiApp";
 
+
         private NpgsqlConnection connection;
 
         public ConnectDB()
