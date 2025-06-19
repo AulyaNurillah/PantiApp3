@@ -57,9 +57,9 @@
             // 
             // buttoncariP
             // 
-            buttoncariP.Location = new Point(541, 189);
+            buttoncariP.Location = new Point(541, 176);
             buttoncariP.Name = "buttoncariP";
-            buttoncariP.Size = new Size(74, 25);
+            buttoncariP.Size = new Size(74, 38);
             buttoncariP.TabIndex = 24;
             buttoncariP.Text = "Cari";
             buttoncariP.UseVisualStyleBackColor = true;
@@ -68,9 +68,9 @@
             // 
             labelpengurus2.AutoSize = true;
             labelpengurus2.BackColor = Color.MediumAquamarine;
-            labelpengurus2.Location = new Point(192, 174);
+            labelpengurus2.Location = new Point(192, 169);
             labelpengurus2.Name = "labelpengurus2";
-            labelpengurus2.Size = new Size(39, 15);
+            labelpengurus2.Size = new Size(59, 25);
             labelpengurus2.TabIndex = 23;
             labelpengurus2.Text = "Nama";
             // 
@@ -78,7 +78,7 @@
             // 
             textBoxpengurus.Location = new Point(189, 191);
             textBoxpengurus.Name = "textBoxpengurus";
-            textBoxpengurus.Size = new Size(103, 23);
+            textBoxpengurus.Size = new Size(117, 31);
             textBoxpengurus.TabIndex = 22;
             // 
             // labellihatpengurus
@@ -86,9 +86,9 @@
             labellihatpengurus.AutoSize = true;
             labellihatpengurus.BackColor = Color.MediumAquamarine;
             labellihatpengurus.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labellihatpengurus.Location = new Point(199, 50);
+            labellihatpengurus.Location = new Point(199, 51);
             labellihatpengurus.Name = "labellihatpengurus";
-            labellihatpengurus.Size = new Size(310, 51);
+            labellihatpengurus.Size = new Size(457, 74);
             labellihatpengurus.TabIndex = 21;
             labellihatpengurus.Text = "Kelola Bendahara";
             // 
@@ -110,7 +110,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(129, 15);
+            label1.Size = new Size(196, 25);
             label1.TabIndex = 0;
             label1.Text = "Selamat Datang Admin";
             // 
@@ -129,7 +129,7 @@
             dataGridViewpengurus.Location = new Point(3, 3);
             dataGridViewpengurus.Name = "dataGridViewpengurus";
             dataGridViewpengurus.RowHeadersWidth = 62;
-            dataGridViewpengurus.Size = new Size(590, 198);
+            dataGridViewpengurus.Size = new Size(590, 201);
             dataGridViewpengurus.TabIndex = 1;
             // 
             // Column1
@@ -194,32 +194,32 @@
             // 
             // textBoxusername
             // 
-            textBoxusername.Location = new Point(302, 191);
+            textBoxusername.Location = new Point(325, 191);
             textBoxusername.Name = "textBoxusername";
-            textBoxusername.Size = new Size(100, 23);
+            textBoxusername.Size = new Size(117, 31);
             textBoxusername.TabIndex = 25;
             // 
             // textBoxpassword
             // 
             textBoxpassword.Location = new Point(192, 146);
             textBoxpassword.Name = "textBoxpassword";
-            textBoxpassword.Size = new Size(100, 23);
+            textBoxpassword.Size = new Size(114, 31);
             textBoxpassword.TabIndex = 26;
             // 
             // textBoxnotelp
             // 
-            textBoxnotelp.Location = new Point(303, 146);
+            textBoxnotelp.Location = new Point(325, 146);
             textBoxnotelp.Name = "textBoxnotelp";
-            textBoxnotelp.Size = new Size(100, 23);
+            textBoxnotelp.Size = new Size(117, 31);
             textBoxnotelp.TabIndex = 27;
             // 
             // labelusername
             // 
             labelusername.AutoSize = true;
             labelusername.BackColor = Color.MediumAquamarine;
-            labelusername.Location = new Point(302, 176);
+            labelusername.Location = new Point(325, 176);
             labelusername.Name = "labelusername";
-            labelusername.Size = new Size(60, 15);
+            labelusername.Size = new Size(91, 25);
             labelusername.TabIndex = 28;
             labelusername.Text = "Username";
             // 
@@ -227,9 +227,9 @@
             // 
             labelpassword.AutoSize = true;
             labelpassword.BackColor = Color.MediumAquamarine;
-            labelpassword.Location = new Point(192, 128);
+            labelpassword.Location = new Point(192, 115);
             labelpassword.Name = "labelpassword";
-            labelpassword.Size = new Size(57, 15);
+            labelpassword.Size = new Size(87, 25);
             labelpassword.TabIndex = 29;
             labelpassword.Text = "Password";
             // 
@@ -237,17 +237,17 @@
             // 
             labelnotelp.AutoSize = true;
             labelnotelp.BackColor = Color.MediumAquamarine;
-            labelnotelp.Location = new Point(306, 129);
+            labelnotelp.Location = new Point(322, 120);
             labelnotelp.Name = "labelnotelp";
-            labelnotelp.Size = new Size(67, 15);
+            labelnotelp.Size = new Size(101, 25);
             labelnotelp.TabIndex = 30;
             labelnotelp.Text = "No.Telepon";
             // 
             // buttontambahbendahara
             // 
-            buttontambahbendahara.Location = new Point(624, 191);
+            buttontambahbendahara.Location = new Point(624, 176);
             buttontambahbendahara.Name = "buttontambahbendahara";
-            buttontambahbendahara.Size = new Size(75, 23);
+            buttontambahbendahara.Size = new Size(112, 38);
             buttontambahbendahara.TabIndex = 31;
             buttontambahbendahara.Text = "Tambah";
             buttontambahbendahara.UseVisualStyleBackColor = true;
