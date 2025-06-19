@@ -48,46 +48,50 @@ private static readonly string _conn = ConnectDB.GetConnectionString();
 
     /* ------------------ PENCARIAN TEPAT SATU KRITERIA SAJA ------------------ */
     public static List<AnakAsuhModel> CariAnak(
-        string? nama = null,
-        string? jenisKelamin = null,
-        int? usia = null)
+     string? nama = null,
+     string? jenisKelamin = null,
+     int? usia = null,
+     DateTime? tanggalLahir = null)
     {
-        // Validasi: tepat satu kriteria diisi
-        int filled =
-            (nama is not null ? 1 : 0) +
-            (jenisKelamin is not null ? 1 : 0) +
-            (usia is not null ? 1 : 0);
-
-        if (filled != 1)
-            throw new ArgumentException("Isi tepat satu kriteria: nama, jenis kelamin, atau usia.");
-
         using var conn = new NpgsqlConnection(_conn);
         conn.Open();
 
-        string where;
+        var whereClauses = new List<string>();
         var cmd = new NpgsqlCommand { Connection = conn };
 
-        if (nama is not null)
+        if (!string.IsNullOrWhiteSpace(nama))
         {
-            where = "nama_anak ILIKE @p";
-            cmd.Parameters.AddWithValue("@p", $"%{nama}%");
-        }
-        else if (jenisKelamin is not null)
-        {
-            where = "jenis_kelamin ILIKE @p";
-            cmd.Parameters.AddWithValue("@p", jenisKelamin);
-        }
-        else // usia is not null
-        {
-            where = "usia = @p";
-            cmd.Parameters.AddWithValue("@p", usia!.Value);
+            whereClauses.Add("nama_anak ILIKE @nama");
+            cmd.Parameters.AddWithValue("@nama", $"%{nama}%");
         }
 
+        if (!string.IsNullOrWhiteSpace(jenisKelamin))
+        {
+            whereClauses.Add("jenis_kelamin = @jk");
+            cmd.Parameters.AddWithValue("@jk", jenisKelamin);
+        }
+
+        if (usia.HasValue)
+        {
+            whereClauses.Add("usia = @usia");
+            cmd.Parameters.AddWithValue("@usia", usia.Value);
+        }
+
+        if (tanggalLahir.HasValue)
+        {
+            whereClauses.Add("tanggal_lahir = @tgl");
+            cmd.Parameters.AddWithValue("@tgl", tanggalLahir.Value.Date);
+        }
+
+        string where = whereClauses.Count > 0
+            ? "WHERE " + string.Join(" AND ", whereClauses)
+            : "";
+
         cmd.CommandText = $@"
-            SELECT id_anak, nama_anak, jenis_kelamin, usia
-            FROM   anak_asuh
-            WHERE  {where}
-            ORDER  BY id_anak;";
+        SELECT id_anak, nama_anak, jenis_kelamin, usia, tanggal_lahir, status
+        FROM anak_asuh
+        {where}
+        ORDER BY id_anak;";
 
         var list = new List<AnakAsuhModel>();
         using var rd = cmd.ExecuteReader();
@@ -98,11 +102,15 @@ private static readonly string _conn = ConnectDB.GetConnectionString();
                 Id_Anak = rd.GetInt32(0),
                 Nama = rd.GetString(1),
                 Jenis_Kelamin = rd.GetString(2),
-                Usia = rd.GetInt32(3)
+                Usia = rd.GetInt32(3),
+                TanggalLahir = rd.IsDBNull(4) ? DateTime.MinValue : rd.GetDateTime(4),
+                Status = rd.IsDBNull(5) ? "Aktif" : rd.GetString(5)
             });
         }
+
         return list;
     }
+
 
     /* ------------------------- HELPER UNTUK UI/FORM ------------------------- */
     public static bool ValidateSearchInput(string input) =>

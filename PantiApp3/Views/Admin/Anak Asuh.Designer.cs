@@ -47,6 +47,8 @@
             textBoxusia = new TextBox();
             labelusia = new Label();
             dateTimePickertgllahir = new DateTimePicker();
+            label2 = new Label();
+            label3 = new Label();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewanakasuh).BeginInit();
@@ -58,7 +60,7 @@
             labelkelolaanakasuh.AutoSize = true;
             labelkelolaanakasuh.BackColor = Color.MediumAquamarine;
             labelkelolaanakasuh.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelkelolaanakasuh.Location = new Point(199, 78);
+            labelkelolaanakasuh.Location = new Point(199, 53);
             labelkelolaanakasuh.Name = "labelkelolaanakasuh";
             labelkelolaanakasuh.Size = new Size(312, 51);
             labelkelolaanakasuh.TabIndex = 10;
@@ -169,7 +171,7 @@
             // buttontambahanakasuh
             // 
             buttontambahanakasuh.AutoSize = true;
-            buttontambahanakasuh.Location = new Point(678, 142);
+            buttontambahanakasuh.Location = new Point(565, 185);
             buttontambahanakasuh.Name = "buttontambahanakasuh";
             buttontambahanakasuh.Size = new Size(91, 34);
             buttontambahanakasuh.TabIndex = 11;
@@ -178,7 +180,7 @@
             // 
             // buttoncarianakasuh
             // 
-            buttoncarianakasuh.Location = new Point(584, 143);
+            buttoncarianakasuh.Location = new Point(665, 186);
             buttoncarianakasuh.Name = "buttoncarianakasuh";
             buttoncarianakasuh.Size = new Size(89, 34);
             buttoncarianakasuh.TabIndex = 12;
@@ -187,7 +189,7 @@
             // 
             // textBoxnamaanak
             // 
-            textBoxnamaanak.Location = new Point(191, 188);
+            textBoxnamaanak.Location = new Point(191, 155);
             textBoxnamaanak.Name = "textBoxnamaanak";
             textBoxnamaanak.Size = new Size(140, 23);
             textBoxnamaanak.TabIndex = 13;
@@ -196,17 +198,17 @@
             // 
             comboBoxjeniskelamin.FormattingEnabled = true;
             comboBoxjeniskelamin.Items.AddRange(new object[] { "Laki - Laki", "Perempuan" });
-            comboBoxjeniskelamin.Location = new Point(337, 187);
+            comboBoxjeniskelamin.Location = new Point(189, 198);
             comboBoxjeniskelamin.Name = "comboBoxjeniskelamin";
             comboBoxjeniskelamin.Size = new Size(143, 23);
             comboBoxjeniskelamin.TabIndex = 14;
-            comboBoxjeniskelamin.Text = "Jenis Kelamin";
+            comboBoxjeniskelamin.Text = "Pilih";
             // 
             // labelnamaanak2
             // 
             labelnamaanak2.AutoSize = true;
             labelnamaanak2.BackColor = Color.MediumAquamarine;
-            labelnamaanak2.Location = new Point(193, 158);
+            labelnamaanak2.Location = new Point(193, 139);
             labelnamaanak2.Name = "labelnamaanak2";
             labelnamaanak2.Size = new Size(39, 15);
             labelnamaanak2.TabIndex = 15;
@@ -214,7 +216,7 @@
             // 
             // textBoxusia
             // 
-            textBoxusia.Location = new Point(486, 189);
+            textBoxusia.Location = new Point(347, 155);
             textBoxusia.Name = "textBoxusia";
             textBoxusia.Size = new Size(66, 23);
             textBoxusia.TabIndex = 16;
@@ -223,7 +225,7 @@
             // 
             labelusia.AutoSize = true;
             labelusia.BackColor = Color.MediumAquamarine;
-            labelusia.Location = new Point(490, 159);
+            labelusia.Location = new Point(345, 139);
             labelusia.Name = "labelusia";
             labelusia.Size = new Size(29, 15);
             labelusia.TabIndex = 17;
@@ -231,16 +233,38 @@
             // 
             // dateTimePickertgllahir
             // 
-            dateTimePickertgllahir.Location = new Point(563, 188);
+            dateTimePickertgllahir.Location = new Point(347, 198);
             dateTimePickertgllahir.Name = "dateTimePickertgllahir";
             dateTimePickertgllahir.Size = new Size(200, 23);
             dateTimePickertgllahir.TabIndex = 18;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.MediumAquamarine;
+            label2.Location = new Point(348, 182);
+            label2.Name = "label2";
+            label2.Size = new Size(77, 15);
+            label2.TabIndex = 19;
+            label2.Text = "Tanggal Lahir";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.MediumAquamarine;
+            label3.Location = new Point(190, 182);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 15);
+            label3.TabIndex = 20;
+            label3.Text = "Jenis Kelamin";
             // 
             // Anak_Asuh
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             BackColor = Color.Honeydew;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(dateTimePickertgllahir);
             Controls.Add(labelusia);
             Controls.Add(textBoxusia);
@@ -286,5 +310,7 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewComboBoxColumn Column4;
+        private Label label2;
+        private Label label3;
     }
 }

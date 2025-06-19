@@ -18,7 +18,7 @@ namespace Panti_Asuhan_Role_Admin
             InitializeComponent();
             _dashboard = dashboard;
 
-            Load += Anak_Asuh_Load;
+            Load += AnakAsuh_Load;
             buttontambahanakasuh.Click += buttonTambah_Click;
             buttoncarianakasuh.Click += btnCari_Click;
             dataGridViewanakasuh.CellValueChanged += DataGridViewanakasuh_CellValueChanged;
@@ -32,15 +32,17 @@ namespace Panti_Asuhan_Role_Admin
            
         }
 
-       
-        private void Anak_Asuh_Load(object? sender, EventArgs e)
+
+        private void AnakAsuh_Load(object sender, EventArgs e)
         {
+            // Load data dari controller ke DataGridView
             dataGridViewanakasuh.DataSource = _ctrl.GetAllAnak();
-            // Hapus kolom status lama jika ada
+
+            // Reset kolom Status jika sudah ada sebelumnya
             if (dataGridViewanakasuh.Columns.Contains("Status"))
                 dataGridViewanakasuh.Columns.Remove("Status");
 
-            // Tambah ComboBoxColumn untuk Status
+            // Tambahkan kolom combo box Status
             var statusCol = new DataGridViewComboBoxColumn
             {
                 Name = "Status",
@@ -49,24 +51,38 @@ namespace Panti_Asuhan_Role_Admin
                 DataSource = new string[] { "Aktif", "Diadopsi" },
                 DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton
             };
-
             dataGridViewanakasuh.Columns.Add(statusCol);
 
-
-
+            // Konfigurasi DateTimePicker agar bisa optional
+            dateTimePickertgllahir.ShowCheckBox = true;
+            dateTimePickertgllahir.Checked = false;
         }
+
 
 
         private void btnCari_Click(object sender, EventArgs e)
         {
-            string keyword = textBoxnamaanak.Text.Trim();
-            string jeniskelamin = comboBoxjeniskelamin.SelectedItem?.ToString()?.ToLower() ?? "nama";
+            // Ambil input dari form
+            string? nama = string.IsNullOrWhiteSpace(textBoxnamaanak.Text) ? null : textBoxnamaanak.Text;
+            string? jenisKelamin = comboBoxjeniskelamin.SelectedItem?.ToString();
+            int? usia = null;
+            if (!string.IsNullOrWhiteSpace(textBoxusia.Text) && int.TryParse(textBoxusia.Text, out int parsedUsia))
+                usia = parsedUsia;
 
-            // Contoh isi ComboBox: "nama", "jk", "usia"
+            DateTime? tanggalLahir = dateTimePickertgllahir.Checked ? dateTimePickertgllahir.Value.Date : null;
 
-            dataGridViewanakasuh.DataSource = _ctrl.CariAnak(keyword, jeniskelamin);
+            // Validasi minimal 1 diisi
+            if (nama == null && jenisKelamin == null && usia == null && tanggalLahir == null)
+            {
+                MessageBox.Show("Isi minimal satu kriteria pencarian.");
+                return;
+            }
 
+            // Lakukan pencarian
+            var hasil = Anak_Asuh_model.CariAnak(nama, jenisKelamin, usia, tanggalLahir);
+            dataGridViewanakasuh.DataSource = hasil;
         }
+
 
 
 
