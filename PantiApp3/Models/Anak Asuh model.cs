@@ -7,6 +7,10 @@ public class AnakAsuhModel
     public string Nama { get; set; } = string.Empty;
     public string Jenis_Kelamin { get; set; } = string.Empty;
     public int Usia { get; set; }
+    public string Status { get; set; } = "Aktif";
+
+
+    public DateTime TanggalLahir { get; set; }
 }
 internal class Anak_Asuh_model
 {
@@ -20,9 +24,10 @@ private static readonly string _conn = ConnectDB.GetConnectionString();
         using var conn = new NpgsqlConnection(_conn);
         conn.Open();
 
-        const string sql = @"SELECT id_anak, nama_anak, jenis_kelamin, usia
-                             FROM anak_asuh
-                             ORDER BY id_anak";
+        const string sql = @"SELECT id_anak, nama_anak, jenis_kelamin, usia, tanggal_lahir, status
+                     FROM anak_asuh
+                     ORDER BY id_anak";
+
         using var cmd = new NpgsqlCommand(sql, conn);
         using var rd = cmd.ExecuteReader();
         while (rd.Read())
@@ -32,8 +37,11 @@ private static readonly string _conn = ConnectDB.GetConnectionString();
                 Id_Anak = rd.GetInt32(0),
                 Nama = rd.GetString(1),
                 Jenis_Kelamin = rd.GetString(2),
-                Usia = rd.GetInt32(3)
+                Usia = rd.GetInt32(3),
+                TanggalLahir = rd.IsDBNull(4) ? DateTime.MinValue : rd.GetDateTime(4),
+                Status = rd.IsDBNull(5) ? "Aktif" : rd.GetString(5)
             });
+
         }
         return list;
     }
@@ -126,20 +134,52 @@ private static readonly string _conn = ConnectDB.GetConnectionString();
     }
 
     /* ---------------------------- INSERT DATA BARU ---------------------------- */
-    public static void Insert(string nama, string jenisKelamin, int usia, int userId)
+    public static void Insert(string nama, string jenisKelamin, DateTime tanggalLahir, int userId)
     {
+        int usia = HitungUsia(tanggalLahir);
+
         using var conn = new NpgsqlConnection(_conn);
         conn.Open();
 
-        const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, id_user)
-                             VALUES (@nama, @jk, @usia, @userId)";
+        const string sql = @"INSERT INTO anak_asuh 
+        (nama_anak, jenis_kelamin, usia, tanggal_lahir, id_user, status)
+        VALUES (@nama, @jk, @usia, @tanggal, @userId, @status)";
+
 
         using var cmd = new NpgsqlCommand(sql, conn);
         cmd.Parameters.AddWithValue("@nama", nama);
         cmd.Parameters.AddWithValue("@jk", jenisKelamin);
         cmd.Parameters.AddWithValue("@usia", usia);
+        cmd.Parameters.AddWithValue("@tanggal", tanggalLahir);
         cmd.Parameters.AddWithValue("@userId", userId);
+        cmd.Parameters.AddWithValue("@status", "Aktif");
+
 
         cmd.ExecuteNonQuery();
     }
+
+
+    private static int HitungUsia(DateTime tanggalLahir)
+    {
+    DateTime today = DateTime.Today;
+    int usia = today.Year - tanggalLahir.Year;
+    if (tanggalLahir > today.AddYears(-usia)) usia--;
+    return usia;
+    }
+
+    public static void UpdateStatus(int idAnak, string status)
+    {
+        using var conn = new NpgsqlConnection(_conn);
+        conn.Open();
+
+        const string sql = @"UPDATE anak_asuh SET status = @status WHERE id_anak = @id";
+        using var cmd = new NpgsqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@status", status);
+        cmd.Parameters.AddWithValue("@id", idAnak);
+        cmd.ExecuteNonQuery();
+    }
+
+
+
+
 }

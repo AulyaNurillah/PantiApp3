@@ -21,8 +21,9 @@ namespace Panti_Asuhan_Role_Admin
             Load += Anak_Asuh_Load;
             buttontambahanakasuh.Click += buttonTambah_Click;
             buttoncarianakasuh.Click += btnCari_Click;
+            dataGridViewanakasuh.CellValueChanged += DataGridViewanakasuh_CellValueChanged;
 
-           
+
             buttondashboardA.Click += (s, e) =>
             {
                 _dashboard?.Show();
@@ -35,6 +36,24 @@ namespace Panti_Asuhan_Role_Admin
         private void Anak_Asuh_Load(object? sender, EventArgs e)
         {
             dataGridViewanakasuh.DataSource = _ctrl.GetAllAnak();
+            // Hapus kolom status lama jika ada
+            if (dataGridViewanakasuh.Columns.Contains("Status"))
+                dataGridViewanakasuh.Columns.Remove("Status");
+
+            // Tambah ComboBoxColumn untuk Status
+            var statusCol = new DataGridViewComboBoxColumn
+            {
+                Name = "Status",
+                HeaderText = "Status",
+                DataPropertyName = "Status",
+                DataSource = new string[] { "Aktif", "Diadopsi" },
+                DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton
+            };
+
+            dataGridViewanakasuh.Columns.Add(statusCol);
+
+
+
         }
 
 
@@ -42,9 +61,11 @@ namespace Panti_Asuhan_Role_Admin
         {
             string keyword = textBoxnamaanak.Text.Trim();
             string jeniskelamin = comboBoxjeniskelamin.SelectedItem?.ToString()?.ToLower() ?? "nama";
+
             // Contoh isi ComboBox: "nama", "jk", "usia"
 
             dataGridViewanakasuh.DataSource = _ctrl.CariAnak(keyword, jeniskelamin);
+
         }
 
 
@@ -53,31 +74,53 @@ namespace Panti_Asuhan_Role_Admin
         {
             string nama = textBoxnamaanak.Text.Trim();
             string jk = comboBoxjeniskelamin.SelectedItem?.ToString() ?? "";
+            DateTime tanggalLahir = dateTimePickertgllahir.Value;
 
-            if (!int.TryParse(textBoxusia.Text, out int usia) || usia <= 0)
+            int userId = 1; // Ganti dengan user login sesungguhnya
+
+            if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(jk))
             {
-                MessageBox.Show("Usia harus berupa angka positif.", "Warning",
+                MessageBox.Show("Nama dan jenis kelamin tidak boleh kosong.", "Warning",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int userId = 1;  
-
-            if (_ctrl.TambahAnak(nama, jk, usia, userId))
+            if (_ctrl.TambahAnak(nama, jk, tanggalLahir, userId))
             {
                 MessageBox.Show("Data berhasil ditambahkan.", "Info",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 dataGridViewanakasuh.DataSource = _ctrl.GetAllAnak();
                 textBoxnamaanak.Clear();
-                textBoxusia.Clear();
                 comboBoxjeniskelamin.SelectedIndex = -1;
+                dateTimePickertgllahir.Value = DateTime.Today;
             }
             else
             {
-                MessageBox.Show("Nama atau jenis kelamin tidak boleh kosong.",
-                                "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Gagal menambahkan data anak.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DataGridViewanakasuh_CellValueChanged(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            var grid = (DataGridView)sender;
+            var column = grid.Columns[e.ColumnIndex];
+
+            if (column.Name == "Status")
+            {
+                int idAnak = Convert.ToInt32(grid.Rows[e.RowIndex].Cells["Id_Anak"].Value);
+                string statusBaru = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString() ?? "Aktif";
+
+                _ctrl.UpdateStatus(idAnak, statusBaru);
+            }
+            dataGridViewanakasuh.DataSource = _ctrl.GetAllAnak();
+
+        }
+
+
     }
 }
