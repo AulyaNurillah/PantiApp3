@@ -33,16 +33,16 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridViewdonatur = new DataGridView();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            buttondashboardA = new Button();
-            textBox1 = new TextBox();
-            labeldonatur2 = new Label();
-            buttoncariDO = new Button();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            buttondashboardA = new Button();
+            textBox1 = new TextBox();
+            labeldonatur2 = new Label();
+            buttoncariDO = new Button();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewdonatur).BeginInit();
@@ -100,6 +100,50 @@
             dataGridViewdonatur.Size = new Size(590, 198);
             dataGridViewdonatur.TabIndex = 1;
             // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.MinimumWidth = 8;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Visible = false;
+            Column1.Width = 90;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Username";
+            Column2.MinimumWidth = 8;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Visible = false;
+            Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Password";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Visible = false;
+            Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "No Telepon";
+            Column4.MinimumWidth = 8;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Visible = false;
+            Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Donasi Terbaru";
+            Column5.MinimumWidth = 8;
+            Column5.Name = "Column5";
+            Column5.Visible = false;
+            Column5.Width = 150;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.BackColor = Color.MediumAquamarine;
@@ -149,50 +193,6 @@
             buttoncariDO.TabIndex = 17;
             buttoncariDO.Text = "Cari";
             buttoncariDO.UseVisualStyleBackColor = true;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "ID";
-            Column1.MinimumWidth = 8;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Visible = false;
-            Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Username";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Visible = false;
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Password";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Visible = false;
-            Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "No Telepon";
-            Column4.MinimumWidth = 8;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Visible = false;
-            Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Donasi Terbaru";
-            Column5.MinimumWidth = 8;
-            Column5.Name = "Column5";
-            Column5.Visible = false;
-            Column5.Width = 150;
             // 
             // Donatur
             // 

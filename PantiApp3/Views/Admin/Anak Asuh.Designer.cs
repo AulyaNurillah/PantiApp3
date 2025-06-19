@@ -33,6 +33,10 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridViewanakasuh = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewComboBoxColumn();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondashboardA = new Button();
             buttontambahanakasuh = new Button();
@@ -43,10 +47,6 @@
             textBoxusia = new TextBox();
             labelusia = new Label();
             dateTimePickertgllahir = new DateTimePicker();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewComboBoxColumn();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewanakasuh).BeginInit();
@@ -105,6 +105,42 @@
             dataGridViewanakasuh.Size = new Size(590, 201);
             dataGridViewanakasuh.TabIndex = 1;
             // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.MinimumWidth = 8;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Visible = false;
+            Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Nama";
+            Column2.MinimumWidth = 8;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Visible = false;
+            Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Jenis Kelamin";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Visible = false;
+            Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Status";
+            Column4.Items.AddRange(new object[] { "Aktif", "Diadopsi" });
+            Column4.MinimumWidth = 8;
+            Column4.Name = "Column4";
+            Column4.Visible = false;
+            Column4.Width = 150;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoScroll = true;
@@ -132,7 +168,7 @@
             // 
             // buttontambahanakasuh
             // 
-            buttontambahanakasuh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttontambahanakasuh.AutoSize = true;
             buttontambahanakasuh.Location = new Point(678, 142);
             buttontambahanakasuh.Name = "buttontambahanakasuh";
             buttontambahanakasuh.Size = new Size(91, 34);
@@ -199,42 +235,6 @@
             dateTimePickertgllahir.Name = "dateTimePickertgllahir";
             dateTimePickertgllahir.Size = new Size(200, 23);
             dateTimePickertgllahir.TabIndex = 18;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "ID";
-            Column1.MinimumWidth = 8;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Visible = false;
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Nama";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Visible = false;
-            Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Jenis Kelamin";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Visible = false;
-            Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Status";
-            Column4.Items.AddRange(new object[] { "Aktif", "Diadopsi" });
-            Column4.MinimumWidth = 8;
-            Column4.Name = "Column4";
-            Column4.Visible = false;
-            Column4.Width = 150;
             // 
             // Anak_Asuh
             // 
