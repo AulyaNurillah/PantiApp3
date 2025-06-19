@@ -9,10 +9,12 @@ namespace PantiApp3.Views
     public partial class PengeluaranView : Form
     {
         private readonly PengeluaranController controller = new PengeluaranController();
+        private User currentUser;
 
-        public PengeluaranView()
+        public PengeluaranView(User user)
         {
             InitializeComponent();
+            currentUser = user;
             LoadData();
             BindEvents();
         }
@@ -21,7 +23,7 @@ namespace PantiApp3.Views
         {
             btnTambah.Click += btnTambah_Click;
             btnEdit.Click += btnEdit_Click;
-            btnHapus.Click += btnHapus_Click;
+            btnKembali.Click += btnKembali_Click;
         }
 
         private void LoadData()
@@ -65,24 +67,15 @@ namespace PantiApp3.Views
             }
             else
             {
-                MessageBox.Show("❌ Gagal membaca data. Pastikan model data benar.");
+                MessageBox.Show("Gagal membaca data. Pastikan model data benar.");
             }
         }
 
-        private void btnHapus_Click(object sender, EventArgs e)
+        private void btnKembali_Click(object sender, EventArgs e)
         {
-            if (dgvPengeluaran.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Pilih data yang ingin dihapus.");
-                return;
-            }
-
-            var selected = (Pengeluaran)dgvPengeluaran.SelectedRows[0].DataBoundItem;
-            if (MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                controller.Delete(selected.IdPengeluaran);
-                LoadData();
-            }
+            var dashboard = new KelolaKeuangan(currentUser);
+            dashboard.Show();
+            this.Close();
         }
     }
 }

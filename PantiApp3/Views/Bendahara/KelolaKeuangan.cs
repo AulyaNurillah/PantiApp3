@@ -17,14 +17,17 @@ namespace PantiApp3.Views
 
         private void btnPemasukan_Click(object sender, EventArgs e)
         {
+
             var formPemasukan = new PemasukanView(currentUser);
-            formPemasukan.ShowDialog();
+            formPemasukan.Show();
+            this.Close();
         }
 
         private void btnPengeluaran_Click(object sender, EventArgs e)
         {
-            var formPengeluaran = new PengeluaranView();
-            formPengeluaran.ShowDialog();
+            var formPengeluaran = new PengeluaranView(currentUser);
+            formPengeluaran.Show();
+            this.Close();
         }
 
         private void btnKembali_Click(object sender, EventArgs e)

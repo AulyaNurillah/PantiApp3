@@ -96,7 +96,7 @@ namespace PantiApp3.Views
             }
             else
             {
-                lblMessage.Text = "? Username atau password salah.";
+                lblMessage.Text = "Username atau password salah.";
             }
         }
 

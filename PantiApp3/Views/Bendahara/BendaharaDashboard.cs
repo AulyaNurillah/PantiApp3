@@ -62,7 +62,6 @@ namespace PantiApp3.Views
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
             var loginForm = new Login();
             loginForm.Show();
             this.Close();
