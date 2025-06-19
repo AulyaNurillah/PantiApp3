@@ -71,5 +71,10 @@ namespace PantiApp3.Views
 
             dataGridriwayat1.DataSource = dt;
         }
+
+        private void dataGridriwayat1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

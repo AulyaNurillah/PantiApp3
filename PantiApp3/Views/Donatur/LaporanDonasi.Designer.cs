@@ -60,7 +60,7 @@
             btnkembali.Text = "<  Kembali";
             btnkembali.TextAlign = ContentAlignment.TopLeft;
             btnkembali.UseVisualStyleBackColor = false;
-            btnkembali.Click += new EventHandler(btnkembali_Click);
+            btnkembali.Click += btnkembali_Click;
             // 
             // cbjangka_waktu
             // 
@@ -71,7 +71,7 @@
             cbjangka_waktu.Size = new Size(211, 31);
             cbjangka_waktu.TabIndex = 2;
             cbjangka_waktu.Text = "Pilih Jangka Waktu";
-            cbjangka_waktu.SelectedIndexChanged += new EventHandler(cbjangka_waktu_SelectedIndexChanged);
+            cbjangka_waktu.SelectedIndexChanged += cbjangka_waktu_SelectedIndexChanged;
             // 
             // dataGridriwayat1
             // 
@@ -87,6 +87,7 @@
             dataGridriwayat1.RowHeadersWidth = 100;
             dataGridriwayat1.Size = new Size(625, 262);
             dataGridriwayat1.TabIndex = 7;
+            dataGridriwayat1.CellContentClick += dataGridriwayat1_CellContentClick;
             // 
             // lbjudul_laporan
             // 
@@ -98,7 +99,7 @@
             lbjudul_laporan.TabIndex = 8;
             lbjudul_laporan.Text = "Laporan Riwayat Donasi Anda";
             // 
-            // Laporan_Donasi
+            // LaporanDonasi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -107,7 +108,7 @@
             Controls.Add(dataGridriwayat1);
             Controls.Add(cbjangka_waktu);
             Controls.Add(panel1);
-            Name = "Laporan_Donasi";
+            Name = "LaporanDonasi";
             Text = "Laporan_Donasi";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridriwayat1).EndInit();

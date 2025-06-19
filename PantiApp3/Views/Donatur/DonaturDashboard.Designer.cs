@@ -45,6 +45,7 @@
             lblaporan_donasi = new Label();
             lbriwayat = new Label();
             dataGridriwayat = new DataGridView();
+            btntunai = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbtambah_donasi).BeginInit();
@@ -105,6 +106,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(btntunai);
             panel2.Controls.Add(lbket_tambah);
             panel2.Controls.Add(pbtambah_donasi);
             panel2.Controls.Add(lbbuat_donasi);
@@ -148,11 +150,11 @@
             // 
             btntambah_donasi.BackColor = SystemColors.HotTrack;
             btntambah_donasi.FlatStyle = FlatStyle.Popup;
-            btntambah_donasi.Location = new Point(24, 129);
+            btntambah_donasi.Location = new Point(161, 129);
             btntambah_donasi.Name = "btntambah_donasi";
-            btntambah_donasi.Size = new Size(256, 25);
+            btntambah_donasi.Size = new Size(119, 25);
             btntambah_donasi.TabIndex = 5;
-            btntambah_donasi.Text = "Donasi Sekarang";
+            btntambah_donasi.Text = "Donasi Barang";
             btntambah_donasi.UseVisualStyleBackColor = false;
             btntambah_donasi.Click += btntambah_donasi_Click;
             // 
@@ -238,6 +240,17 @@
             dataGridriwayat.Size = new Size(625, 125);
             dataGridriwayat.TabIndex = 8;
             // 
+            // btntunai
+            // 
+            btntunai.BackColor = SystemColors.HotTrack;
+            btntunai.FlatStyle = FlatStyle.Popup;
+            btntunai.Location = new Point(24, 129);
+            btntunai.Name = "btntunai";
+            btntunai.Size = new Size(119, 25);
+            btntunai.TabIndex = 9;
+            btntunai.Text = "Donasi Tunai";
+            btntunai.UseVisualStyleBackColor = false;
+            // 
             // DonaturDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -282,5 +295,6 @@
         private Button btnprofile;
         private Label lbriwayat;
         private DataGridView dataGridriwayat;
+        private Button btntunai;
     }
 }
