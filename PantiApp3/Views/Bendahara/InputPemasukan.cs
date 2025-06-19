@@ -29,6 +29,7 @@ namespace PantiApp3.Views
 
         public InputPemasukan(Pemasukan data, User user)
         {
+            InitializeComponent();
             existingData = data;
             txtCatatan.Text = data.Catatan;
             txtJumlah.Text = data.Jumlah.ToString();

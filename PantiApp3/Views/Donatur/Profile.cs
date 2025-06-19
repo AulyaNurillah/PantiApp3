@@ -31,7 +31,7 @@ namespace PantiApp3.Views.Donatur
             using (var conn = db.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT id_user, nama_user, no_telp, pass_word FROM users WHERE id_user = @id";
+                string query = "SELECT id_user, nama_user, no_telep, pass_word FROM users WHERE id_user = @id";
 
                 using (var cmd = new NpgsqlCommand(query, conn))
                 {
@@ -43,12 +43,17 @@ namespace PantiApp3.Views.Donatur
                         {
                             tbid_donatur.Text = reader["id_user"].ToString();
                             tbnama.Text = reader["nama_user"].ToString();
-                            tbno_telp.Text = reader["no_telp"].ToString();
+                            tbno_telp.Text = reader["no_telep"].ToString();
                             tbpassword.Text = new string('*', reader["pass_word"].ToString().Length);
                         }
                     }
                 }
             }
+        }
+        private void btnkembali_Click(object sender, EventArgs e)
+        {
+            new DonaturDashboard(Session.CurrentUser).Show();
+            this.Close();
         }
 
         private void btnsimpan_Click(object sender, EventArgs e)
@@ -64,12 +69,12 @@ namespace PantiApp3.Views.Donatur
             using (var conn = db.GetConnection())
             {
                 conn.Open();
-                string update = "UPDATE users SET no_telp = @telp WHERE id_user = @id";
+                string update = "UPDATE users SET no_telep = @telep WHERE id_user = @id";
 
                 using (var cmd = new NpgsqlCommand(update, conn))
                 {
-                    cmd.Parameters.AddWithValue("@telp", nomor);
-                    cmd.Parameters.AddWithValue("@id", currentUser.IdUser); // pakai currentUser
+                    cmd.Parameters.AddWithValue("@telep", nomor);
+                    cmd.Parameters.AddWithValue("@id", currentUser.IdUser); 
 
                     int result = cmd.ExecuteNonQuery();
 

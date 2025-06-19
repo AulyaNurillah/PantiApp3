@@ -31,6 +31,9 @@
             panel1 = new Panel();
             btnkembali = new Button();
             panel2 = new Panel();
+            btnLogout = new Button();
+            tbpassword = new TextBox();
+            label5 = new Label();
             tbno_telp = new TextBox();
             label4 = new Label();
             tbnama = new TextBox();
@@ -38,10 +41,6 @@
             tbid_donatur = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            tbpassword = new TextBox();
-            label5 = new Label();
-            btnLogout = new Button();
-            btnsimpan = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -74,7 +73,6 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.Controls.Add(btnsimpan);
             panel2.Controls.Add(btnLogout);
             panel2.Controls.Add(tbpassword);
             panel2.Controls.Add(label5);
@@ -90,11 +88,43 @@
             panel2.Size = new Size(418, 366);
             panel2.TabIndex = 3;
             // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Red;
+            btnLogout.FlatStyle = FlatStyle.Popup;
+            btnLogout.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnLogout.Location = new Point(148, 309);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(127, 35);
+            btnLogout.TabIndex = 9;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
+            // 
+            // tbpassword
+            // 
+            tbpassword.Location = new Point(31, 263);
+            tbpassword.Name = "tbpassword";
+            tbpassword.ReadOnly = true;
+            tbpassword.Size = new Size(347, 23);
+            tbpassword.TabIndex = 8;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11F);
+            label5.Location = new Point(29, 239);
+            label5.Name = "label5";
+            label5.Size = new Size(70, 20);
+            label5.TabIndex = 7;
+            label5.Text = "Password";
+            // 
             // tbno_telp
             // 
             tbno_telp.Location = new Point(31, 208);
             tbno_telp.Name = "tbno_telp";
-            tbno_telp.Size = new Size(299, 23);
+            tbno_telp.ReadOnly = true;
+            tbno_telp.Size = new Size(347, 23);
             tbno_telp.TabIndex = 6;
             // 
             // label4
@@ -153,50 +183,6 @@
             label1.TabIndex = 0;
             label1.Text = "Profile Donatur";
             // 
-            // tbpassword
-            // 
-            tbpassword.Location = new Point(31, 263);
-            tbpassword.Name = "tbpassword";
-            tbpassword.ReadOnly = true;
-            tbpassword.Size = new Size(347, 23);
-            tbpassword.TabIndex = 8;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11F);
-            label5.Location = new Point(29, 239);
-            label5.Name = "label5";
-            label5.Size = new Size(70, 20);
-            label5.TabIndex = 7;
-            label5.Text = "Password";
-            // 
-            // btnLogout
-            // 
-            btnLogout.BackColor = Color.Red;
-            btnLogout.FlatStyle = FlatStyle.Popup;
-            btnLogout.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnLogout.Location = new Point(148, 309);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(127, 35);
-            btnLogout.TabIndex = 9;
-            btnLogout.Text = "Logout";
-            btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnsimpan
-            // 
-            btnsimpan.BackColor = SystemColors.ButtonShadow;
-            btnsimpan.FlatStyle = FlatStyle.Popup;
-            btnsimpan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnsimpan.Location = new Point(327, 208);
-            btnsimpan.Name = "btnsimpan";
-            btnsimpan.Size = new Size(54, 23);
-            btnsimpan.TabIndex = 10;
-            btnsimpan.Text = "simpan";
-            btnsimpan.UseVisualStyleBackColor = false;
-            this.btnsimpan.Click += new System.EventHandler(this.btnsimpan_Click);
-            // 
             // Profile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -227,6 +213,5 @@
         private TextBox tbpassword;
         private Label label5;
         private Button btnLogout;
-        private Button btnsimpan;
     }
 }
