@@ -1,4 +1,6 @@
-﻿using PantiApp3.Controllers;
+﻿using Npgsql;
+using PantiApp3.Config;
+using PantiApp3.Controllers;
 using PantiApp3.Models;
 using System;
 using System.Drawing;
@@ -84,6 +86,20 @@ namespace PantiApp3.Views
                 return;
             }
 
+            int saldoSekarang = GetSaldoNow();          
+            int batasMaksimal = saldoSekarang - 50_000;
+
+            if (jumlah > batasMaksimal)
+            {
+                MessageBox.Show(
+                    $"Saldo sekarang Rp {saldoSekarang:N0}. " +
+                    $"Pengeluaran maksimum yang diizinkan adalah Rp {batasMaksimal:N0}.",
+                    "Saldo Minimum",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             var pengeluaran = new Pengeluaran
             {
                 Catatan = txtCatatan.Text,
@@ -99,8 +115,21 @@ namespace PantiApp3.Views
                 controller.Update(pengeluaran);
             }
 
-            MessageBox.Show("✅ Data pengeluaran berhasil disimpan.");
+            MessageBox.Show("Data pengeluaran berhasil disimpan.");
             OnDataSaved?.Invoke();
+        }
+        private int GetSaldoNow()
+        {
+            using var conn = new NpgsqlConnection(ConnectDB.GetConnectionString());
+            conn.Open();
+
+            decimal pemasukan = (decimal)new NpgsqlCommand(
+                "SELECT COALESCE(SUM(jumlah),0) FROM pemasukan", conn).ExecuteScalar();
+
+            decimal pengeluaran = (decimal)new NpgsqlCommand(
+                "SELECT COALESCE(SUM(jumlah),0) FROM pengeluaran", conn).ExecuteScalar();
+
+            return (int)(pemasukan - pengeluaran);
         }
     }
 }

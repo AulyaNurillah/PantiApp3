@@ -1,4 +1,6 @@
-﻿using PantiApp3.Controllers;
+﻿using Npgsql;
+using PantiApp3.Config;
+using PantiApp3.Controllers;
 using PantiApp3.Models;
 using PantiApp3.Views;
 using System;
@@ -31,8 +33,29 @@ namespace PantiApp3.Views
             panelForm.Visible = false;
         }
 
+        private decimal GetSaldoNow()
+        {
+            using var conn = new NpgsqlConnection(ConnectDB.GetConnectionString());
+            conn.Open();
+
+            decimal pemasukan = (decimal)new NpgsqlCommand("SELECT COALESCE(SUM(jumlah), 0) FROM pemasukan", conn).ExecuteScalar();
+            decimal pengeluaran = (decimal)new NpgsqlCommand("SELECT COALESCE(SUM(jumlah), 0) FROM pengeluaran", conn).ExecuteScalar();
+
+            return pemasukan - pengeluaran;
+        }
         private void btnTambah_Click(object sender, EventArgs e)
         {
+            if (GetSaldoNow() <= 50000)
+            {
+                MessageBox.Show(
+                    "Saldo saat ini kurang dari Rp 50.000.\n" +
+                    "Transaksi pengeluaran tidak dapat dilakukan.",
+                    "Saldo Minimum",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             dgvPengeluaran.Visible = false;
             panelForm.Controls.Clear();
 
