@@ -44,6 +44,12 @@ namespace PantiApp3.Views.Donatur
                 }
             }
         }
+        private void btnkembali_Click(object sender, EventArgs e)
+        {
+            var dashboard = new DonaturDashboard(currentUser);
+            dashboard.Show();
+            this.Hide();
+        }
 
         private void btnkembali_Click(object sender, EventArgs e)
         {
@@ -63,6 +69,8 @@ namespace PantiApp3.Views.Donatur
 
             using (var conn = db.GetConnection())
             {
+                MessageBox.Show("Nomor yang akan disimpan: " + nomor);
+
                 conn.Open();
                 string update = "UPDATE users SET no_telep = @telep WHERE id_user = @id";
 

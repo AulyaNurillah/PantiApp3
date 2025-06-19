@@ -34,18 +34,15 @@
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
-
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(btnkembali);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(757, 83);
+            panel1.Size = new Size(530, 50);
             panel1.TabIndex = 2;
-
             // 
             // btnkembali
             // 
@@ -53,16 +50,14 @@
             btnkembali.FlatStyle = FlatStyle.Flat;
             btnkembali.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnkembali.ForeColor = Color.FromArgb(64, 64, 64);
-            btnkembali.Location = new Point(44, 12);
-            btnkembali.Margin = new Padding(4, 5, 4, 5);
+            btnkembali.Location = new Point(31, 7);
             btnkembali.Name = "btnkembali";
-            btnkembali.Size = new Size(147, 62);
+            btnkembali.Size = new Size(103, 37);
             btnkembali.TabIndex = 0;
             btnkembali.Text = "<  Kembali";
             btnkembali.TextAlign = ContentAlignment.TopLeft;
             btnkembali.UseVisualStyleBackColor = false;
             btnkembali.Click += btnkembali_Click;
-
             // 
             // panel2
             // 
@@ -79,24 +74,19 @@
             panel2.Controls.Add(tbid_donatur);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(81, 120);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(57, 72);
             panel2.Name = "panel2";
-            panel2.Size = new Size(597, 610);
+            panel2.Size = new Size(418, 366);
             panel2.TabIndex = 3;
-
-            // 
-            // btnsimpan
             // 
             // btnsimpan
             // 
             btnsimpan.BackColor = SystemColors.ButtonShadow;
             btnsimpan.FlatStyle = FlatStyle.Popup;
             btnsimpan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnsimpan.Location = new Point(467, 347);
-            btnsimpan.Margin = new Padding(4, 5, 4, 5);
+            btnsimpan.Location = new Point(308, 208);
             btnsimpan.Name = "btnsimpan";
-            btnsimpan.Size = new Size(100, 38);
+            btnsimpan.Size = new Size(70, 23);
             btnsimpan.TabIndex = 10;
             btnsimpan.Text = "simpan";
             btnsimpan.UseVisualStyleBackColor = false;
@@ -107,10 +97,9 @@
             btnLogout.BackColor = Color.Red;
             btnLogout.FlatStyle = FlatStyle.Popup;
             btnLogout.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnLogout.Location = new Point(211, 515);
-            btnLogout.Margin = new Padding(4, 5, 4, 5);
+            btnLogout.Location = new Point(148, 309);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(181, 58);
+            btnLogout.Size = new Size(127, 35);
             btnLogout.TabIndex = 9;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
@@ -118,108 +107,92 @@
             // 
             // tbpassword
             // 
-            tbpassword.Location = new Point(44, 438);
-            tbpassword.Margin = new Padding(4, 5, 4, 5);
+            tbpassword.Location = new Point(31, 263);
             tbpassword.Name = "tbpassword";
             tbpassword.ReadOnly = true;
-            tbpassword.Size = new Size(494, 31);
+            tbpassword.Size = new Size(347, 23);
             tbpassword.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11F);
-            label5.Location = new Point(41, 398);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(29, 239);
             label5.Name = "label5";
-            label5.Size = new Size(103, 30);
+            label5.Size = new Size(70, 20);
             label5.TabIndex = 7;
             label5.Text = "Password";
             // 
             // tbno_telp
             // 
-            tbno_telp.Location = new Point(44, 347);
-            tbno_telp.Margin = new Padding(4, 5, 4, 5);
+            tbno_telp.Location = new Point(31, 208);
             tbno_telp.Name = "tbno_telp";
-            tbno_telp.Size = new Size(425, 31);
+            tbno_telp.Size = new Size(283, 23);
             tbno_telp.TabIndex = 6;
-
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11F);
-            label4.Location = new Point(41, 307);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(29, 184);
             label4.Name = "label4";
-            label4.Size = new Size(125, 30);
+            label4.Size = new Size(86, 20);
             label4.TabIndex = 5;
             label4.Text = "No Telepon";
-
             // 
             // tbnama
             // 
-            tbnama.Location = new Point(44, 255);
-            tbnama.Margin = new Padding(4, 5, 4, 5);
+            tbnama.Location = new Point(31, 153);
             tbnama.Name = "tbnama";
             tbnama.ReadOnly = true;
-            tbnama.Size = new Size(494, 31);
+            tbnama.Size = new Size(347, 23);
             tbnama.TabIndex = 4;
-
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(41, 215);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(29, 129);
             label3.Name = "label3";
-            label3.Size = new Size(70, 30);
+            label3.Size = new Size(49, 20);
             label3.TabIndex = 3;
             label3.Text = "Nama";
-
             // 
             // tbid_donatur
             // 
-            tbid_donatur.Location = new Point(44, 167);
-            tbid_donatur.Margin = new Padding(4, 5, 4, 5);
+            tbid_donatur.Location = new Point(31, 100);
             tbid_donatur.Name = "tbid_donatur";
             tbid_donatur.ReadOnly = true;
-            tbid_donatur.Size = new Size(494, 31);
+            tbid_donatur.Size = new Size(347, 23);
             tbid_donatur.TabIndex = 2;
-
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(41, 127);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(29, 76);
             label2.Name = "label2";
-            label2.Size = new Size(118, 30);
+            label2.Size = new Size(82, 20);
             label2.TabIndex = 1;
             label2.Text = "ID Donatur";
-
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            label1.Location = new Point(36, 42);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(25, 25);
             label1.Name = "label1";
-            label1.Size = new Size(280, 48);
+            label1.Size = new Size(192, 32);
             label1.TabIndex = 0;
             label1.Text = "Profile Donatur";
             // 
             // Profile
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(757, 750);
+            ClientSize = new Size(530, 449);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Profile";
             Text = "Profile";
             panel1.ResumeLayout(false);

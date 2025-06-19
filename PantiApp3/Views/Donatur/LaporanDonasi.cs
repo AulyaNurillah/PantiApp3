@@ -1,39 +1,34 @@
 ﻿using Npgsql;
 using PantiApp3.Config;
 using PantiApp3.Models;
+using PantiApp3.Views.Donatur;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PantiApp3.Views
 {
     public partial class LaporanDonasi : Form
     {
-        ConnectDB db = new ConnectDB();
-        private User currentUser;
+        private readonly ConnectDB db = new ConnectDB();
+        private readonly User currentUser;
+
         public LaporanDonasi(User user)
         {
             InitializeComponent();
             currentUser = user;
         }
 
-        private void Laporan_Donasi_Load(object sender, EventArgs e)
+        private void LaporanDonasi_Load(object sender, EventArgs e)
         {
+            LoadAllData();
             cbjangka_waktu.SelectedIndex = 0;
-            LoadDataByRange();
         }
-
 
         private void btnkembali_Click(object sender, EventArgs e)
         {
-            new DonaturDashboard(Session.CurrentUser).Show();
-            this.Hide();
+            new DonaturDashboard(currentUser).Show();
+            this.Close();
         }
 
         private void cbjangka_waktu_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,12 +36,26 @@ namespace PantiApp3.Views
             LoadDataByRange();
         }
 
+        private void LoadAllData()
+        {
+            string query = "SELECT id_donasi, tanggal_donasi, jenis_donasi, jumlah_donasi FROM donasi WHERE id_user = @id_user ORDER BY tanggal_donasi DESC";
+
+            using var conn = db.OpenConnection();
+            using var cmd = new NpgsqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id_user", currentUser.IdUser);
+
+            using var adapter = new NpgsqlDataAdapter(cmd);
+            var dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridriwayat1.DataSource = dt;
+        }
+
         private void LoadDataByRange()
         {
             string selected = cbjangka_waktu.SelectedItem.ToString();
             string query = "SELECT id_donasi, tanggal_donasi, jenis_donasi, jumlah_donasi FROM donasi WHERE id_user = @id_user";
 
-            if (selected != "Semua")
+            if (!selected.Equals("Semua"))
             {
                 int bulan = selected.Contains("Tahun") ? 12 : int.Parse(selected.Split(' ')[0]);
                 query += " AND tanggal_donasi >= @mulai";
@@ -54,8 +63,8 @@ namespace PantiApp3.Views
 
             query += " ORDER BY tanggal_donasi DESC";
 
-            var conn = db.GetConnection();
-            var cmd = new NpgsqlCommand(query, conn);
+            using var conn = db.OpenConnection();
+            using var cmd = new NpgsqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id_user", currentUser.IdUser);
 
             if (!selected.Equals("Semua"))
@@ -64,17 +73,15 @@ namespace PantiApp3.Views
                 cmd.Parameters.AddWithValue("@mulai", DateTime.Now.AddMonths(-bulan));
             }
 
+            using var adapter = new NpgsqlDataAdapter(cmd);
             var dt = new DataTable();
-            conn.Open();
-            dt.Load(cmd.ExecuteReader());
-            conn.Close();
-
+            adapter.Fill(dt);
             dataGridriwayat1.DataSource = dt;
         }
 
         private void dataGridriwayat1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Optional handling
         }
     }
 }
