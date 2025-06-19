@@ -21,7 +21,6 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondonaturD = new Button();
             buttonpengurusP = new Button();
-            buttonlogoutD = new Button(); // Tambahan
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -57,7 +56,7 @@
             tableLayoutPanel1.Controls.Add(buttonanakasuhD, 0, 0);
             tableLayoutPanel1.Controls.Add(buttondonaturD, 0, 1);
             tableLayoutPanel1.Controls.Add(buttonpengurusP, 0, 2);
-            tableLayoutPanel1.Controls.Add(buttonlogoutD, 0, 3); // Tambahan
+            tableLayoutPanel1.Controls.Add(buttonlogout, 0, 3); // Tambahan
             tableLayoutPanel1.Location = new Point(15, 13);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -86,16 +85,16 @@
             buttonpengurusP.Text = "Pengurus";
             buttonpengurusP.UseVisualStyleBackColor = true;
             // 
-            // buttonlogoutD
+            // buttonlogout
             // 
-            buttonlogoutD.BackColor = Color.IndianRed;
-            buttonlogoutD.ForeColor = Color.White;
-            buttonlogoutD.Location = new Point(3, 138);
-            buttonlogoutD.Name = "buttonlogoutD";
-            buttonlogoutD.Size = new Size(112, 34);
-            buttonlogoutD.TabIndex = 4;
-            buttonlogoutD.Text = "Logout";
-            buttonlogoutD.UseVisualStyleBackColor = false;
+            buttonlogout.BackColor = Color.IndianRed;
+            buttonlogout.ForeColor = Color.White;
+            buttonlogout.Location = new Point(3, 138);
+            buttonlogout.Name = "buttonlogoutD";
+            buttonlogout.Size = new Size(112, 34);
+            buttonlogout.TabIndex = 4;
+            buttonlogout.Text = "Logout";
+            buttonlogout.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -209,6 +208,7 @@
             buttonlogout.TabIndex = 10;
             buttonlogout.Text = "Logout";
             buttonlogout.UseVisualStyleBackColor = true;
+            buttonlogout.Click += buttonlogout_Click;
             // 
             // Dashboard
             // 
@@ -250,6 +250,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private Button buttonpengurusP;
-        private Button buttonlogoutD; // Tambahan
+        private Button buttonlogout; // Tambahan
     }
 }

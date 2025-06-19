@@ -54,7 +54,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nama", $"%{nama}%");
             cmd.Parameters.AddWithValue("@jk", $"%{jk}%");
-            cmd.Parameters.AddWithValue("@umur", umur);  // ← Perbaiki
+            cmd.Parameters.AddWithValue("@umur", usia);  // ← Perbaiki
 
             using var rd = cmd.ExecuteReader();
             while (rd.Read())
@@ -75,7 +75,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             using var conn = new NpgsqlConnection(_conn);
             conn.Open();
 
-            const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, user_id_user)
+            const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, id_user)
                                  VALUES (@nama, @jk, @usia, @userId)";
 
             using var cmd = new NpgsqlCommand(sql, conn);

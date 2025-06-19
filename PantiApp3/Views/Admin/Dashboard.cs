@@ -30,7 +30,7 @@ namespace Panti_Asuhan_Role_Admin
             buttonpengurusP.Click += (s, e) => _ctrl.NavigateToPengurus();
         }
 
-        private void HandleLogout()
+        private void buttonlogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Yakin ingin logout?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)

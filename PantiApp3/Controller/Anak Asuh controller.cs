@@ -7,7 +7,6 @@ namespace Panti_Asuhan_Role_Admin.Controller
 {
     public class Anak_Asuh_controller
     {
-
         public List<AnakAsuhModel> GetAllAnak() =>
             Anak_Asuh_model.GetAll();
 
@@ -15,7 +14,7 @@ namespace Panti_Asuhan_Role_Admin.Controller
             Anak_Asuh_model.Search(nama, jenisKelamin,usia);
 
 
-        public bool TambahAnak(string nama, string jenisKelamin, int usia)
+        public bool TambahAnak(string nama, string jenisKelamin, int usia, int IdUser)
         {
             if (string.IsNullOrWhiteSpace(nama) ||
                 string.IsNullOrWhiteSpace(jenisKelamin) ||
