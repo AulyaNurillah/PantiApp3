@@ -2,13 +2,6 @@
 using PantiApp3.Config;
 using PantiApp3.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PantiApp3.Views.Donatur
@@ -18,11 +11,12 @@ namespace PantiApp3.Views.Donatur
         private ConnectDB db = new ConnectDB();
         private User currentUser;
 
-        public Profile(User user) 
+        public Profile(User user)
         {
             InitializeComponent();
             currentUser = user;
             Session.IdUser = user.IdUser;
+            tbno_telp.ReadOnly = false; // bisa diubah
             LoadProfile();
         }
 
@@ -50,9 +44,10 @@ namespace PantiApp3.Views.Donatur
                 }
             }
         }
+
         private void btnkembali_Click(object sender, EventArgs e)
         {
-            new DonaturDashboard(Session.CurrentUser).Show();
+            new DonaturDashboard(currentUser).Show();
             this.Close();
         }
 
@@ -74,7 +69,7 @@ namespace PantiApp3.Views.Donatur
                 using (var cmd = new NpgsqlCommand(update, conn))
                 {
                     cmd.Parameters.AddWithValue("@telep", nomor);
-                    cmd.Parameters.AddWithValue("@id", currentUser.IdUser); 
+                    cmd.Parameters.AddWithValue("@id", currentUser.IdUser);
 
                     int result = cmd.ExecuteNonQuery();
 
@@ -89,6 +84,7 @@ namespace PantiApp3.Views.Donatur
                 }
             }
         }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Hide();

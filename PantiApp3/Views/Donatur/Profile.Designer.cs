@@ -2,15 +2,8 @@
 {
     partial class Profile
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,15 +15,12 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             panel1 = new Panel();
             btnkembali = new Button();
             panel2 = new Panel();
+            btnsimpan = new Button();
             btnLogout = new Button();
             tbpassword = new TextBox();
             label5 = new Label();
@@ -41,9 +31,11 @@
             tbid_donatur = new TextBox();
             label2 = new Label();
             label1 = new Label();
+
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
+
             // 
             // panel1
             // 
@@ -53,11 +45,11 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(530, 50);
             panel1.TabIndex = 2;
+
             // 
             // btnkembali
             // 
             btnkembali.BackColor = Color.Transparent;
-            btnkembali.BackgroundImageLayout = ImageLayout.None;
             btnkembali.FlatStyle = FlatStyle.Flat;
             btnkembali.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnkembali.ForeColor = Color.FromArgb(64, 64, 64);
@@ -68,11 +60,14 @@
             btnkembali.Text = "<  Kembali";
             btnkembali.TextAlign = ContentAlignment.TopLeft;
             btnkembali.UseVisualStyleBackColor = false;
+            btnkembali.Click += btnkembali_Click;
+
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(btnsimpan);
             panel2.Controls.Add(btnLogout);
             panel2.Controls.Add(tbpassword);
             panel2.Controls.Add(label5);
@@ -87,6 +82,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(418, 366);
             panel2.TabIndex = 3;
+
+            // 
+            // btnsimpan
+            // 
+            btnsimpan.BackColor = Color.LightGray;
+            btnsimpan.FlatStyle = FlatStyle.Flat;
+            btnsimpan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnsimpan.ForeColor = Color.Black;
+            btnsimpan.Location = new Point(300, 208);
+            btnsimpan.Name = "btnsimpan";
+            btnsimpan.Size = new Size(78, 23);
+            btnsimpan.TabIndex = 11;
+            btnsimpan.Text = "Simpan";
+            btnsimpan.UseVisualStyleBackColor = false;
+            btnsimpan.Click += btnsimpan_Click;
+
             // 
             // btnLogout
             // 
@@ -100,6 +111,7 @@
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+
             // 
             // tbpassword
             // 
@@ -108,6 +120,7 @@
             tbpassword.ReadOnly = true;
             tbpassword.Size = new Size(347, 23);
             tbpassword.TabIndex = 8;
+
             // 
             // label5
             // 
@@ -118,14 +131,16 @@
             label5.Size = new Size(70, 20);
             label5.TabIndex = 7;
             label5.Text = "Password";
+
             // 
             // tbno_telp
             // 
             tbno_telp.Location = new Point(31, 208);
             tbno_telp.Name = "tbno_telp";
             tbno_telp.ReadOnly = true;
-            tbno_telp.Size = new Size(347, 23);
+            tbno_telp.Size = new Size(260, 23);
             tbno_telp.TabIndex = 6;
+
             // 
             // label4
             // 
@@ -136,6 +151,7 @@
             label4.Size = new Size(86, 20);
             label4.TabIndex = 5;
             label4.Text = "No Telepon";
+
             // 
             // tbnama
             // 
@@ -144,6 +160,7 @@
             tbnama.ReadOnly = true;
             tbnama.Size = new Size(347, 23);
             tbnama.TabIndex = 4;
+
             // 
             // label3
             // 
@@ -154,6 +171,7 @@
             label3.Size = new Size(49, 20);
             label3.TabIndex = 3;
             label3.Text = "Nama";
+
             // 
             // tbid_donatur
             // 
@@ -162,6 +180,7 @@
             tbid_donatur.ReadOnly = true;
             tbid_donatur.Size = new Size(347, 23);
             tbid_donatur.TabIndex = 2;
+
             // 
             // label2
             // 
@@ -172,6 +191,7 @@
             label2.Size = new Size(82, 20);
             label2.TabIndex = 1;
             label2.Text = "ID Donatur";
+
             // 
             // label1
             // 
@@ -182,6 +202,7 @@
             label1.Size = new Size(192, 32);
             label1.TabIndex = 0;
             label1.Text = "Profile Donatur";
+
             // 
             // Profile
             // 
@@ -213,5 +234,6 @@
         private TextBox tbpassword;
         private Label label5;
         private Button btnLogout;
+        private Button btnsimpan;
     }
 }
