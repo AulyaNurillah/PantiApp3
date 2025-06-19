@@ -33,9 +33,6 @@
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridViewanakasuh = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondashboardA = new Button();
             buttontambahanakasuh = new Button();
@@ -45,6 +42,10 @@
             labelnamaanak2 = new Label();
             textBoxusia = new TextBox();
             labelusia = new Label();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewComboBoxColumn();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewanakasuh).BeginInit();
@@ -96,39 +97,12 @@
             // dataGridViewanakasuh
             // 
             dataGridViewanakasuh.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewanakasuh.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridViewanakasuh.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dataGridViewanakasuh.Location = new Point(3, 3);
             dataGridViewanakasuh.Name = "dataGridViewanakasuh";
             dataGridViewanakasuh.RowHeadersWidth = 62;
             dataGridViewanakasuh.Size = new Size(590, 201);
             dataGridViewanakasuh.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "ID";
-            Column1.MinimumWidth = 8;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Visible = false;
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Nama";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Visible = false;
-            Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Jenis Kelamin";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Visible = false;
-            Column3.Width = 150;
             // 
             // tableLayoutPanel1
             // 
@@ -158,7 +132,7 @@
             // buttontambahanakasuh
             // 
             buttontambahanakasuh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            buttontambahanakasuh.Location = new Point(610, 186);
+            buttontambahanakasuh.Location = new Point(678, 142);
             buttontambahanakasuh.Name = "buttontambahanakasuh";
             buttontambahanakasuh.Size = new Size(91, 34);
             buttontambahanakasuh.TabIndex = 11;
@@ -167,9 +141,9 @@
             // 
             // buttoncarianakasuh
             // 
-            buttoncarianakasuh.Location = new Point(703, 187);
+            buttoncarianakasuh.Location = new Point(678, 187);
             buttoncarianakasuh.Name = "buttoncarianakasuh";
-            buttoncarianakasuh.Size = new Size(64, 34);
+            buttoncarianakasuh.Size = new Size(89, 34);
             buttoncarianakasuh.TabIndex = 12;
             buttoncarianakasuh.Text = "Cari";
             buttoncarianakasuh.UseVisualStyleBackColor = true;
@@ -205,7 +179,7 @@
             // 
             textBoxusia.Location = new Point(486, 189);
             textBoxusia.Name = "textBoxusia";
-            textBoxusia.Size = new Size(108, 31);
+            textBoxusia.Size = new Size(66, 31);
             textBoxusia.TabIndex = 16;
             // 
             // labelusia
@@ -217,6 +191,41 @@
             labelusia.Size = new Size(45, 25);
             labelusia.TabIndex = 17;
             labelusia.Text = "Usia";
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.MinimumWidth = 8;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Visible = false;
+            Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Nama";
+            Column2.MinimumWidth = 8;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Visible = false;
+            Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Jenis Kelamin";
+            Column3.MinimumWidth = 8;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Visible = false;
+            Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Status";
+            Column4.Items.AddRange(new object[] { "Aktif", "Diadopsi" });
+            Column4.MinimumWidth = 8;
+            Column4.Name = "Column4";
+            Column4.Width = 150;
             // 
             // Anak_Asuh
             // 
@@ -265,5 +274,6 @@
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
+        private DataGridViewComboBoxColumn Column4;
     }
 }

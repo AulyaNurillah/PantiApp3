@@ -20,7 +20,7 @@ namespace Panti_Asuhan_Role_Admin
 
             Load += Anak_Asuh_Load;
             buttontambahanakasuh.Click += buttonTambah_Click;
-            buttoncarianakasuh.Click += buttonCari_Click;
+            buttoncarianakasuh.Click += btnCari_Click;
 
            
             buttondashboardA.Click += (s, e) =>
@@ -37,17 +37,18 @@ namespace Panti_Asuhan_Role_Admin
             dataGridViewanakasuh.DataSource = _ctrl.GetAllAnak();
         }
 
-       
-        private void buttonCari_Click(object? sender, EventArgs e)
-        {
-            string nama = textBoxnamaanak.Text.Trim();
-            string jk = comboBoxjeniskelamin.Text;
-            int.TryParse(textBoxusia.Text, out int usia);   
 
-            dataGridViewanakasuh.DataSource = _ctrl.CariAnak(nama, jk, usia);
+        private void btnCari_Click(object sender, EventArgs e)
+        {
+            string keyword = textBoxnamaanak.Text.Trim();
+            string jeniskelamin = comboBoxjeniskelamin.SelectedItem?.ToString()?.ToLower() ?? "nama";
+            // Contoh isi ComboBox: "nama", "jk", "usia"
+
+            dataGridViewanakasuh.DataSource = _ctrl.CariAnak(keyword, jeniskelamin);
         }
 
-       
+
+
         private void buttonTambah_Click(object? sender, EventArgs e)
         {
             string nama = textBoxnamaanak.Text.Trim();
