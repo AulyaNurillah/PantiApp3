@@ -19,7 +19,7 @@ namespace Panti_Asuhan_Role_Admin
             currentUser = user;
 
             Load += (s, e) => dataGridView1.DataSource = Dashboard_model.TampilSemuaUser();
-
+            // Tombol cari: gunakan teks username
             buttoncariD.Click += (s, e) =>
             {
                 dataGridView1.DataSource = Dashboard_model.PerformSearch(textBoxnamaD.Text);
@@ -28,8 +28,6 @@ namespace Panti_Asuhan_Role_Admin
             buttonanakasuhD.Click += (s, e) => _ctrl.NavigateToAnakAsuh();
             buttondonaturD.Click += (s, e) => _ctrl.NavigateToDonatur();
             buttonpengurusP.Click += (s, e) => _ctrl.NavigateToPengurus();
-
-            buttonlogoutD.Click += (s, e) => HandleLogout();
         }
 
         private void HandleLogout()

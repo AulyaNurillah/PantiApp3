@@ -11,10 +11,10 @@ namespace Panti_Asuhan_Role_Admin
         private readonly Donatur_controller _ctrl = new Donatur_controller();
         private readonly Form? _dashboard;
 
-        /* ctor kosong */
+      
         public Donatur() : this(null) { }
 
-        /* ctor utama */
+        
         public Donatur(Form? dashboard)
         {
             InitializeComponent();
@@ -23,27 +23,22 @@ namespace Panti_Asuhan_Role_Admin
             Load += Donatur_Load;
             buttoncariDO.Click += buttonCari_Click;
 
-            // Navigasi
+           
             buttondashboardA.Click += (s, e) =>
             {
                 _dashboard?.Show();
                 Close();
             };
-            //buttonanakasuhDO.Click += (s, e) =>
-            //{
-            //    var anakForm = new Anak_Asuh(this); // lempar Donatur sebagai parent, bukan dashboard
-            //    anakForm.Show();
-            //    Hide();
-            //};
+            
         }
 
-        /* -------------- LOAD DATA GRID -------------- */
+
         private void Donatur_Load(object? sender, EventArgs e)
         {
             dataGridViewdonatur.DataSource = _ctrl.TampilSemuaDonatur();
         }
 
-        /* -------------- TOMBOL CARI ----------------- */
+
         private void buttonCari_Click(object? sender, EventArgs e)
         {
             string username = textBox1.Text.Trim();
@@ -55,7 +50,7 @@ namespace Panti_Asuhan_Role_Admin
                 return;
             }
 
-            var donor = _ctrl.CariDonaturByusername(username);   // ← panggil controller
+            var donor = _ctrl.CariDonaturByusername(username);   
 
             dataGridViewdonatur.DataSource = donor != null
                 ? new List<DonaturModel> { donor }

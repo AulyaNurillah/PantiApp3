@@ -10,20 +10,7 @@ using System.Collections.Generic;
 
 namespace Panti_Asuhan_Role_Admin.Controller
 {
-    //internal class Donatur_controller
-    //{
-    //    private Donatur_model model = new Donatur_model();
-
-    //    public List<Panti_Asuhan_Role_Admin.Model.Donatur> TampilSemuaDonatur()
-    //    {
-    //        return model.GetAllDonatur();
-    //    }
-
-    //    public Panti_Asuhan_Role_Admin.Model.Donatur CariDonaturById(int id)
-    //    {
-    //        return Donatur_model.GetDonaturById(id);
-    //    }
-    //}
+    
     public class Donatur_controller
     {
         public List<DonaturModel> TampilSemuaDonatur() =>

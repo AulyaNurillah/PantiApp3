@@ -49,12 +49,12 @@ namespace Panti_Asuhan_Role_Admin.Model
                            FROM anak_asuh
                            WHERE nama_anak ILIKE @nama
                              AND jenis_kelamin ILIKE @jk
-                             AND usia = @usia"; 
+                             AND usia = @umur"; // ← BUKAN ILIKE utk integer
 
             using var cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nama", $"%{nama}%");
             cmd.Parameters.AddWithValue("@jk", $"%{jk}%");
-            cmd.Parameters.AddWithValue("@usia", usia);  
+            cmd.Parameters.AddWithValue("@umur", umur);  // ← Perbaiki
 
             using var rd = cmd.ExecuteReader();
             while (rd.Read())
@@ -75,7 +75,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             using var conn = new NpgsqlConnection(_conn);
             conn.Open();
 
-            const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, id_user)
+            const string sql = @"INSERT INTO anak_asuh (nama_anak, jenis_kelamin, usia, user_id_user)
                                  VALUES (@nama, @jk, @usia, @userId)";
 
             using var cmd = new NpgsqlCommand(sql, conn);
@@ -83,7 +83,9 @@ namespace Panti_Asuhan_Role_Admin.Model
             cmd.Parameters.AddWithValue("@jk", jenisKelamin);
             cmd.Parameters.AddWithValue("@usia", usia);
             cmd.Parameters.AddWithValue("@userId", userId);
+
             cmd.ExecuteNonQuery();
         }
+
     }
 }

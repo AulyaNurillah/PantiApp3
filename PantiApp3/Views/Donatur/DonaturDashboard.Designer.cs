@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonaturDashboard));
             label1 = new Label();
             panel1 = new Panel();
             btnprofile = new Button();
@@ -44,7 +45,6 @@
             lblaporan_donasi = new Label();
             lbriwayat = new Label();
             dataGridriwayat = new DataGridView();
-            btnLogout = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbtambah_donasi).BeginInit();
@@ -66,7 +66,6 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnprofile);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -81,14 +80,17 @@
             btnprofile.FlatStyle = FlatStyle.Flat;
             btnprofile.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnprofile.ForeColor = Color.FromArgb(64, 64, 64);
+            btnprofile.Image = (Image)resources.GetObject("btnprofile.Image");
             btnprofile.ImageAlign = ContentAlignment.MiddleRight;
-            btnprofile.Location = new Point(594, 30);
+            btnprofile.Location = new Point(687, 12);
             btnprofile.Name = "btnprofile";
-            btnprofile.Size = new Size(88, 30);
+            btnprofile.Size = new Size(101, 48);
             btnprofile.TabIndex = 3;
             btnprofile.Text = "Profile";
+            btnprofile.TextAlign = ContentAlignment.MiddleLeft;
             btnprofile.UseCompatibleTextRendering = true;
             btnprofile.UseVisualStyleBackColor = false;
+            btnprofile.Click += btnprofile_Click;
             // 
             // label2
             // 
@@ -124,6 +126,7 @@
             // 
             // pbtambah_donasi
             // 
+            pbtambah_donasi.Image = (Image)resources.GetObject("pbtambah_donasi.Image");
             pbtambah_donasi.Location = new Point(24, 15);
             pbtambah_donasi.Name = "pbtambah_donasi";
             pbtambah_donasi.Size = new Size(50, 50);
@@ -189,6 +192,7 @@
             // 
             // pblaporan_donasi
             // 
+            pblaporan_donasi.Image = (Image)resources.GetObject("pblaporan_donasi.Image");
             pblaporan_donasi.Location = new Point(24, 15);
             pblaporan_donasi.Name = "pblaporan_donasi";
             pblaporan_donasi.Size = new Size(48, 48);
@@ -234,20 +238,6 @@
             dataGridriwayat.Size = new Size(625, 125);
             dataGridriwayat.TabIndex = 8;
             // 
-            // btnLogout
-            // 
-            btnLogout.BackColor = Color.IndianRed;
-            btnLogout.FlatStyle = FlatStyle.Popup;
-            btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(688, 30);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(100, 30);
-            btnLogout.TabIndex = 9;
-            btnLogout.Text = "Logout";
-            btnLogout.UseVisualStyleBackColor = false;
-            btnLogout.Click += btnLogout_Click;
-            // 
             // DonaturDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -290,7 +280,6 @@
         private Button btnlaporan_donasi;
         private Label label2;
         private Button btnprofile;
-        private Button btnLogout;
         private Label lbriwayat;
         private DataGridView dataGridriwayat;
     }

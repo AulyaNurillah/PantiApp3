@@ -16,7 +16,7 @@ namespace Panti_Asuhan_Role_Admin.Model
 
     internal static class Dashboard_model
     {
-        /* ---------- SELECT ALL USER + ROLE ---------- */
+
         public static List<UserViewModel> TampilSemuaUser()
         {
             var users = new List<UserViewModel>();
@@ -43,7 +43,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             return users;
         }
 
-        /* ---------- SELECT BY USERNAME ---------- */
+
         public static UserViewModel? CariUserBynama(string nama)
         {
             using var db = new ConnectDB();
@@ -57,7 +57,7 @@ namespace Panti_Asuhan_Role_Admin.Model
         LIMIT 1;";
 
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@uname", "%" + nama + "%"); // substring + case‑insensitive
+            cmd.Parameters.AddWithValue("@uname", "%" + nama + "%"); 
 
             using var rd = cmd.ExecuteReader();
             return rd.Read()
@@ -71,14 +71,14 @@ namespace Panti_Asuhan_Role_Admin.Model
         }
 
 
-        /* ---------- VALIDASI USERNAME ---------- */
+
         public static bool ValidateSearchInput(string input)
         {
             return !string.IsNullOrWhiteSpace(input);
         }
 
 
-        /* ---------- PENCARIAN USERNAME → LIST ---------- */
+
         public static List<UserViewModel> PerformSearch(string input)
         {
             var list = new List<UserViewModel>();

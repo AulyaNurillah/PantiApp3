@@ -9,10 +9,10 @@ namespace Panti_Asuhan_Role_Admin
         private readonly Anak_Asuh_controller _ctrl = new Anak_Asuh_controller();
         private readonly Form? _dashboard;
 
-        // ctor kosong → panggil ctor utama, _dashboard = null
+       
         public Anak_Asuh() : this(null) { }
 
-        // ctor utama menerima dashboard (boleh null)
+       
         public Anak_Asuh(Form? dashboard)
         {
             InitializeComponent();
@@ -22,37 +22,32 @@ namespace Panti_Asuhan_Role_Admin
             buttontambahanakasuh.Click += buttonTambah_Click;
             buttoncarianakasuh.Click += buttonCari_Click;
 
-            // Navigasi
+           
             buttondashboardA.Click += (s, e) =>
             {
                 _dashboard?.Show();
                 Close();
             };
-            //buttondonaturA.Click += (s, e) =>
-            //{
-            //    var donaturForm = new Donatur(this); // jangan lempar _dashboard
-            //    donaturForm.Show();
-            //    Hide(); // hide saja biar tidak muncul 2 form
-            //};
+           
         }
 
-        /* ---------------- FORM LOAD ---------------- */
+       
         private void Anak_Asuh_Load(object? sender, EventArgs e)
         {
             dataGridViewanakasuh.DataSource = _ctrl.GetAllAnak();
         }
 
-        /* ---------------- TOMBOL CARI --------------- */
+       
         private void buttonCari_Click(object? sender, EventArgs e)
         {
             string nama = textBoxnamaanak.Text.Trim();
             string jk = comboBoxjeniskelamin.Text;
-            int.TryParse(textBoxusia.Text, out int usia);   // usia opsional
+            int.TryParse(textBoxusia.Text, out int usia);   
 
             dataGridViewanakasuh.DataSource = _ctrl.CariAnak(nama, jk, usia);
         }
 
-        /* ---------------- TOMBOL TAMBAH ------------- */
+       
         private void buttonTambah_Click(object? sender, EventArgs e)
         {
             string nama = textBoxnamaanak.Text.Trim();
@@ -65,7 +60,7 @@ namespace Panti_Asuhan_Role_Admin
                 return;
             }
 
-            int userId = 1;  // TODO: ganti dgn ID user login
+            int userId = 1;  
 
             if (_ctrl.TambahAnak(nama, jk, usia, userId))
             {

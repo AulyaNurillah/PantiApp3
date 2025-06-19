@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
-using PantiApp3.Config; // Pastikan namespace ini sesuai dengan file ConnectDB.cs
+using PantiApp3.Config; 
 
 namespace Panti_Asuhan_Role_Admin.Model
 {
@@ -20,7 +20,7 @@ namespace Panti_Asuhan_Role_Admin.Model
     {
         private static readonly string _conn = ConnectDB.GetConnectionString();
 
-        // Ambil semua data donatur (+ role jika ada)
+       
         public static List<PengurusModel> TampilSemuaPengurus()
         {
             var pengurs = new List<PengurusModel>();
@@ -30,7 +30,7 @@ namespace Panti_Asuhan_Role_Admin.Model
 
             try
             {
-                // ───── SQL: join ke tabel roles jika memang ada kolom role_id_role ─────
+
                 string sql = @"
                 SELECT  u.id_user          AS id_pengurus,
                         u.username,
@@ -52,7 +52,7 @@ namespace Panti_Asuhan_Role_Admin.Model
                             Id_Pengurus = reader.GetInt32(0),
                             Username = reader.GetString(1),
                             Password = reader.GetString(2),
-                            No_Telepon = reader.GetString(3)          // hilangkan jika tak pakai role
+                            No_Telepon = reader.GetString(3)          
                         });
                     }
                 }

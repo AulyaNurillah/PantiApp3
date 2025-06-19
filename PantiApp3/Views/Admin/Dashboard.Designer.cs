@@ -33,6 +33,7 @@
             textBoxnamaD = new TextBox();
             labelnama = new Label();
             buttoncariD = new Button();
+            buttonlogout = new Button();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -200,11 +201,21 @@
             buttoncariD.Text = "Cari";
             buttoncariD.UseVisualStyleBackColor = true;
             // 
+            // buttonlogout
+            // 
+            buttonlogout.Location = new Point(19, 166);
+            buttonlogout.Name = "buttonlogout";
+            buttonlogout.Size = new Size(111, 36);
+            buttonlogout.TabIndex = 10;
+            buttonlogout.Text = "Logout";
+            buttonlogout.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonlogout);
             Controls.Add(buttoncariD);
             Controls.Add(labelnama);
             Controls.Add(textBoxnamaD);

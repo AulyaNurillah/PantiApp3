@@ -74,7 +74,7 @@ namespace PantiApp3.Views
                 Session.IdUser = user.IdUser;
                 Session.CurrentUser = user;
 
-                Form dashboard = null;
+                Form dashboard = null; 
                 switch (user.RoleId)
                 {
                     case 1:

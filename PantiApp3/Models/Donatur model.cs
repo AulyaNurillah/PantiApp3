@@ -22,18 +22,15 @@ namespace Panti_Asuhan_Role_Admin.Model
     {
         private static readonly string _conn = ConnectDB.GetConnectionString();
 
-        // Ambil semua data donatur (+ role jika ada)
+
         public static List<DonaturModel> TampilSemuaDonatur()
         {
             var donors = new List<DonaturModel>();
-
-            // using → otomatis Dispose() & menutup koneksi
             using var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             try
             {
-                // ───── SQL: join ke tabel roles jika memang ada kolom role_id_role ─────
                 string sql = @"
                 SELECT  u.id_user          AS id_donatur,
                         u.username,
@@ -54,7 +51,7 @@ namespace Panti_Asuhan_Role_Admin.Model
                             Id_Donatur = reader.GetInt32(0),
                             Username = reader.GetString(1),
                             Password = reader.GetString(2),
-                            No_Telepon = reader.GetString(3)          // hilangkan jika tak pakai role
+                            No_Telepon = reader.GetString(3)          
                         });
                     }
                 }
@@ -88,13 +85,13 @@ namespace Panti_Asuhan_Role_Admin.Model
         LIMIT 1;";
 
             using var cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@username", "%" + username + "%");  // substring & case‑insensitive
+            cmd.Parameters.AddWithValue("@username", "%" + username + "%");  
 
             using var rd = cmd.ExecuteReader();
             return rd.Read()
                 ? new DonaturModel
                 {
-                    Id_Donatur = rd.GetInt32(0),     // kolom id_user bertipe integer
+                    Id_Donatur = rd.GetInt32(0),     
                     Username = rd.GetString(1),
                     Password = rd.GetString(2),
                     No_Telepon = rd.GetString(3)

@@ -43,11 +43,11 @@ namespace PantiApp3.Config
 
         public NpgsqlConnection GetConnection() => connection;
 
-        // Ini penting supaya class ini bisa pakai 'using'
+
         public void Dispose()
         {
             CloseConnection();
-            connection.Dispose(); // pastikan resource benar-benar dilepas
+            connection.Dispose(); 
         }
 
         public static string GetConnectionString() => connString;
