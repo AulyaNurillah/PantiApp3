@@ -123,11 +123,14 @@ namespace PantiApp3.Views
             using var conn = new NpgsqlConnection(ConnectDB.GetConnectionString());
             conn.Open();
 
-            decimal pemasukan = (decimal)new NpgsqlCommand(
-                "SELECT COALESCE(SUM(jumlah),0) FROM pemasukan", conn).ExecuteScalar();
+            object pemasukanResult = new NpgsqlCommand(
+                "SELECT COALESCE(SUM(jumlah), 0) FROM pemasukan", conn).ExecuteScalar();
 
-            decimal pengeluaran = (decimal)new NpgsqlCommand(
-                "SELECT COALESCE(SUM(jumlah),0) FROM pengeluaran", conn).ExecuteScalar();
+            object pengeluaranResult = new NpgsqlCommand(
+                "SELECT COALESCE(SUM(jumlah), 0) FROM pengeluaran", conn).ExecuteScalar();
+
+            decimal pemasukan = Convert.ToDecimal(pemasukanResult);
+            decimal pengeluaran = Convert.ToDecimal(pengeluaranResult);
 
             return (int)(pemasukan - pengeluaran);
         }
