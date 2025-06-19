@@ -15,7 +15,6 @@ namespace PantiApp3.Views
             InitializeComponent();
             authController = new AuthController();
         }
-
         private void txt_Enter(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;

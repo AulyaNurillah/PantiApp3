@@ -90,7 +90,6 @@ namespace PantiApp3.Views
             Controls.Add(groupBox);
             Size = new Size(430, 270);
         }
-
         private void btnSimpan_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtJumlah.Text, out int jumlah))

@@ -4,7 +4,7 @@ using System.Data;
 
 namespace PantiApp3.Config
 {
-    public class ConnectDB : IDisposable
+    public class ConnectDB 
     {
         private static readonly string connString =
             "Host=localhost;Port=5432;Username=postgres;Password=1098765432;Database=PantiApp";

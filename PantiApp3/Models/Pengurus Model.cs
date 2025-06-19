@@ -25,7 +25,7 @@ namespace Panti_Asuhan_Role_Admin.Model
         {
             var pengurs = new List<PengurusModel>();
 
-            using var db = new ConnectDB();
+            var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             try

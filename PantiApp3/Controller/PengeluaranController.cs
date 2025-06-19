@@ -7,7 +7,7 @@ namespace PantiApp3.Controllers
 {
     public class PengeluaranController
     {
-        private readonly ConnectDB db;
+        private ConnectDB db;
 
         public PengeluaranController()
         {

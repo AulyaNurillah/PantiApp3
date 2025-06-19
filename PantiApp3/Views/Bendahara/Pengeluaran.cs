@@ -16,16 +16,14 @@ namespace PantiApp3.Views
             InitializeComponent();
             currentUser = user;
             LoadData();
-            BindEvents();
+            //BindEvents();
         }
-
-        private void BindEvents()
-        {
-            btnTambah.Click += btnTambah_Click;
-            btnEdit.Click += btnEdit_Click;
-            btnKembali.Click += btnKembali_Click;
-        }
-
+        //private void BindEvents()
+        //{
+        //    btnTambah.Click += btnTambah_Click;
+        //    btnEdit.Click += btnEdit_Click;
+        //    btnKembali.Click += btnKembali_Click;
+        //}
         private void LoadData()
         {
             dgvPengeluaran.DataSource = controller.GetAllPengeluaran();
@@ -44,7 +42,6 @@ namespace PantiApp3.Views
             panelForm.Controls.Add(form);
             panelForm.Visible = true;
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dgvPengeluaran.SelectedRows.Count == 0)
@@ -70,7 +67,6 @@ namespace PantiApp3.Views
                 MessageBox.Show("Gagal membaca data. Pastikan model data benar.");
             }
         }
-
         private void btnKembali_Click(object sender, EventArgs e)
         {
             var dashboard = new KelolaKeuangan(currentUser);

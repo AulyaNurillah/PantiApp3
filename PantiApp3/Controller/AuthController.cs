@@ -92,7 +92,7 @@ namespace PantiApp3.Controllers
                     };
                 }
 
-                Console.WriteLine("❌ Login gagal: user tidak ditemukan.");
+                Console.WriteLine("Login gagal: user tidak ditemukan.");
                 return null;
             }
             catch (Exception ex)
@@ -195,54 +195,6 @@ namespace PantiApp3.Controllers
             {
                 Console.WriteLine("GetById error: " + ex.Message);
                 return null;
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
-        }
-        public void Update(User user)
-        {
-            var conn = db.OpenConnection();
-            try
-            {
-                string query = @"UPDATE users 
-                                 SET username = @username, pass_word = @password, 
-                                     nama_user = @nama, no_telep = @telp, id_role = @role 
-                                 WHERE id_user = @id";
-                using var cmd = new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", user.IdUser);
-                cmd.Parameters.AddWithValue("@username", user.Username);
-                cmd.Parameters.AddWithValue("@password", user.Password);
-                cmd.Parameters.AddWithValue("@nama", user.NamaUser);
-                cmd.Parameters.AddWithValue("@telp", user.NoTelepon);
-                cmd.Parameters.AddWithValue("@role", user.RoleId);
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Update gagal: " + ex.Message);
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
-        }
-        public void Delete(int id)
-        {
-            var conn = db.OpenConnection();
-            try
-            {
-                string query = "DELETE FROM users WHERE id_user = @id";
-                using var cmd = new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Delete gagal: " + ex.Message);
             }
             finally
             {

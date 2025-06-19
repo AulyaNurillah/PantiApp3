@@ -20,7 +20,7 @@ namespace Panti_Asuhan_Role_Admin.Model
         public static List<UserViewModel> TampilSemuaUser()
         {
             var users = new List<UserViewModel>();
-            using var db = new ConnectDB();
+            var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             const string sql = @"
@@ -46,7 +46,7 @@ namespace Panti_Asuhan_Role_Admin.Model
 
         public static UserViewModel? CariUserBynama(string nama)
         {
-            using var db = new ConnectDB();
+            var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             const string sql = @"

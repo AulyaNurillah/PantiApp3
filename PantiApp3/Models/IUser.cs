@@ -5,7 +5,6 @@
         string Username { get; set; }
         string Password { get; set; }
         string NoTelepon { get; set; }
-
         void Login();
         void Logout();
     }

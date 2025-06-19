@@ -26,7 +26,7 @@ namespace Panti_Asuhan_Role_Admin.Model
         public static List<DonaturModel> TampilSemuaDonatur()
         {
             var donors = new List<DonaturModel>();
-            using var db = new ConnectDB();
+            var db = new ConnectDB();
             using var conn = db.OpenConnection();
 
             try

@@ -16,15 +16,15 @@ namespace PantiApp3.Views
             InitializeComponent();
             currentUser = user;
             LoadData();
-            BindEvents();
+            //BindEvents();
         }
 
-        private void BindEvents()
-        {
-            btnTambah.Click += btnTambah_Click;
-            btnEdit.Click += btnEdit_Click;
-            btnKembali.Click += btnKembali_Click;
-        }
+        //private void BindEvents()
+        //{
+        //    btnTambah.Click += btnTambah_Click;
+        //    btnEdit.Click += btnEdit_Click;
+        //    btnKembali.Click += btnKembali_Click;
+        //}
 
         private void LoadData()
         {
@@ -67,7 +67,7 @@ namespace PantiApp3.Views
             }
             else
             {
-                MessageBox.Show("❌ Gagal membaca data. Pastikan model data benar.");
+                MessageBox.Show("Gagal membaca data. Pastikan model data benar.");
             }
         }
 

@@ -99,8 +99,6 @@ namespace PantiApp3.Views
                 lblMessage.Text = "Username atau password salah.";
             }
         }
-
-
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var reg = new Register();

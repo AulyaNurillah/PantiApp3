@@ -6,7 +6,7 @@ namespace PantiApp3.Controllers
 {
     public class DetailKeuanganController
     {
-        private readonly ConnectDB db;
+        private ConnectDB db;
 
         public DetailKeuanganController()
         {
@@ -30,11 +30,11 @@ namespace PantiApp3.Controllers
                 cmd.Parameters.AddWithValue("@id_don", (object?)detail.IdDonasi ?? DBNull.Value);
 
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("✅ Detail keuangan berhasil ditambahkan!");
+                Console.WriteLine("Detail keuangan berhasil ditambahkan!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal insert detail keuangan: " + ex.Message);
+                Console.WriteLine("Gagal insert detail keuangan: " + ex.Message);
             }
             finally
             {
@@ -68,7 +68,7 @@ namespace PantiApp3.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("❌ Gagal mengambil detail keuangan: " + ex.Message);
+                Console.WriteLine("Gagal mengambil detail keuangan: " + ex.Message);
             }
             finally
             {
