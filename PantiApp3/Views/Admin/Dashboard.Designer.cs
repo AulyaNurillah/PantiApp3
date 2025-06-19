@@ -21,6 +21,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             buttondonaturD = new Button();
             buttonpengurusP = new Button();
+            buttonlogout = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -32,7 +33,6 @@
             textBoxnamaD = new TextBox();
             labelnama = new Label();
             buttoncariD = new Button();
-            buttonlogout = new Button();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -56,14 +56,13 @@
             tableLayoutPanel1.Controls.Add(buttonanakasuhD, 0, 0);
             tableLayoutPanel1.Controls.Add(buttondonaturD, 0, 1);
             tableLayoutPanel1.Controls.Add(buttonpengurusP, 0, 2);
-            tableLayoutPanel1.Controls.Add(buttonlogout, 0, 3); // Tambahan
             tableLayoutPanel1.Location = new Point(15, 13);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F)); // Tambahan
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.Size = new Size(138, 427);
             tableLayoutPanel1.TabIndex = 3;
             // 
@@ -88,13 +87,14 @@
             // buttonlogout
             // 
             buttonlogout.BackColor = Color.IndianRed;
-            buttonlogout.ForeColor = Color.White;
-            buttonlogout.Location = new Point(3, 138);
-            buttonlogout.Name = "buttonlogoutD";
-            buttonlogout.Size = new Size(112, 34);
-            buttonlogout.TabIndex = 4;
+            buttonlogout.ForeColor = Color.Black;
+            buttonlogout.Location = new Point(21, 157);
+            buttonlogout.Name = "buttonlogout";
+            buttonlogout.Size = new Size(111, 36);
+            buttonlogout.TabIndex = 10;
             buttonlogout.Text = "Logout";
-            buttonlogout.UseVisualStyleBackColor = false;
+            buttonlogout.UseVisualStyleBackColor = true;
+            buttonlogout.Click += buttonlogout_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -167,7 +167,7 @@
             // 
             labeldashboard.AutoSize = true;
             labeldashboard.BackColor = Color.MediumAquamarine;
-            labeldashboard.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            labeldashboard.Font = new Font("Segoe UI", 36F);
             labeldashboard.Location = new Point(189, 57);
             labeldashboard.Name = "labeldashboard";
             labeldashboard.Size = new Size(407, 96);
@@ -199,16 +199,6 @@
             buttoncariD.TabIndex = 9;
             buttoncariD.Text = "Cari";
             buttoncariD.UseVisualStyleBackColor = true;
-            // 
-            // buttonlogout
-            // 
-            buttonlogout.Location = new Point(19, 166);
-            buttonlogout.Name = "buttonlogout";
-            buttonlogout.Size = new Size(111, 36);
-            buttonlogout.TabIndex = 10;
-            buttonlogout.Text = "Logout";
-            buttonlogout.UseVisualStyleBackColor = true;
-            buttonlogout.Click += buttonlogout_Click;
             // 
             // Dashboard
             // 

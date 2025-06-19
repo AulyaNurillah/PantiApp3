@@ -42,6 +42,7 @@
             textBox1 = new TextBox();
             labeldonatur2 = new Label();
             buttoncariDO = new Button();
+            Column5 = new DataGridViewTextBoxColumn();
             tableLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewdonatur).BeginInit();
@@ -92,7 +93,7 @@
             // dataGridViewdonatur
             // 
             dataGridViewdonatur.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewdonatur.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dataGridViewdonatur.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             dataGridViewdonatur.Location = new Point(3, 3);
             dataGridViewdonatur.Name = "dataGridViewdonatur";
             dataGridViewdonatur.RowHeadersWidth = 62;
@@ -185,6 +186,13 @@
             buttoncariDO.Text = "Cari";
             buttoncariDO.UseVisualStyleBackColor = true;
             // 
+            // Column5
+            // 
+            Column5.HeaderText = "Donasi Terbaru";
+            Column5.MinimumWidth = 8;
+            Column5.Name = "Column5";
+            Column5.Width = 150;
+            // 
             // Donatur
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
@@ -224,5 +232,6 @@
         private TextBox textBox1;
         private Label labeldonatur2;
         private Button buttoncariDO;
+        private DataGridViewTextBoxColumn Column5;
     }
 }

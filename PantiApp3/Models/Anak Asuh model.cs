@@ -100,9 +100,7 @@ private static readonly string _conn = ConnectDB.GetConnectionString();
     public static bool ValidateSearchInput(string input) =>
         !string.IsNullOrWhiteSpace(input);
 
-    /// <summary>
-    ///  Dipanggil dari Form: tentukan 'tipeKriteria' = "nama" | "jk" | "usia"
-    /// </summary>
+    
     public static List<AnakAsuhModel> PerformSearch(string input, string tipeKriteria)
     {
         var list = new List<AnakAsuhModel>();
