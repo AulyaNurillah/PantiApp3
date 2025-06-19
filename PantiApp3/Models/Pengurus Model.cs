@@ -10,7 +10,7 @@ namespace Panti_Asuhan_Role_Admin.Model
 {
     public class PengurusModel
     {
-        public int Id_Pengurus { get; set; }
+        public int Id_Bendahara { get; set; }
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string No_Telepon { get; set; } = string.Empty;
@@ -46,7 +46,7 @@ namespace Panti_Asuhan_Role_Admin.Model
                 {
                     pengurs.Add(new PengurusModel
                     {
-                        Id_Pengurus = reader.GetInt32(0),
+                        Id_Bendahara = reader.GetInt32(0),
                         Username = reader.GetString(1),
                         Password = reader.GetString(2),
                         No_Telepon = reader.GetString(3),
@@ -140,7 +140,7 @@ namespace Panti_Asuhan_Role_Admin.Model
             {
                 hasil.Add(new PengurusModel
                 {
-                    Id_Pengurus = reader.GetInt32(0),
+                    Id_Bendahara = reader.GetInt32(0),
                     Username = reader.GetString(1),
                     Password = reader.GetString(2),
                     No_Telepon = reader.GetString(3),
