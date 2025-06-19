@@ -51,11 +51,11 @@ namespace PantiApp3.Views.Donatur
             this.Hide();
         }
 
-        private void btnkembali_Click(object sender, EventArgs e)
-        {
-            new DonaturDashboard(currentUser).Show();
-            this.Close();
-        }
+        //private void btnkembali_Click(object sender, EventArgs e)
+        //{
+        //    new DonaturDashboard(currentUser).Show();
+        //    this.Close();
+        //}
 
         private void btnsimpan_Click(object sender, EventArgs e)
         {
