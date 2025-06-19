@@ -81,7 +81,7 @@
             buttonpengurusP.Name = "buttonpengurusP";
             buttonpengurusP.Size = new Size(112, 34);
             buttonpengurusP.TabIndex = 3;
-            buttonpengurusP.Text = "Pengurus";
+            buttonpengurusP.Text = "Bendahara";
             buttonpengurusP.UseVisualStyleBackColor = true;
             // 
             // buttonlogout
@@ -159,7 +159,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(196, 25);
+            label1.Size = new Size(129, 15);
             label1.TabIndex = 0;
             label1.Text = "Selamat Datang Admin";
             // 
@@ -170,7 +170,7 @@
             labeldashboard.Font = new Font("Segoe UI", 36F);
             labeldashboard.Location = new Point(189, 57);
             labeldashboard.Name = "labeldashboard";
-            labeldashboard.Size = new Size(407, 96);
+            labeldashboard.Size = new Size(271, 65);
             labeldashboard.TabIndex = 6;
             labeldashboard.Text = "Dashboard ";
             // 
@@ -178,7 +178,7 @@
             // 
             textBoxnamaD.Location = new Point(183, 190);
             textBoxnamaD.Name = "textBoxnamaD";
-            textBoxnamaD.Size = new Size(150, 31);
+            textBoxnamaD.Size = new Size(150, 23);
             textBoxnamaD.TabIndex = 7;
             // 
             // labelnama
@@ -187,7 +187,7 @@
             labelnama.BackColor = Color.MediumAquamarine;
             labelnama.Location = new Point(186, 163);
             labelnama.Name = "labelnama";
-            labelnama.Size = new Size(59, 25);
+            labelnama.Size = new Size(39, 15);
             labelnama.TabIndex = 8;
             labelnama.Text = "Nama";
             // 
