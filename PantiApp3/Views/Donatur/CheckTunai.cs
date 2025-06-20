@@ -17,6 +17,12 @@ namespace PantiApp3.Views.Donatur
             InitializeComponent();
             this.donasi = donasi;
             this.currentUser = user;
+            this.donasi.IdUser = currentUser.IdUser;
+
+
+            // Sambungkan event handler ke tombol
+            btnyakin.Click += btnyakin_Click;
+            btnbelum.Click += btnbelum_Click;
 
             LoadDataDonasi();
         }
@@ -46,6 +52,7 @@ namespace PantiApp3.Views.Donatur
                 var db = new ConnectDB();
                 var conn = db.OpenConnection();
 
+                // Simpan ke tabel donasi
                 var cmd = new NpgsqlCommand(
                     @"INSERT INTO donasi (tanggal_donasi, jenis_donasi, jumlah_donasi, id_user) 
                       VALUES (@tanggal, @jenis, @jumlah, @user) 
@@ -58,21 +65,37 @@ namespace PantiApp3.Views.Donatur
 
                 int idDonasiBaru = Convert.ToInt32(cmd.ExecuteScalar());
 
-                var keuanganCmd = new NpgsqlCommand(
-                    @"INSERT INTO pemasukan (tanggal, jumlah, id_user, catatan, id_donasi) 
-                      VALUES (@tanggal, @jumlah, @id_user, @catatan, @id_donasi);", conn);
+                // Simpan ke tabel pemasukan
+                var pemasukanCmd = new NpgsqlCommand(
+                    @"INSERT INTO pemasukan (tanggal, jumlah, id_user, catatan) 
+                      VALUES (@tanggal, @jumlah, @id_user, @catatan) 
+                      RETURNING id_pemasukan;", conn);
 
-                keuanganCmd.Parameters.AddWithValue("@tanggal", donasi.TanggalDonasi);
-                keuanganCmd.Parameters.AddWithValue("@jumlah", donasi.JumlahDonasi);
-                keuanganCmd.Parameters.AddWithValue("@user", donasi.IdUser);
-                keuanganCmd.Parameters.AddWithValue("@catatan", "Donasi Tunai");
-                keuanganCmd.Parameters.AddWithValue("@id_donasi", idDonasiBaru);
+                pemasukanCmd.Parameters.AddWithValue("@tanggal", donasi.TanggalDonasi);
+                pemasukanCmd.Parameters.AddWithValue("@jumlah", donasi.JumlahDonasi);
+                pemasukanCmd.Parameters.AddWithValue("@id_user", donasi.IdUser);
+                pemasukanCmd.Parameters.AddWithValue("@catatan", "Donasi Tunai");
 
-                keuanganCmd.ExecuteNonQuery();
+                int idPemasukanBaru = Convert.ToInt32(pemasukanCmd.ExecuteScalar());
+
+                // Simpan ke detail_keuangan
+                var detailCmd = new NpgsqlCommand(
+                    @"INSERT INTO detail_keuangan 
+                      (tipe_transaksi, jumlah, id_pemasukan, id_pengeluaran, id_donasi, jenis_donasi) 
+                      VALUES 
+                      ('Pemasukan', @jumlah, @id_pemasukan, NULL, @id_donasi, @jenis);", conn);
+
+                detailCmd.Parameters.AddWithValue("@tipe", "masuk");
+                detailCmd.Parameters.AddWithValue("@jumlah", donasi.JumlahDonasi);
+                detailCmd.Parameters.AddWithValue("@id_pemasukan", idPemasukanBaru);
+                detailCmd.Parameters.AddWithValue("@id_donasi", idDonasiBaru);
+                detailCmd.Parameters.AddWithValue("@jenis", donasi.JenisDonasi);
+
+                detailCmd.ExecuteNonQuery();
 
                 db.CloseConnection();
 
-                MessageBox.Show("Donasi berhasil disimpan dan dicatat keuangan!");
+                MessageBox.Show("Donasi berhasil disimpan dan dicatat ke laporan keuangan!");
                 new LaporanDonasi(currentUser).Show();
                 this.Hide();
             }

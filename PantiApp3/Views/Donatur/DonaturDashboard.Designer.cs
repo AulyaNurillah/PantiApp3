@@ -2,15 +2,8 @@
 {
     partial class DonaturDashboard
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,279 +15,258 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonaturDashboard));
-            label1 = new Label();
-            panel1 = new Panel();
-            btnprofile = new Button();
-            label2 = new Label();
-            panel2 = new Panel();
-            lbket_tambah = new Label();
-            pbtambah_donasi = new PictureBox();
-            lbbuat_donasi = new Label();
-            btntambah_donasi = new Button();
-            panel4 = new Panel();
-            btnlaporan_donasi = new Button();
-            lbket_laporan = new Label();
-            pblaporan_donasi = new PictureBox();
-            lblaporan_donasi = new Label();
-            lbriwayat = new Label();
-            dataGridriwayat = new DataGridView();
-            btntunai = new Button();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbtambah_donasi).BeginInit();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pblaporan_donasi).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridriwayat).BeginInit();
-            SuspendLayout();
-            // 
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnprofile = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btntunai = new System.Windows.Forms.Button();
+            this.lbket_tambah = new System.Windows.Forms.Label();
+            this.pbtambah_donasi = new System.Windows.Forms.PictureBox();
+            this.lbbuat_donasi = new System.Windows.Forms.Label();
+            this.btntambah_donasi = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnlaporan_donasi = new System.Windows.Forms.Button();
+            this.lbket_laporan = new System.Windows.Forms.Label();
+            this.pblaporan_donasi = new System.Windows.Forms.PictureBox();
+            this.lblaporan_donasi = new System.Windows.Forms.Label();
+            this.lbriwayat = new System.Windows.Forms.Label();
+            this.dataGridriwayat = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbtambah_donasi)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pblaporan_donasi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridriwayat)).BeginInit();
+            this.SuspendLayout();
+
             // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
-            label1.Location = new Point(15, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(285, 31);
-            label1.TabIndex = 0;
-            label1.Text = "Selamat Datang, Donatur";
-            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(15, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(285, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Selamat Datang, Donatur";
+
             // panel1
-            // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(btnprofile);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(799, 72);
-            panel1.TabIndex = 1;
-            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.btnprofile);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(799, 72);
+            this.panel1.TabIndex = 1;
+
             // btnprofile
-            // 
-            btnprofile.BackColor = SystemColors.ActiveCaption;
-            btnprofile.FlatStyle = FlatStyle.Flat;
-            btnprofile.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnprofile.ForeColor = Color.FromArgb(64, 64, 64);
-            btnprofile.Image = (Image)resources.GetObject("btnprofile.Image");
-            btnprofile.ImageAlign = ContentAlignment.MiddleRight;
-            btnprofile.Location = new Point(687, 12);
-            btnprofile.Name = "btnprofile";
-            btnprofile.Size = new Size(101, 48);
-            btnprofile.TabIndex = 3;
-            btnprofile.Text = "Profile";
-            btnprofile.TextAlign = ContentAlignment.MiddleLeft;
-            btnprofile.UseCompatibleTextRendering = true;
-            btnprofile.UseVisualStyleBackColor = false;
-            btnprofile.Click += btnprofile_Click;
-            // 
+            this.btnprofile.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnprofile.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnprofile.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            this.btnprofile.Image = ((System.Drawing.Image)(resources.GetObject("btnprofile.Image")));
+            this.btnprofile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnprofile.Location = new System.Drawing.Point(687, 12);
+            this.btnprofile.Name = "btnprofile";
+            this.btnprofile.Size = new System.Drawing.Size(101, 48);
+            this.btnprofile.TabIndex = 3;
+            this.btnprofile.Text = "Profile";
+            this.btnprofile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnprofile.UseVisualStyleBackColor = false;
+
             // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(15, 40);
-            label2.Name = "label2";
-            label2.Size = new Size(405, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Terima kasih atas kontribusi Anda dalam membantu sesama";
-            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label2.Location = new System.Drawing.Point(15, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(405, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Terima kasih atas kontribusi Anda dalam membantu sesama";
+
             // panel2
-            // 
-            panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.Controls.Add(btntunai);
-            panel2.Controls.Add(lbket_tambah);
-            panel2.Controls.Add(pbtambah_donasi);
-            panel2.Controls.Add(lbbuat_donasi);
-            panel2.Controls.Add(btntambah_donasi);
-            panel2.Location = new Point(98, 87);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(300, 172);
-            panel2.TabIndex = 2;
-            // 
-            // lbket_tambah
-            // 
-            lbket_tambah.AutoSize = true;
-            lbket_tambah.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbket_tambah.Location = new Point(21, 80);
-            lbket_tambah.Name = "lbket_tambah";
-            lbket_tambah.Size = new Size(259, 34);
-            lbket_tambah.TabIndex = 8;
-            lbket_tambah.Text = "Donasi baru untuk membantu mereka yang\r\nmembutuhkan";
-            // 
-            // pbtambah_donasi
-            // 
-            pbtambah_donasi.Image = (Image)resources.GetObject("pbtambah_donasi.Image");
-            pbtambah_donasi.Location = new Point(24, 15);
-            pbtambah_donasi.Name = "pbtambah_donasi";
-            pbtambah_donasi.Size = new Size(50, 50);
-            pbtambah_donasi.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbtambah_donasi.TabIndex = 7;
-            pbtambah_donasi.TabStop = false;
-            // 
-            // lbbuat_donasi
-            // 
-            lbbuat_donasi.AutoSize = true;
-            lbbuat_donasi.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            lbbuat_donasi.Location = new Point(83, 26);
-            lbbuat_donasi.Name = "lbbuat_donasi";
-            lbbuat_donasi.Size = new Size(160, 25);
-            lbbuat_donasi.TabIndex = 6;
-            lbbuat_donasi.Text = "Buat Donasi Baru";
-            // 
-            // btntambah_donasi
-            // 
-            btntambah_donasi.BackColor = SystemColors.HotTrack;
-            btntambah_donasi.FlatStyle = FlatStyle.Popup;
-            btntambah_donasi.Location = new Point(161, 129);
-            btntambah_donasi.Name = "btntambah_donasi";
-            btntambah_donasi.Size = new Size(119, 25);
-            btntambah_donasi.TabIndex = 5;
-            btntambah_donasi.Text = "Donasi Barang";
-            btntambah_donasi.UseVisualStyleBackColor = false;
-            btntambah_donasi.Click += btntambah_donasi_Click;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ActiveCaption;
-            panel4.Controls.Add(btnlaporan_donasi);
-            panel4.Controls.Add(lbket_laporan);
-            panel4.Controls.Add(pblaporan_donasi);
-            panel4.Controls.Add(lblaporan_donasi);
-            panel4.Location = new Point(420, 87);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(300, 172);
-            panel4.TabIndex = 4;
-            // 
-            // btnlaporan_donasi
-            // 
-            btnlaporan_donasi.BackColor = SystemColors.HotTrack;
-            btnlaporan_donasi.FlatStyle = FlatStyle.Popup;
-            btnlaporan_donasi.Location = new Point(24, 129);
-            btnlaporan_donasi.Name = "btnlaporan_donasi";
-            btnlaporan_donasi.Size = new Size(256, 25);
-            btnlaporan_donasi.TabIndex = 12;
-            btnlaporan_donasi.Text = "Lihat Laporan";
-            btnlaporan_donasi.UseVisualStyleBackColor = false;
-            btnlaporan_donasi.Click += btnlaporan_donasi_Click;
-            // 
-            // lbket_laporan
-            // 
-            lbket_laporan.AutoSize = true;
-            lbket_laporan.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbket_laporan.Location = new Point(21, 80);
-            lbket_laporan.Name = "lbket_laporan";
-            lbket_laporan.Size = new Size(235, 34);
-            lbket_laporan.TabIndex = 11;
-            lbket_laporan.Text = "Lihat semua donasi yang pernah Anda \r\nberikan\r\n";
-            // 
-            // pblaporan_donasi
-            // 
-            pblaporan_donasi.Image = (Image)resources.GetObject("pblaporan_donasi.Image");
-            pblaporan_donasi.Location = new Point(24, 15);
-            pblaporan_donasi.Name = "pblaporan_donasi";
-            pblaporan_donasi.Size = new Size(48, 48);
-            pblaporan_donasi.SizeMode = PictureBoxSizeMode.Zoom;
-            pblaporan_donasi.TabIndex = 10;
-            pblaporan_donasi.TabStop = false;
-            // 
-            // lblaporan_donasi
-            // 
-            lblaporan_donasi.AutoSize = true;
-            lblaporan_donasi.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            lblaporan_donasi.Location = new Point(80, 26);
-            lblaporan_donasi.Name = "lblaporan_donasi";
-            lblaporan_donasi.Size = new Size(172, 25);
-            lblaporan_donasi.TabIndex = 9;
-            lblaporan_donasi.Text = "Laporan Keuangan\n";
-            // 
-            // lbriwayat
-            // 
-            lbriwayat.AutoSize = true;
-            lbriwayat.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            lbriwayat.Location = new Point(95, 271);
-            lbriwayat.Name = "lbriwayat";
-            lbriwayat.Size = new Size(218, 25);
-            lbriwayat.TabIndex = 7;
-            lbriwayat.Text = "Riwayat Donasi Terbaru:";
-            // 
-            // dataGridriwayat
-            // 
-            dataGridriwayat.AllowUserToAddRows = false;
-            dataGridriwayat.AllowUserToDeleteRows = false;
-            dataGridriwayat.AllowUserToResizeColumns = false;
-            dataGridriwayat.AllowUserToResizeRows = false;
-            dataGridriwayat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridriwayat.BorderStyle = BorderStyle.None;
-            dataGridriwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridriwayat.Location = new Point(95, 307);
-            dataGridriwayat.MultiSelect = false;
-            dataGridriwayat.Name = "dataGridriwayat";
-            dataGridriwayat.ReadOnly = true;
-            dataGridriwayat.RowHeadersVisible = false;
-            dataGridriwayat.RowHeadersWidth = 100;
-            dataGridriwayat.Size = new Size(625, 125);
-            dataGridriwayat.TabIndex = 8;
-            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.btntunai);
+            this.panel2.Controls.Add(this.lbket_tambah);
+            this.panel2.Controls.Add(this.pbtambah_donasi);
+            this.panel2.Controls.Add(this.lbbuat_donasi);
+            this.panel2.Controls.Add(this.btntambah_donasi);
+            this.panel2.Location = new System.Drawing.Point(98, 87);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 172);
+            this.panel2.TabIndex = 2;
+
             // btntunai
-            // 
-            btntunai.BackColor = SystemColors.HotTrack;
-            btntunai.FlatStyle = FlatStyle.Popup;
-            btntunai.Location = new Point(24, 129);
-            btntunai.Name = "btntunai";
-            btntunai.Size = new Size(119, 25);
-            btntunai.TabIndex = 9;
-            btntunai.Text = "Donasi Tunai";
-            btntunai.UseVisualStyleBackColor = false;
-            // 
+            this.btntunai.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btntunai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btntunai.Location = new System.Drawing.Point(24, 129);
+            this.btntunai.Name = "btntunai";
+            this.btntunai.Size = new System.Drawing.Size(119, 25);
+            this.btntunai.TabIndex = 9;
+            this.btntunai.Text = "Donasi Tunai";
+            this.btntunai.UseVisualStyleBackColor = false;
+
+            // lbket_tambah
+            this.lbket_tambah.AutoSize = true;
+            this.lbket_tambah.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.lbket_tambah.Location = new System.Drawing.Point(21, 80);
+            this.lbket_tambah.Name = "lbket_tambah";
+            this.lbket_tambah.Size = new System.Drawing.Size(259, 34);
+            this.lbket_tambah.TabIndex = 8;
+            this.lbket_tambah.Text = "Donasi baru untuk membantu mereka yang\r\nmembutuhkan";
+
+            // pbtambah_donasi
+            this.pbtambah_donasi.Image = ((System.Drawing.Image)(resources.GetObject("pbtambah_donasi.Image")));
+            this.pbtambah_donasi.Location = new System.Drawing.Point(24, 15);
+            this.pbtambah_donasi.Name = "pbtambah_donasi";
+            this.pbtambah_donasi.Size = new System.Drawing.Size(50, 50);
+            this.pbtambah_donasi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbtambah_donasi.TabIndex = 7;
+            this.pbtambah_donasi.TabStop = false;
+
+            // lbbuat_donasi
+            this.lbbuat_donasi.AutoSize = true;
+            this.lbbuat_donasi.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbbuat_donasi.Location = new System.Drawing.Point(83, 26);
+            this.lbbuat_donasi.Name = "lbbuat_donasi";
+            this.lbbuat_donasi.Size = new System.Drawing.Size(160, 25);
+            this.lbbuat_donasi.TabIndex = 6;
+            this.lbbuat_donasi.Text = "Buat Donasi Baru";
+
+            // btntambah_donasi
+            this.btntambah_donasi.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btntambah_donasi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btntambah_donasi.Location = new System.Drawing.Point(161, 129);
+            this.btntambah_donasi.Name = "btntambah_donasi";
+            this.btntambah_donasi.Size = new System.Drawing.Size(119, 25);
+            this.btntambah_donasi.TabIndex = 5;
+            this.btntambah_donasi.Text = "Donasi Barang";
+            this.btntambah_donasi.UseVisualStyleBackColor = false;
+
+            // panel4
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.btnlaporan_donasi);
+            this.panel4.Controls.Add(this.lbket_laporan);
+            this.panel4.Controls.Add(this.pblaporan_donasi);
+            this.panel4.Controls.Add(this.lblaporan_donasi);
+            this.panel4.Location = new System.Drawing.Point(420, 87);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(300, 172);
+            this.panel4.TabIndex = 4;
+
+            // btnlaporan_donasi
+            this.btnlaporan_donasi.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnlaporan_donasi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnlaporan_donasi.Location = new System.Drawing.Point(24, 129);
+            this.btnlaporan_donasi.Name = "btnlaporan_donasi";
+            this.btnlaporan_donasi.Size = new System.Drawing.Size(256, 25);
+            this.btnlaporan_donasi.TabIndex = 12;
+            this.btnlaporan_donasi.Text = "Lihat Laporan";
+            this.btnlaporan_donasi.UseVisualStyleBackColor = false;
+
+            // lbket_laporan
+            this.lbket_laporan.AutoSize = true;
+            this.lbket_laporan.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.lbket_laporan.Location = new System.Drawing.Point(21, 80);
+            this.lbket_laporan.Name = "lbket_laporan";
+            this.lbket_laporan.Size = new System.Drawing.Size(235, 34);
+            this.lbket_laporan.TabIndex = 11;
+            this.lbket_laporan.Text = "Lihat semua donasi yang pernah Anda \r\nberikan\r\n";
+
+            // pblaporan_donasi
+            this.pblaporan_donasi.Image = ((System.Drawing.Image)(resources.GetObject("pblaporan_donasi.Image")));
+            this.pblaporan_donasi.Location = new System.Drawing.Point(24, 15);
+            this.pblaporan_donasi.Name = "pblaporan_donasi";
+            this.pblaporan_donasi.Size = new System.Drawing.Size(48, 48);
+            this.pblaporan_donasi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pblaporan_donasi.TabIndex = 10;
+            this.pblaporan_donasi.TabStop = false;
+
+            // lblaporan_donasi
+            this.lblaporan_donasi.AutoSize = true;
+            this.lblaporan_donasi.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblaporan_donasi.Location = new System.Drawing.Point(80, 26);
+            this.lblaporan_donasi.Name = "lblaporan_donasi";
+            this.lblaporan_donasi.Size = new System.Drawing.Size(172, 25);
+            this.lblaporan_donasi.TabIndex = 9;
+            this.lblaporan_donasi.Text = "Laporan Keuangan";
+
+            // lbriwayat
+            this.lbriwayat.AutoSize = true;
+            this.lbriwayat.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbriwayat.Location = new System.Drawing.Point(95, 271);
+            this.lbriwayat.Name = "lbriwayat";
+            this.lbriwayat.Size = new System.Drawing.Size(218, 25);
+            this.lbriwayat.TabIndex = 7;
+            this.lbriwayat.Text = "Riwayat Donasi Terbaru:";
+
+            // dataGridriwayat
+            this.dataGridriwayat.AllowUserToAddRows = false;
+            this.dataGridriwayat.AllowUserToDeleteRows = false;
+            this.dataGridriwayat.AllowUserToResizeColumns = false;
+            this.dataGridriwayat.AllowUserToResizeRows = false;
+            this.dataGridriwayat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridriwayat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridriwayat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridriwayat.Location = new System.Drawing.Point(95, 307);
+            this.dataGridriwayat.MultiSelect = false;
+            this.dataGridriwayat.Name = "dataGridriwayat";
+            this.dataGridriwayat.ReadOnly = true;
+            this.dataGridriwayat.RowHeadersVisible = false;
+            this.dataGridriwayat.Size = new System.Drawing.Size(625, 125);
+            this.dataGridriwayat.TabIndex = 8;
+
             // DonaturDashboard
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridriwayat);
-            Controls.Add(lbriwayat);
-            Controls.Add(panel4);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            ForeColor = SystemColors.ControlText;
-            Name = "DonaturDashboard";
-            Text = "Form1";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbtambah_donasi).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pblaporan_donasi).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridriwayat).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridriwayat);
+            this.Controls.Add(this.lbriwayat);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Name = "DonaturDashboard";
+            this.Text = "DonaturDashboard";
+
+            // EVENT HANDLERS
+            this.btntambah_donasi.Click += new System.EventHandler(this.btntambah_donasi_Click);
+            this.btnlaporan_donasi.Click += new System.EventHandler(this.btnlaporan_donasi_Click);
+            this.btnprofile.Click += new System.EventHandler(this.btnprofile_Click);
+            this.btntunai.Click += new System.EventHandler(this.btntunai_Click);
+
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbtambah_donasi)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pblaporan_donasi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridriwayat)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel4;
-        private Button btntambah_donasi;
-        private Label lbbuat_donasi;
-        private PictureBox pbtambah_donasi;
-        private Label lbket_tambah;
-        private Label lbket_laporan;
-        private PictureBox pblaporan_donasi;
-        private Label lblaporan_donasi;
-        private Button btnlaporan_donasi;
-        private Label label2;
-        private Button btnprofile;
-        private Label lbriwayat;
-        private DataGridView dataGridriwayat;
-        private Button btntunai;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnprofile;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btntunai;
+        private System.Windows.Forms.Label lbket_tambah;
+        private System.Windows.Forms.PictureBox pbtambah_donasi;
+        private System.Windows.Forms.Label lbbuat_donasi;
+        private System.Windows.Forms.Button btntambah_donasi;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnlaporan_donasi;
+        private System.Windows.Forms.Label lbket_laporan;
+        private System.Windows.Forms.PictureBox pblaporan_donasi;
+        private System.Windows.Forms.Label lblaporan_donasi;
+        private System.Windows.Forms.Label lbriwayat;
+        private System.Windows.Forms.DataGridView dataGridriwayat;
     }
 }

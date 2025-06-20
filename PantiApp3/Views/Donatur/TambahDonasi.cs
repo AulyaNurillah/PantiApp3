@@ -21,7 +21,7 @@ namespace Donatur
 
         private void btninput_donasi_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(tbjumlah_barang.Text, out int jumlah))
+            if (int.TryParse(tbjumlah_barang.Text, out int jumlah) && jumlah > 0)
             {
                 int idUser = currentUser.IdUser;
                 dataDonasi = new Donasi(tbjenis_barang.Text, jumlah, idUser);
@@ -31,7 +31,7 @@ namespace Donatur
             }
             else
             {
-                MessageBox.Show("Jumlah harus berupa angka.");
+                MessageBox.Show("Inputan tidak valid. Jumlah harus berupa angka dan lebih dari 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -14,19 +14,29 @@ namespace PantiApp3.Controllers
             db = new ConnectDB();
         }
 
-        public List<Pemasukan> GetAllPemasukan()
+        public List<Pemasukan> GetAllPemasukan(User user)
         {
             var list = new List<Pemasukan>();
             var conn = db.OpenConnection();
 
             try
             {
-                string query = "SELECT * FROM pemasukan WHERE id_user = @id_user ORDER BY tanggal DESC";
+                string query;
+                if (user.RoleId == 2)
+                {
+                    query = "SELECT * FROM pemasukan ORDER BY tanggal DESC";
+                }
+                else
+                {
+                    query = "SELECT * FROM pemasukan WHERE id_user = @id_user ORDER BY tanggal DESC";
+                }
+
                 using var cmd = new NpgsqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id_user", Session.IdUser);
+
+                if (user.RoleId != 2)
+                    cmd.Parameters.AddWithValue("@id_user", user.IdUser);
 
                 using var reader = cmd.ExecuteReader();
-
                 while (reader.Read())
                 {
                     list.Add(new Pemasukan
@@ -50,6 +60,8 @@ namespace PantiApp3.Controllers
 
             return list;
         }
+
+
         public Pemasukan GetById(int id)
         {
             var conn = db.OpenConnection();
@@ -86,15 +98,21 @@ namespace PantiApp3.Controllers
         }
         public void Insert(Pemasukan data, int idUser)
         {
+            if (data.Jumlah <= 0)
+            {
+                MessageBox.Show("Inputan tidak valid: jumlah harus lebih dari 0.", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             var conn = db.OpenConnection();
             var transaction = conn.BeginTransaction();
 
             try
             {
                 string queryPemasukan = @"
-            INSERT INTO pemasukan (tanggal, jumlah, catatan, id_user) 
-            VALUES (@tanggal, @jumlah, @catatan, @id_user)
-            RETURNING id_pemasukan;";
+        INSERT INTO pemasukan (tanggal, jumlah, catatan, id_user) 
+        VALUES (@tanggal, @jumlah, @catatan, @id_user)
+        RETURNING id_pemasukan;";
 
                 int idPemasukan;
 
@@ -109,8 +127,8 @@ namespace PantiApp3.Controllers
                 }
 
                 string queryDetail = @"
-            INSERT INTO detail_keuangan (tipe_transaksi, jumlah, id_pemasukan)
-            VALUES ('Pemasukan', @jumlah, @idPemasukan);";
+        INSERT INTO detail_keuangan (tipe_transaksi, jumlah, id_pemasukan)
+        VALUES ('Pemasukan', @jumlah, @idPemasukan);";
 
                 using (var cmdDetail = new NpgsqlCommand(queryDetail, conn, transaction))
                 {
@@ -127,7 +145,6 @@ namespace PantiApp3.Controllers
                 transaction.Rollback();
                 MessageBox.Show("Gagal insert: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             finally
             {
                 db.CloseConnection();

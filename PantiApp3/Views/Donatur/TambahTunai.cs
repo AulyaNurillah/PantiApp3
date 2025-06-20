@@ -1,5 +1,4 @@
 ﻿using PantiApp3.Models;
-using PantiApp3.Views;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,11 +16,16 @@ namespace PantiApp3.Views.Donatur
         {
             InitializeComponent();
             currentUser = user;
+
+            btninput_donasi.Click += btninput_donasi_Click;
+            btnkembali.Click += btnkembali_Click;
+            tbjumlah_tunai.Enter += tbjumlah_tunai_Enter;
+            tbjumlah_tunai.Leave += tbjumlah_tunai_Leave;
         }
 
         private void btninput_donasi_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(tbjumlah_tunai.Text, out int jumlah))
+            if (int.TryParse(tbjumlah_tunai.Text, out int jumlah) && jumlah > 99)
             {
                 int idUser = currentUser.IdUser;
                 dataDonasi = new Donasi("Uang", jumlah, idUser);
@@ -31,14 +35,15 @@ namespace PantiApp3.Views.Donatur
             }
             else
             {
-                MessageBox.Show("Jumlah harus berupa angka.");
+                MessageBox.Show("Inputan tidak valid. Jumlah tunai minimal Rp 100.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private void btnkembali_Click(object sender, EventArgs e)
         {
             new DonaturDashboard(currentUser).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void tbjumlah_tunai_Enter(object sender, EventArgs e)

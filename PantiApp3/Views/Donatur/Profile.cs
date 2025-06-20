@@ -69,29 +69,36 @@ namespace PantiApp3.Views.Donatur
 
             using (var conn = db.GetConnection())
             {
-                MessageBox.Show("Nomor yang akan disimpan: " + nomor);
-
-                conn.Open();
-                string update = "UPDATE users SET no_telep = @telep WHERE id_user = @id";
-
-                using (var cmd = new NpgsqlCommand(update, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@telep", nomor);
-                    cmd.Parameters.AddWithValue("@id", currentUser.IdUser);
+                    conn.Open();
 
-                    int result = cmd.ExecuteNonQuery();
+                    string update = "UPDATE users SET no_telp = @telp WHERE id_user = @id";
 
-                    if (result > 0)
+                    using (var cmd = new NpgsqlCommand(update, conn))
                     {
-                        MessageBox.Show("Nomor telepon berhasil disimpan.");
+                        cmd.Parameters.AddWithValue("@telp", nomor);
+                        cmd.Parameters.AddWithValue("@id", currentUser.IdUser); // Pastikan variabel ini valid
+
+                        int result = cmd.ExecuteNonQuery();
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Nomor berhasil diperbarui!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal menyimpan.");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Gagal menyimpan.");
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

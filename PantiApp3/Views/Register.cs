@@ -1,20 +1,20 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using PantiApp3.Controllers;
 using PantiApp3.Views;
-using System.Xml.Linq;
 using AppUser = PantiApp3.Models.User;
-
 
 namespace PantiApp3.Views
 {
     public partial class Register : Form
     {
         private AuthController authController;
+
         public Register()
         {
             InitializeComponent();
             authController = new AuthController();
         }
+
         private void txt_Enter(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -27,6 +27,7 @@ namespace PantiApp3.Views
                 }
             }
         }
+
         private void txt_Leave(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -38,6 +39,7 @@ namespace PantiApp3.Views
                 else if (tb == tbPassword) tb.Text = "Password";
             }
         }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string name = tbName.Text.Trim();
@@ -46,7 +48,7 @@ namespace PantiApp3.Views
             string password = tbPassword.Text;
 
             if (string.IsNullOrWhiteSpace(name) || name == "Nama lengkap" ||
-                string.IsNullOrWhiteSpace(noTelp) || noTelp == "No Telepon" ||
+                string.IsNullOrWhiteSpace(noTelp) || noTelp == "Email" ||
                 string.IsNullOrWhiteSpace(username) || username == "Username" ||
                 string.IsNullOrWhiteSpace(password) || password == "Password")
             {
@@ -60,18 +62,17 @@ namespace PantiApp3.Views
                 NoTelepon = noTelp,
                 Username = username,
                 Password = password,
-                RoleId = 3
+                RoleId = 3 // Role Donatur
             };
 
             AppUser registeredUser = authController.Register(user);
 
             if (registeredUser != null)
             {
-
-                var dashboard = new DonaturDashboard(registeredUser);
-                dashboard.FormClosed += (s, args) => Application.Exit();
                 this.Hide();
-                dashboard.Show();
+                var dashboard = new DonaturDashboard(registeredUser);
+                dashboard.ShowDialog();
+                this.Close(); 
             }
             else
             {
@@ -83,7 +84,7 @@ namespace PantiApp3.Views
         {
             Login loginForm = new Login();
             loginForm.Show();
-            this.Hide();
+            this.Close(); // Gunakan Close agar form Register benar-benar ditutup
         }
     }
 }

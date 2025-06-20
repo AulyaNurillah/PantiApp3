@@ -28,7 +28,7 @@ namespace PantiApp3.Views
 
         private void LoadData()
         {
-            dgvPemasukan.DataSource = controller.GetAllPemasukan();
+            dgvPemasukan.DataSource = controller.GetAllPemasukan(currentUser);
             dgvPemasukan.Visible = true;
             panelForm.Visible = false;
         }

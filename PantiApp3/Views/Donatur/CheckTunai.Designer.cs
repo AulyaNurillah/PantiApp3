@@ -23,122 +23,125 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            label1 = new Label();
-            datatambahdonasi = new DataGridView();
-            btnyakin = new Button();
-            lbucapan_terimakasih = new Label();
-            btnbelum = new Button();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)datatambahdonasi).BeginInit();
-            SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.datatambahdonasi = new System.Windows.Forms.DataGridView();
+            this.btnyakin = new System.Windows.Forms.Button();
+            this.lbucapan_terimakasih = new System.Windows.Forms.Label();
+            this.btnbelum = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datatambahdonasi)).BeginInit();
+            this.SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.LightCyan;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(datatambahdonasi);
-            panel1.Controls.Add(btnyakin);
-            panel1.Controls.Add(lbucapan_terimakasih);
-            panel1.Controls.Add(btnbelum);
-            panel1.Location = new Point(33, 30);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(735, 391);
-            panel1.TabIndex = 5;
+            this.panel1.BackColor = System.Drawing.Color.LightCyan;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.datatambahdonasi);
+            this.panel1.Controls.Add(this.btnyakin);
+            this.panel1.Controls.Add(this.lbucapan_terimakasih);
+            this.panel1.Controls.Add(this.btnbelum);
+            this.panel1.Location = new System.Drawing.Point(33, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(735, 391);
+            this.panel1.TabIndex = 5;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(163, 147);
-            label1.Name = "label1";
-            label1.Size = new Size(414, 20);
-            label1.TabIndex = 5;
-            label1.Text = "Apakah Anda sudah yakin ingin berdonasi seperti berikut?";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(163, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(414, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Apakah Anda sudah yakin ingin berdonasi seperti berikut?";
             // 
             // datatambahdonasi
             // 
-            datatambahdonasi.AllowUserToAddRows = false;
-            datatambahdonasi.AllowUserToDeleteRows = false;
-            datatambahdonasi.AllowUserToResizeColumns = false;
-            datatambahdonasi.AllowUserToResizeRows = false;
-            datatambahdonasi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            datatambahdonasi.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            datatambahdonasi.BackgroundColor = Color.White;
-            datatambahdonasi.ColumnHeadersHeight = 40;
-            datatambahdonasi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            datatambahdonasi.Location = new Point(188, 180);
-            datatambahdonasi.Name = "datatambahdonasi";
-            datatambahdonasi.ReadOnly = true;
-            datatambahdonasi.RowHeadersVisible = false;
-            datatambahdonasi.Size = new Size(347, 80);
-            datatambahdonasi.TabIndex = 6;
+            this.datatambahdonasi.AllowUserToAddRows = false;
+            this.datatambahdonasi.AllowUserToDeleteRows = false;
+            this.datatambahdonasi.AllowUserToResizeColumns = false;
+            this.datatambahdonasi.AllowUserToResizeRows = false;
+            this.datatambahdonasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datatambahdonasi.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.datatambahdonasi.BackgroundColor = System.Drawing.Color.White;
+            this.datatambahdonasi.ColumnHeadersHeight = 40;
+            this.datatambahdonasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.datatambahdonasi.Location = new System.Drawing.Point(188, 180);
+            this.datatambahdonasi.Name = "datatambahdonasi";
+            this.datatambahdonasi.ReadOnly = true;
+            this.datatambahdonasi.RowHeadersVisible = false;
+            this.datatambahdonasi.Size = new System.Drawing.Size(347, 80);
+            this.datatambahdonasi.TabIndex = 6;
             // 
             // btnyakin
             // 
-            btnyakin.BackColor = Color.DodgerBlue;
-            btnyakin.FlatStyle = FlatStyle.Flat;
-            btnyakin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnyakin.Location = new Point(424, 311);
-            btnyakin.Name = "btnyakin";
-            btnyakin.Size = new Size(200, 45);
-            btnyakin.TabIndex = 3;
-            btnyakin.Text = "Yakin";
-            btnyakin.UseVisualStyleBackColor = false;
+            this.btnyakin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnyakin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnyakin.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnyakin.ForeColor = System.Drawing.Color.White;
+            this.btnyakin.Location = new System.Drawing.Point(424, 311);
+            this.btnyakin.Name = "btnyakin";
+            this.btnyakin.Size = new System.Drawing.Size(200, 45);
+            this.btnyakin.TabIndex = 3;
+            this.btnyakin.Text = "Yakin";
+            this.btnyakin.UseVisualStyleBackColor = false;
             // 
             // lbucapan_terimakasih
             // 
-            lbucapan_terimakasih.AutoSize = true;
-            lbucapan_terimakasih.BackColor = Color.Transparent;
-            lbucapan_terimakasih.FlatStyle = FlatStyle.Flat;
-            lbucapan_terimakasih.Font = new Font("Book Antiqua", 14F, FontStyle.Bold);
-            lbucapan_terimakasih.ForeColor = Color.DarkSlateGray;
-            lbucapan_terimakasih.Location = new Point(59, 45);
-            lbucapan_terimakasih.Name = "lbucapan_terimakasih";
-            lbucapan_terimakasih.Size = new Size(610, 69);
-            lbucapan_terimakasih.TabIndex = 1;
-            lbucapan_terimakasih.Text = "Terima kasih atas donasi Anda!\r\nBantuan Anda sangat berarti bagi anak-anak di panti asuhan kami. \r\nSemoga kebaikan Anda dibalas berlipat ganda.";
-            lbucapan_terimakasih.TextAlign = ContentAlignment.MiddleCenter;
+            this.lbucapan_terimakasih.AutoSize = true;
+            this.lbucapan_terimakasih.BackColor = System.Drawing.Color.Transparent;
+            this.lbucapan_terimakasih.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbucapan_terimakasih.Font = new System.Drawing.Font("Book Antiqua", 14F, System.Drawing.FontStyle.Bold);
+            this.lbucapan_terimakasih.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lbucapan_terimakasih.Location = new System.Drawing.Point(59, 45);
+            this.lbucapan_terimakasih.Name = "lbucapan_terimakasih";
+            this.lbucapan_terimakasih.Size = new System.Drawing.Size(610, 69);
+            this.lbucapan_terimakasih.TabIndex = 1;
+            this.lbucapan_terimakasih.Text = "Terima kasih atas donasi Anda!\r\nBantuan Anda sangat berarti bagi anak-anak di pan" +
+    "ti asuhan kami. \r\nSemoga kebaikan Anda dibalas berlipat ganda.";
+            this.lbucapan_terimakasih.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnbelum
             // 
-            btnbelum.BackColor = Color.DodgerBlue;
-            btnbelum.FlatStyle = FlatStyle.Flat;
-            btnbelum.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnbelum.Location = new Point(112, 312);
-            btnbelum.Name = "btnbelum";
-            btnbelum.Size = new Size(200, 45);
-            btnbelum.TabIndex = 2;
-            btnbelum.Text = "Belum";
-            btnbelum.UseVisualStyleBackColor = false;
+            this.btnbelum.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnbelum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbelum.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnbelum.ForeColor = System.Drawing.Color.White;
+            this.btnbelum.Location = new System.Drawing.Point(112, 312);
+            this.btnbelum.Name = "btnbelum";
+            this.btnbelum.Size = new System.Drawing.Size(200, 45);
+            this.btnbelum.TabIndex = 2;
+            this.btnbelum.Text = "Belum";
+            this.btnbelum.UseVisualStyleBackColor = false;
             // 
             // CheckTunai
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(panel1);
-            Name = "CheckTunai";
-            Text = "CheckTunai";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)datatambahdonasi).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
+            this.Name = "CheckTunai";
+            this.Text = "CheckTunai";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datatambahdonasi)).EndInit();
+            this.ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Label label1;
-        private DataGridView datatambahdonasi;
-        private Button btnyakin;
-        private Label lbucapan_terimakasih;
-        private Button btnbelum;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView datatambahdonasi;
+        private System.Windows.Forms.Button btnyakin;
+        private System.Windows.Forms.Label lbucapan_terimakasih;
+        private System.Windows.Forms.Button btnbelum;
     }
 }

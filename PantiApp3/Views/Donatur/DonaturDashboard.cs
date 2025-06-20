@@ -29,25 +29,25 @@ namespace PantiApp3.Views
         private void btntambah_donasi_Click(object sender, EventArgs e)
         {
             new TambahDonasi(currentUser).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnlaporan_donasi_Click(object sender, EventArgs e)
         {
             new LaporanDonasi(currentUser).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnprofile_Click(object sender, EventArgs e)
         {
             new Profile(currentUser).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btntunai_Click(object sender, EventArgs e)
         {
             new TambahTunai(currentUser).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void LoadDonasiTerbaru()
