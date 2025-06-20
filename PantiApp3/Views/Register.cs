@@ -1,6 +1,10 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using PantiApp3.Controllers;
 using PantiApp3.Views;
+<<<<<<< HEAD
+=======
+using System.Windows.Forms;
+>>>>>>> update register navigasi
 using AppUser = PantiApp3.Models.User;
 
 namespace PantiApp3.Views
@@ -69,10 +73,20 @@ namespace PantiApp3.Views
 
             if (registeredUser != null)
             {
+<<<<<<< HEAD
                 this.Hide();
                 var dashboard = new DonaturDashboard(registeredUser);
                 dashboard.ShowDialog();
                 this.Close(); 
+=======
+                MessageBox.Show("Registrasi berhasil. Silakan login.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Buka form login
+                var loginForm = new Login();
+                loginForm.FormClosed += (s, args) => Application.Exit();
+                this.Hide();
+                loginForm.Show();
+>>>>>>> update register navigasi
             }
             else
             {
